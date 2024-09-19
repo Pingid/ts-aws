@@ -1,0 +1,44 @@
+{
+  "name": "ts-aws",
+  "license": "MIT",
+  "description": "Aws typescript types for cloudformation",
+  "version": "0.0.1",
+  "author": "Dan Beaven <dm.beaven@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pingid/mcn"
+  },
+  "keywords": [
+    "aws",
+    "typescript",
+    "cloudformation"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "pnpm tsx ./generate/index.ts",
+    "format": "pnpm prettier --write ./**/*.ts ./**/**/*.ts",
+    "build": "pnpm run generate && pnpm format && pnpm tsc"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.5.5",
+    "@types/turndown": "^5.0.5",
+    "linkedom": "^0.18.5",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "tsx": "^4.19.1",
+    "turndown": "^7.2.0",
+    "typescript": "^5.6.2"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
+  }
+}

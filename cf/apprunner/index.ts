@@ -1,0 +1,5 @@
+export type { AppRunnerAutoScalingConfiguration } from './apprunner-autoscalingconfiguration'
+export type { AppRunnerObservabilityConfiguration } from './apprunner-observabilityconfiguration'
+export type { AppRunnerService } from './apprunner-service'
+export type { AppRunnerVpcConnector } from './apprunner-vpcconnector'
+export type { AppRunnerVpcIngressConnection } from './apprunner-vpcingressconnection'

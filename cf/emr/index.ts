@@ -1,0 +1,8 @@
+export type { EMRCluster } from './emr-cluster'
+export type { EMRInstanceFleetConfig } from './emr-instancefleetconfig'
+export type { EMRInstanceGroupConfig } from './emr-instancegroupconfig'
+export type { EMRSecurityConfiguration } from './emr-securityconfiguration'
+export type { EMRStep } from './emr-step'
+export type { EMRStudio } from './emr-studio'
+export type { EMRStudioSessionMapping } from './emr-studiosessionmapping'
+export type { EMRWALWorkspace } from './emr-walworkspace'

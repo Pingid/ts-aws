@@ -1,0 +1,6 @@
+export type { AutoScalingAutoScalingGroup } from './autoscaling-autoscalinggroup'
+export type { AutoScalingLaunchConfiguration } from './autoscaling-launchconfiguration'
+export type { AutoScalingLifecycleHook } from './autoscaling-lifecyclehook'
+export type { AutoScalingScalingPolicy } from './autoscaling-scalingpolicy'
+export type { AutoScalingScheduledAction } from './autoscaling-scheduledaction'
+export type { AutoScalingWarmPool } from './autoscaling-warmpool'

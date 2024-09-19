@@ -1,0 +1,7 @@
+export type { GuardDutyDetector } from './guardduty-detector'
+export type { GuardDutyFilter } from './guardduty-filter'
+export type { GuardDutyIPSet } from './guardduty-ipset'
+export type { GuardDutyMalwareProtectionPlan } from './guardduty-malwareprotectionplan'
+export type { GuardDutyMaster } from './guardduty-master'
+export type { GuardDutyMember } from './guardduty-member'
+export type { GuardDutyThreatIntelSet } from './guardduty-threatintelset'

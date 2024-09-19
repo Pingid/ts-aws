@@ -1,0 +1,5 @@
+export type { ServiceDiscoveryHttpNamespace } from './servicediscovery-httpnamespace'
+export type { ServiceDiscoveryInstance } from './servicediscovery-instance'
+export type { ServiceDiscoveryPrivateDnsNamespace } from './servicediscovery-privatednsnamespace'
+export type { ServiceDiscoveryPublicDnsNamespace } from './servicediscovery-publicdnsnamespace'
+export type { ServiceDiscoveryService } from './servicediscovery-service'

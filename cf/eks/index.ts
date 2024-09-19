@@ -1,0 +1,7 @@
+export type { EKSAccessEntry } from './eks-accessentry'
+export type { EKSAddon } from './eks-addon'
+export type { EKSCluster } from './eks-cluster'
+export type { EKSFargateProfile } from './eks-fargateprofile'
+export type { EKSIdentityProviderConfig } from './eks-identityproviderconfig'
+export type { EKSNodegroup } from './eks-nodegroup'
+export type { EKSPodIdentityAssociation } from './eks-podidentityassociation'

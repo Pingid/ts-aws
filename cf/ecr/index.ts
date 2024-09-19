@@ -1,0 +1,6 @@
+export type { ECRPublicRepository } from './ecr-publicrepository'
+export type { ECRPullThroughCacheRule } from './ecr-pullthroughcacherule'
+export type { ECRRegistryPolicy } from './ecr-registrypolicy'
+export type { ECRReplicationConfiguration } from './ecr-replicationconfiguration'
+export type { ECRRepository } from './ecr-repository'
+export type { ECRRepositoryCreationTemplate } from './ecr-repositorycreationtemplate'

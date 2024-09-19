@@ -1,0 +1,5 @@
+export type { PCAConnectorADConnector } from './pcaconnectorad-connector'
+export type { PCAConnectorADDirectoryRegistration } from './pcaconnectorad-directoryregistration'
+export type { PCAConnectorADServicePrincipalName } from './pcaconnectorad-serviceprincipalname'
+export type { PCAConnectorADTemplate } from './pcaconnectorad-template'
+export type { PCAConnectorADTemplateGroupAccessControlEntry } from './pcaconnectorad-templategroupaccesscontrolentry'

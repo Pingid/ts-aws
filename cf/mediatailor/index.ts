@@ -1,0 +1,6 @@
+export type { MediaTailorChannel } from './mediatailor-channel'
+export type { MediaTailorChannelPolicy } from './mediatailor-channelpolicy'
+export type { MediaTailorLiveSource } from './mediatailor-livesource'
+export type { MediaTailorPlaybackConfiguration } from './mediatailor-playbackconfiguration'
+export type { MediaTailorSourceLocation } from './mediatailor-sourcelocation'
+export type { MediaTailorVodSource } from './mediatailor-vodsource'

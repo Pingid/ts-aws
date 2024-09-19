@@ -1,0 +1,5 @@
+export type { DocDBDBCluster } from './docdb-dbcluster'
+export type { DocDBDBClusterParameterGroup } from './docdb-dbclusterparametergroup'
+export type { DocDBDBInstance } from './docdb-dbinstance'
+export type { DocDBDBSubnetGroup } from './docdb-dbsubnetgroup'
+export type { DocDBEventSubscription } from './docdb-eventsubscription'

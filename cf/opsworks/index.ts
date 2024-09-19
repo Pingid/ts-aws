@@ -1,0 +1,7 @@
+export type { OpsWorksApp } from './opsworks-app'
+export type { OpsWorksElasticLoadBalancerAttachment } from './opsworks-elasticloadbalancerattachment'
+export type { OpsWorksInstance } from './opsworks-instance'
+export type { OpsWorksLayer } from './opsworks-layer'
+export type { OpsWorksStack } from './opsworks-stack'
+export type { OpsWorksUserProfile } from './opsworks-userprofile'
+export type { OpsWorksVolume } from './opsworks-volume'

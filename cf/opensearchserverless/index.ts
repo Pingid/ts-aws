@@ -1,0 +1,6 @@
+export type { OpenSearchServerlessAccessPolicy } from './opensearchserverless-accesspolicy'
+export type { OpenSearchServerlessCollection } from './opensearchserverless-collection'
+export type { OpenSearchServerlessLifecyclePolicy } from './opensearchserverless-lifecyclepolicy'
+export type { OpenSearchServerlessSecurityConfig } from './opensearchserverless-securityconfig'
+export type { OpenSearchServerlessSecurityPolicy } from './opensearchserverless-securitypolicy'
+export type { OpenSearchServerlessVpcEndpoint } from './opensearchserverless-vpcendpoint'

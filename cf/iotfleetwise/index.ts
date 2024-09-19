@@ -1,0 +1,6 @@
+export type { IoTFleetWiseCampaign } from './iotfleetwise-campaign'
+export type { IoTFleetWiseDecoderManifest } from './iotfleetwise-decodermanifest'
+export type { IoTFleetWiseFleet } from './iotfleetwise-fleet'
+export type { IoTFleetWiseModelManifest } from './iotfleetwise-modelmanifest'
+export type { IoTFleetWiseSignalCatalog } from './iotfleetwise-signalcatalog'
+export type { IoTFleetWiseVehicle } from './iotfleetwise-vehicle'

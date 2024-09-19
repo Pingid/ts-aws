@@ -1,0 +1,5 @@
+export type { CustomerProfilesCalculatedAttributeDefinition } from './customerprofiles-calculatedattributedefinition'
+export type { CustomerProfilesDomain } from './customerprofiles-domain'
+export type { CustomerProfilesEventStream } from './customerprofiles-eventstream'
+export type { CustomerProfilesIntegration } from './customerprofiles-integration'
+export type { CustomerProfilesObjectType } from './customerprofiles-objecttype'
