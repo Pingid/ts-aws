@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the VPC attachment options.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html */
@@ -62,7 +64,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html */
 
-export interface EC2TransitGatewayVpcAttachment {
+export interface EC2TransitGatewayVpcAttachment extends ResourceAttributes {
   Type: 'AWS::EC2::TransitGatewayVpcAttachment'
   Properties: {
     /**

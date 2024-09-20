@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key-value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html */
@@ -554,7 +556,7 @@ export interface Activity {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html */
 
-export interface IoTAnalyticsPipeline {
+export interface IoTAnalyticsPipeline extends ResourceAttributes {
   Type: 'AWS::IoTAnalytics::Pipeline'
   Properties: {
     /**

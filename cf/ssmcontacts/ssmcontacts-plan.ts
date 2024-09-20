@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the contact channel that Incident Manager uses to engage the contact.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html */
@@ -106,10 +108,13 @@ export interface Stage {
 
 /**
  * Information about the stages and on-call rotation teams associated with an escalation plan or engagement plan.
+ * ###### Note
+ *
+ * **Template example**: We recommend creating all Incident Manager `Contacts` resources using a single AWS CloudFormation template. For a demonstration, see the examples for [AWS::SSMContacts::Contacts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html */
 
-export interface SSMContactsPlan {
+export interface SSMContactsPlan extends ResourceAttributes {
   Type: 'AWS::SSMContacts::Plan'
   Properties: {
     /**

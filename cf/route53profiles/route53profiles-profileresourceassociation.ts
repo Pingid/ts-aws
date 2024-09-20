@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The association between a Route 53 Profile and resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileresourceassociation.html */
 
-export interface Route53ProfilesProfileResourceAssociation {
+export interface Route53ProfilesProfileResourceAssociation extends ResourceAttributes {
   Type: 'AWS::Route53Profiles::ProfileResourceAssociation'
   Properties: {
     /**

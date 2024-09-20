@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair to associate with the configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html */
@@ -24,10 +26,13 @@ export interface TagsEntry {
 
 /**
  * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
+ * ###### Note
+ *
+ * Does not apply to RabbitMQ brokers.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html */
 
-export interface AmazonMQConfiguration {
+export interface AmazonMQConfiguration extends ResourceAttributes {
   Type: 'AWS::AmazonMQ::Configuration'
   Properties: {
     /**

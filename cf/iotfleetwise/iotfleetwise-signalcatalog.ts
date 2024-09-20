@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the number of nodes and node types in a vehicle network.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html */
@@ -76,6 +78,9 @@ export interface Tag {
 
 /**
  * A signal that represents a vehicle device such as the engine, heater, and door locks. Data from an actuator reports the state of a certain vehicle device.
+ * ###### Note
+ *
+ * Updating actuator data can change the state of a device. For example, you can turn on or off the heater by updating its actuator data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html */
 
@@ -265,6 +270,9 @@ export interface Branch {
 
 /**
  * An input component that reports the environmental condition of a vehicle.
+ * ###### Note
+ *
+ * You can collect data about fluid levels, temperatures, vibrations, or battery voltage from sensors.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html */
 
@@ -377,7 +385,7 @@ export interface Node {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html */
 
-export interface IoTFleetWiseSignalCatalog {
+export interface IoTFleetWiseSignalCatalog extends ResourceAttributes {
   Type: 'AWS::IoTFleetWise::SignalCatalog'
   Properties: {
     /**

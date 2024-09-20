@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The regional parameters in the environment blueprint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html */
@@ -29,7 +31,7 @@ export interface RegionalParameter {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html */
 
-export interface DataZoneEnvironmentBlueprintConfiguration {
+export interface DataZoneEnvironmentBlueprintConfiguration extends ResourceAttributes {
   Type: 'AWS::DataZone::EnvironmentBlueprintConfiguration'
   Properties: {
     /**

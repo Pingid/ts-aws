@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html */
 
@@ -160,7 +162,7 @@ export interface BlockDeviceMapping {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html */
 
-export interface OpsWorksInstance {
+export interface OpsWorksInstance extends ResourceAttributes {
   Type: 'AWS::OpsWorks::Instance'
   Properties: {
     /**

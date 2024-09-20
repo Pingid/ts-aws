@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about how to render the content.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html */
@@ -117,7 +119,7 @@ export interface SourceConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html */
 
-export interface WisdomKnowledgeBase {
+export interface WisdomKnowledgeBase extends ResourceAttributes {
   Type: 'AWS::Wisdom::KnowledgeBase'
   Properties: {
     /**

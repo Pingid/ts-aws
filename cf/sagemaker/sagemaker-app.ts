@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html */
@@ -82,7 +84,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html */
 
-export interface SageMakerApp {
+export interface SageMakerApp extends ResourceAttributes {
   Type: 'AWS::SageMaker::App'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of parameters that configure the behavior of the enabled control. Expressed as a key/value pair, where `Key` is of type `String` and `Value` is of type `Document`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html */
@@ -56,7 +58,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html */
 
-export interface ControlTowerEnabledControl {
+export interface ControlTowerEnabledControl extends ResourceAttributes {
   Type: 'AWS::ControlTower::EnabledControl'
   Properties: {
     /**

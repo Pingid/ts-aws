@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A wrapper object holding the Amazon API Gateway endpoint input.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html */
@@ -62,7 +64,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html */
 
-export interface RefactorSpacesApplication {
+export interface RefactorSpacesApplication extends ResourceAttributes {
   Type: 'AWS::RefactorSpaces::Application'
   Properties: {
     /**

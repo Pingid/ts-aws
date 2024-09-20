@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates an application to an entitlement.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html */
 
-export interface AppStreamApplicationEntitlementAssociation {
+export interface AppStreamApplicationEntitlementAssociation extends ResourceAttributes {
   Type: 'AWS::AppStream::ApplicationEntitlementAssociation'
   Properties: {
     /**

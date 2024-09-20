@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a composite component.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html */
@@ -549,7 +551,7 @@ export interface Component {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html */
 
-export interface IoTTwinMakerEntity {
+export interface IoTTwinMakerEntity extends ResourceAttributes {
   Type: 'AWS::IoTTwinMaker::Entity'
   Properties: {
     /**

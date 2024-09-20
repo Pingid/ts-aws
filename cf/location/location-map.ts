@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the map tile style selected from an available provider.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html */
@@ -77,7 +79,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html */
 
-export interface LocationMap {
+export interface LocationMap extends ResourceAttributes {
   Type: 'AWS::Location::Map'
   Properties: {
     /**

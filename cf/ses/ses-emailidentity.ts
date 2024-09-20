@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Used to associate a configuration set with an email identity.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html */
@@ -33,6 +35,17 @@ export interface DkimAttributes {
 
 /**
  * Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
+ * *   Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
+ *
+ * *   Update the key length that should be used for Easy DKIM.
+ *
+ * *   Change from using no DKIM authentication to using Easy DKIM.
+ *
+ * *   Change from using no DKIM authentication to using BYODKIM.
+ *
+ * *   Change from using Easy DKIM to using BYODKIM.
+ *
+ * *   Change from using BYODKIM to using Easy DKIM.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html */
 
@@ -119,7 +132,7 @@ export interface MailFromAttributes {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html */
 
-export interface SESEmailIdentity {
+export interface SESEmailIdentity extends ResourceAttributes {
   Type: 'AWS::SES::EmailIdentity'
   Properties: {
     /**

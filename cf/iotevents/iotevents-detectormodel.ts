@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata that can be used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
@@ -108,6 +110,25 @@ export interface ClearTimer {
 /**
  * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
  * You must use expressions for all parameters in `DynamoDBv2Action`. The expressions accept literals, operators, functions, references, and substitution templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'`.
+ *
+ * *   For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName`.
+ *
+ * *   For a substitution template, you must use `${}`, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
+ *
+ *     `'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'`
+ *
+ * *   For a string concatenation, you must use `+`. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `tableName` parameter uses a string concatenation.
+ *
+ *     `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
+ * The value for the `type` parameter in `Payload` must be `JSON`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -416,6 +437,18 @@ export interface Payload {
 /**
  * A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the _AWS IoT SiteWise API Reference_.
  * You must use expressions for all parameters in `AssetPropertyTimestamp`. The expressions accept literals, operators, functions, references, and substitution templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `timeInSeconds` parameter can be `'1586400675'`.
+ *
+ * *   For references, you must specify either variables or input values. For example, the value for the `offsetInNanos` parameter can be `$variable.time`.
+ *
+ * *   For a substitution template, you must use `${}`, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `timeInSeconds` parameter uses a substitution template.
+ *
+ *     `'${$input.TemperatureInput.sensorData.timestamp / 1000}'`
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -441,6 +474,19 @@ export interface AssetPropertyTimestamp {
 /**
  * A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the _AWS IoT SiteWise API Reference_.
  * You must use expressions for all parameters in `AssetPropertyVariant`. The expressions accept literals, operators, functions, references, and substitution templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `integerValue` parameter can be `'100'`.
+ *
+ * *   For references, you must specify either variables or parameters. For example, the value for the `booleanValue` parameter can be `$variable.offline`.
+ *
+ * *   For a substitution template, you must use `${}`, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `doubleValue` parameter uses a substitution template.
+ *
+ *     `'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
+ * You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the _AWS IoT SiteWise API Reference_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -506,6 +552,25 @@ export interface OnInput {
 /**
  * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
  * You must use expressions for all parameters in `DynamoDBAction`. The expressions accept literals, operators, functions, references, and substitution templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'`.
+ *
+ * *   For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name`.
+ *
+ * *   For a substitution template, you must use `${}`, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
+ *
+ *     `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
+ *
+ * *   For a string concatenation, you must use `+`. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `tableName` parameter uses a string concatenation.
+ *
+ *     `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
+ * If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -600,6 +665,12 @@ export interface DynamoDB {
 /**
  * A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the _AWS IoT SiteWise API Reference_.
  * You must use expressions for all parameters in `AssetPropertyValue`. The expressions accept literals, operators, functions, references, and substitution templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `quality` parameter can be `'GOOD'`.
+ *
+ * *   For references, you must specify either variables or input values. For example, the value for the `quality` parameter can be `$input.TemperatureInput.sensorData.quality`.
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -633,6 +704,19 @@ export interface AssetPropertyValue {
 /**
  * Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
  * You must use expressions for all parameters in `IotSiteWiseAction`. The expressions accept literals, operators, functions, references, and substitutions templates.
+ * ###### Examples
+ *
+ * *   For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'`.
+ *
+ * *   For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1`.
+ *
+ * *   For a substitution template, you must use `${}`, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+ *
+ *     In the following example, the value for the `propertyAlias` parameter uses a substitution template.
+ *
+ *     `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
+ * You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise.
+ * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the _AWS IoT Events Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
@@ -912,10 +996,19 @@ export interface DetectorModelDefinition {
 
 /**
  * The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a _detector model_ (a model of your equipment or process) using _states_. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the _AWS IoT Events Developer Guide_.
+ * ###### Note
+ *
+ * When you successfully update a detector model (using the AWS IoT Events console, AWS IoT Events API or CLI commands, or AWS CloudFormation) all detector instances created by the model are reset to their initial states. (The detector's `state`, and the values of any variables and timers are reset.)
+ *
+ * When you successfully update a detector model (using the AWS IoT Events console, AWS IoT Events API or CLI commands, or AWS CloudFormation) the version number of the detector model is incremented. (A detector model with version number 1 before the update has version number 2 after the update succeeds.)
+ *
+ * If you attempt to update a detector model using AWS CloudFormation and the update does not succeed, the system may, in some cases, restore the original detector model. When this occurs, the detector model's version is incremented twice (for example, from version 1 to version 3) and the detector instances are reset.
+ *
+ * Also, be aware that if you attempt to update several detector models at once using AWS CloudFormation, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html */
 
-export interface IoTEventsDetectorModel {
+export interface IoTEventsDetectorModel extends ResourceAttributes {
   Type: 'AWS::IoTEvents::DetectorModel'
   Properties: {
     /**

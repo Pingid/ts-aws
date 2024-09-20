@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html */
@@ -281,7 +283,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html */
 
-export interface AmplifyApp {
+export interface AmplifyApp extends ResourceAttributes {
   Type: 'AWS::Amplify::App'
   Properties: {
     /**

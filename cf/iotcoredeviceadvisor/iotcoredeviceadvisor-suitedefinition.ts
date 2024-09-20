@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::IoTCoreDeviceAdvisor::SuiteDefinition](./aws-resource-iotcoredeviceadvisor-suitedefinition.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html */
@@ -117,7 +119,7 @@ export interface SuiteDefinitionConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html */
 
-export interface IoTCoreDeviceAdvisorSuiteDefinition {
+export interface IoTCoreDeviceAdvisorSuiteDefinition extends ResourceAttributes {
   Type: 'AWS::IoTCoreDeviceAdvisor::SuiteDefinition'
   Properties: {
     /**

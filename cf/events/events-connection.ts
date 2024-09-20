@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains the API key authorization parameters for the connection.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html */
@@ -250,7 +252,7 @@ export interface AuthParameters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html */
 
-export interface EventsConnection {
+export interface EventsConnection extends ResourceAttributes {
   Type: 'AWS::Events::Connection'
   Properties: {
     /**

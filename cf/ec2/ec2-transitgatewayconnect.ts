@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the Connect attachment options.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html */
@@ -45,7 +47,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html */
 
-export interface EC2TransitGatewayConnect {
+export interface EC2TransitGatewayConnect extends ResourceAttributes {
   Type: 'AWS::EC2::TransitGatewayConnect'
   Properties: {
     /**

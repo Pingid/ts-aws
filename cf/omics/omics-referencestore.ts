@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Server-side encryption (SSE) settings for a store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html */
@@ -31,7 +33,7 @@ export interface SseConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html */
 
-export interface OmicsReferenceStore {
+export interface OmicsReferenceStore extends ResourceAttributes {
   Type: 'AWS::Omics::ReferenceStore'
   Properties: {
     /**

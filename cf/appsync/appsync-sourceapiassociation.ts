@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes properties used to specify configurations related to a source API. This is a property of the `AWS:AppSync:SourceApiAssociation` type.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html */
@@ -23,7 +25,7 @@ export interface SourceApiAssociationConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html */
 
-export interface AppSyncSourceApiAssociation {
+export interface AppSyncSourceApiAssociation extends ResourceAttributes {
   Type: 'AWS::AppSync::SourceApiAssociation'
   Properties: {
     /**

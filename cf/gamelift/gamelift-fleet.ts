@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Amazon GameLift configuration options for your Anywhere fleets.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html */
@@ -147,6 +149,13 @@ export interface ConnectionPortRange {
  * **This data type is used with the Amazon GameLift containers feature, which is currently in public preview.**
  * Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
  * Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
+ * *   If no desired value is set, Amazon GameLift places the calculated maximum.
+ *
+ * *   If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
+ *
+ * *   If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
+ * **Part of:** [ContainerGroupsConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-containergroupsconfiguration), ContainerGroupsAttributes
+ * **Returned by:** DescribeFleetAttributes, CreateFleet
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html */
 
@@ -492,7 +501,7 @@ export interface ScalingPolicy {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html */
 
-export interface GameLiftFleet {
+export interface GameLiftFleet extends ResourceAttributes {
   Type: 'AWS::GameLift::Fleet'
   Properties: {
     /**

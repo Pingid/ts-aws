@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Which audit checks are enabled and disabled for this account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html */
@@ -206,7 +208,7 @@ export interface AuditNotificationTargetConfigurations {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html */
 
-export interface IoTAccountAuditConfiguration {
+export interface IoTAccountAuditConfiguration extends ResourceAttributes {
   Type: 'AWS::IoT::AccountAuditConfiguration'
   Properties: {
     /**

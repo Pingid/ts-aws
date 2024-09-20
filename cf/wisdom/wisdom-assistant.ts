@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration information for the customer managed key used for encryption.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html */
@@ -50,7 +52,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html */
 
-export interface WisdomAssistant {
+export interface WisdomAssistant extends ResourceAttributes {
   Type: 'AWS::Wisdom::Assistant'
   Properties: {
     /**

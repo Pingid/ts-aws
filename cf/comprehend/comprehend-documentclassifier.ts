@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html */
@@ -127,6 +129,13 @@ export interface AugmentedManifestsListItem {
 /**
  * Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
  * By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
+ * *   **Word files** - Amazon Comprehend parser extracts the text.
+ *
+ * *   **Digital PDF files** - Amazon Comprehend parser extracts the text.
+ *
+ * *   **Image files and scanned PDF files** - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
+ * `DocumentReaderConfig` does not apply to plain text files or Word files.
+ * For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html */
 
@@ -281,7 +290,7 @@ export interface DocumentClassifierInputDataConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html */
 
-export interface ComprehendDocumentClassifier {
+export interface ComprehendDocumentClassifier extends ResourceAttributes {
   Type: 'AWS::Comprehend::DocumentClassifier'
   Properties: {
     /**

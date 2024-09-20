@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a new event stream for an application or updates the settings of an existing event stream for an application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html */
 
-export interface PinpointEventStream {
+export interface PinpointEventStream extends ResourceAttributes {
   Type: 'AWS::Pinpoint::EventStream'
   Properties: {
     /**

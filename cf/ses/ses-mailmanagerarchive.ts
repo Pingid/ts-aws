@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The retention policy for an email archive that specifies how long emails are kept before being automatically deleted.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerarchive.html */
@@ -50,7 +52,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerarchive.html */
 
-export interface SESMailManagerArchive {
+export interface SESMailManagerArchive extends ResourceAttributes {
   Type: 'AWS::SES::MailManagerArchive'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specify the AWS account ID and external ID that the subscriber will use to access source data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html */
@@ -140,7 +142,7 @@ export interface Source {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html */
 
-export interface SecurityLakeSubscriber {
+export interface SecurityLakeSubscriber extends ResourceAttributes {
   Type: 'AWS::SecurityLake::Subscriber'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * This resource specifies an identity provider that is then associated with a web portal. This resource is not required if your portal's `AuthenticationType` is IAM Identity Center.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html */
 
-export interface WorkSpacesWebIdentityProvider {
+export interface WorkSpacesWebIdentityProvider extends ResourceAttributes {
   Type: 'AWS::WorkSpacesWeb::IdentityProvider'
   Properties: {
     /**

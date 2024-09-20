@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The parameter details of the environment.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html */
@@ -27,7 +29,7 @@ export interface EnvironmentParameter {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html */
 
-export interface DataZoneEnvironment {
+export interface DataZoneEnvironment extends ResourceAttributes {
   Type: 'AWS::DataZone::Environment'
   Properties: {
     /**

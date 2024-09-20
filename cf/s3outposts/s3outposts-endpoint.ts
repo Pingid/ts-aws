@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The failure reason, if any, for a create or delete endpoint operation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html */
@@ -25,10 +27,14 @@ export interface FailedReason {
 /**
  * This AWS::S3Outposts::Endpoint resource specifies an endpoint and associates it with the specified Outpost.
  * Amazon S3 on Outposts access points simplify managing data access at scale for shared datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to S3 on Outposts buckets so that you can perform actions within your virtual private cloud (VPC). For more information, see [Accessing S3 on Outposts using VPC-only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html).
+ * ###### Note
+ *
+ * It can take up to 5 minutes for this resource to be created.
+ *
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html */
 
-export interface S3OutpostsEndpoint {
+export interface S3OutpostsEndpoint extends ResourceAttributes {
   Type: 'AWS::S3Outposts::Endpoint'
   Properties: {
     /**

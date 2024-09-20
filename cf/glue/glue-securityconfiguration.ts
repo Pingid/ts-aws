@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies how Amazon CloudWatch data should be encrypted.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html */
@@ -113,7 +115,7 @@ export interface EncryptionConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html */
 
-export interface GlueSecurityConfiguration {
+export interface GlueSecurityConfiguration extends ResourceAttributes {
   Type: 'AWS::Glue::SecurityConfiguration'
   Properties: {
     /**

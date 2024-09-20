@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html */
@@ -54,7 +56,7 @@ export interface SamlConfigOptions {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html */
 
-export interface OpenSearchServerlessSecurityConfig {
+export interface OpenSearchServerlessSecurityConfig extends ResourceAttributes {
   Type: 'AWS::OpenSearchServerless::SecurityConfig'
   Properties: {
     /**

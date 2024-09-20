@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::RDS::GlobalCluster` resource creates or updates an Amazon Aurora global database spread across multiple AWS Regions.
  * The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
  * You can create a global database that is initially empty, and then add a primary cluster and a secondary cluster to it.
@@ -6,7 +8,7 @@ import type { Intrinsic } from '../intrinsic/index.js' /**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html */
 
-export interface RDSGlobalCluster {
+export interface RDSGlobalCluster extends ResourceAttributes {
   Type: 'AWS::RDS::GlobalCluster'
   Properties: {
     /**

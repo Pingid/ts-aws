@@ -2,7 +2,7 @@
   "name": "ts-aws",
   "license": "MIT",
   "description": "Aws typescript types for cloudformation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Dan Beaven <dm.beaven@gmail.com>",
   "repository": {
     "type": "git",
@@ -22,9 +22,11 @@
     "build": "pnpm run generate && pnpm format && pnpm tsc"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.5.5",
     "@types/turndown": "^5.0.5",
+    "fs-extra": "^11.2.0",
     "linkedom": "^0.18.5",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.0.0",

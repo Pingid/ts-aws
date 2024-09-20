@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object containing additional settings for your VDM configuration as applicable to the Dashboard.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html */
@@ -37,7 +39,7 @@ export interface GuardianAttributes {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html */
 
-export interface SESVdmAttributes {
+export interface SESVdmAttributes extends ResourceAttributes {
   Type: 'AWS::SES::VdmAttributes'
   Properties: {
     /**

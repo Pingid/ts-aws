@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A workflow parameter.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html */
@@ -30,7 +32,7 @@ export interface WorkflowParameter {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html */
 
-export interface OmicsWorkflow {
+export interface OmicsWorkflow extends ResourceAttributes {
   Type: 'AWS::Omics::Workflow'
   Properties: {
     /**

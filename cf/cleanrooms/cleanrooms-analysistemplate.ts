@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Optional. The member who can query can provide this placeholder for a literal data value in an analysis template.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html */
@@ -87,7 +89,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html */
 
-export interface CleanRoomsAnalysisTemplate {
+export interface CleanRoomsAnalysisTemplate extends ResourceAttributes {
   Type: 'AWS::CleanRooms::AnalysisTemplate'
   Properties: {
     /**

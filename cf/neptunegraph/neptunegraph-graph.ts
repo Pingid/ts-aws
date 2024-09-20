@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair to associate with the Neptune Analytics graph.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html */
@@ -48,7 +50,7 @@ export interface VectorSearchConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html */
 
-export interface NeptuneGraphGraph {
+export interface NeptuneGraphGraph extends ResourceAttributes {
   Type: 'AWS::NeptuneGraph::Graph'
   Properties: {
     /**

@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a static route for the specified local gateway route table. You must specify one of the following targets:
+ * *   `LocalGatewayVirtualInterfaceGroupId`
+ *
+ * *   `NetworkInterfaceId`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html */
 
-export interface EC2LocalGatewayRoute {
+export interface EC2LocalGatewayRoute extends ResourceAttributes {
   Type: 'AWS::EC2::LocalGatewayRoute'
   Properties: {
     /**

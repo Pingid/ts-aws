@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds the specified outbound (egress) rule to a security group.
  * An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP address ranges that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
  * You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
@@ -210,10 +212,13 @@ export interface Tag {
  * Specifies a security group. To create a security group, use the [VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid) property to specify the VPC for which to create the security group.
  * If you do not specify an egress rule, we add egress rules that allow IPv4 and IPv6 traffic on all ports and protocols to any destination. We do not add these rules if you specify your own egress rules.
  * This type supports updates. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
+ * ###### Important
+ *
+ * To cross-reference two security groups in the ingress and egress rules of those security groups, use the [AWS::EC2::SecurityGroupEgress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html) and [AWS::EC2::SecurityGroupIngress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-ingress.html) resources to define your rules. Do not use the embedded ingress and egress rules in the `AWS::EC2::SecurityGroup`. Doing so creates a circular dependency, which AWS CloudFormation doesn't allow.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html */
 
-export interface EC2SecurityGroup {
+export interface EC2SecurityGroup extends ResourceAttributes {
   Type: 'AWS::EC2::SecurityGroup'
   Properties: {
     /**

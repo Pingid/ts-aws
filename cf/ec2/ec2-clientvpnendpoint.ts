@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Indicates whether client connect options are enabled. The default is `false` (not enabled).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html */
@@ -230,7 +232,7 @@ export interface TagSpecification {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html */
 
-export interface EC2ClientVpnEndpoint {
+export interface EC2ClientVpnEndpoint extends ResourceAttributes {
   Type: 'AWS::EC2::ClientVpnEndpoint'
   Properties: {
     /**

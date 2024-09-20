@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A wildcard object, consisting of an optional list of excluded column names or indexes.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html */
@@ -43,7 +45,7 @@ export interface RowFilter {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html */
 
-export interface LakeFormationDataCellsFilter {
+export interface LakeFormationDataCellsFilter extends ResourceAttributes {
   Type: 'AWS::LakeFormation::DataCellsFilter'
   Properties: {
     /**

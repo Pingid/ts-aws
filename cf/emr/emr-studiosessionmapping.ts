@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::EMR::StudioSessionMapping` resource is an Amazon EMR resource type that maps a user or group to the Amazon EMR Studio specified by `StudioId`, and applies a session policy that defines Studio permissions for that user or group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html */
 
-export interface EMRStudioSessionMapping {
+export interface EMRStudioSessionMapping extends ResourceAttributes {
   Type: 'AWS::EMR::StudioSessionMapping'
   Properties: {
     /**

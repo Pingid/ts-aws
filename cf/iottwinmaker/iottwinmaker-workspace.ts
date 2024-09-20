@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Use the `AWS::IoTTwinMaker::Workspace` resource to declare a workspace.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html */
 
-export interface IoTTwinMakerWorkspace {
+export interface IoTTwinMakerWorkspace extends ResourceAttributes {
   Type: 'AWS::IoTTwinMaker::Workspace'
   Properties: {
     /**

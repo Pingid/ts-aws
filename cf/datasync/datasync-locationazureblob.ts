@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
  * For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
  *
@@ -56,7 +58,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html */
 
-export interface DataSyncLocationAzureBlob {
+export interface DataSyncLocationAzureBlob extends ResourceAttributes {
   Type: 'AWS::DataSync::LocationAzureBlob'
   Properties: {
     /**

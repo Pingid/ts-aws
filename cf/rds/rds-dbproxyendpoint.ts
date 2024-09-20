@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
  * For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the _Amazon RDS User Guide_ or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the _Amazon Aurora User Guide_.
  *
@@ -33,7 +35,7 @@ export interface TagFormat {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html */
 
-export interface RDSDBProxyEndpoint {
+export interface RDSDBProxyEndpoint extends ResourceAttributes {
   Type: 'AWS::RDS::DBProxyEndpoint'
   Properties: {
     /**

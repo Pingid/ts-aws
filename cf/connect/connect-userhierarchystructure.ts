@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The update for level five.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html */
@@ -216,7 +218,7 @@ export interface UserHierarchyStructure {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html */
 
-export interface ConnectUserHierarchyStructure {
+export interface ConnectUserHierarchyStructure extends ResourceAttributes {
   Type: 'AWS::Connect::UserHierarchyStructure'
   Properties: {
     /**

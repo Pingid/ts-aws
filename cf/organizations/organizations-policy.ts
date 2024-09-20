@@ -1,6 +1,15 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A custom key-value pair associated with a resource within your organization.
  * You can attach tags to any of the following organization resources.
+ * *   AWS account
+ *
+ * *   Organizational unit (OU)
+ *
+ * *   Organization root
+ *
+ * *   Policy
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html */
 
@@ -34,10 +43,13 @@ export interface Tag {
  * For more information about policies and their use, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
  * If the request includes tags, then the requester must have the `organizations:TagResource` permission.
  * This operation can be called only from the organization's management account.
+ * ###### Note
+ *
+ * Before you can create a policy of a given type, you must first [enable that policy type](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_enable-disable.html) in your organization.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html */
 
-export interface OrganizationsPolicy {
+export interface OrganizationsPolicy extends ResourceAttributes {
   Type: 'AWS::Organizations::Policy'
   Properties: {
     /**

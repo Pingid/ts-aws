@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A collection of accounts and regions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html */
@@ -98,7 +100,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html */
 
-export interface ConfigConfigurationAggregator {
+export interface ConfigConfigurationAggregator extends ResourceAttributes {
   Type: 'AWS::Config::ConfigurationAggregator'
   Properties: {
     /**

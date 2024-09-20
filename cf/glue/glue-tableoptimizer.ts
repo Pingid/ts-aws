@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies configuration details of a table optimizer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html */
@@ -27,7 +29,7 @@ export interface TableOptimizerConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html */
 
-export interface GlueTableOptimizer {
+export interface GlueTableOptimizer extends ResourceAttributes {
   Type: 'AWS::Glue::TableOptimizer'
   Properties: {
     /**

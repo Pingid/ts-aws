@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Provides details about an individual security control. For a list of Security Hub controls, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the _AWS Security Hub User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html */
@@ -31,7 +33,7 @@ export interface StandardsControl {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html */
 
-export interface SecurityHubStandard {
+export interface SecurityHubStandard extends ResourceAttributes {
   Type: 'AWS::SecurityHub::Standard'
   Properties: {
     /**

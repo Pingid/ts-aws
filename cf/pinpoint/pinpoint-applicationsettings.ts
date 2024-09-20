@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the Lambda function to use by default as a code hook for campaigns in the application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html */
@@ -99,7 +101,7 @@ export interface QuietTime {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html */
 
-export interface PinpointApplicationSettings {
+export interface PinpointApplicationSettings extends ResourceAttributes {
   Type: 'AWS::Pinpoint::ApplicationSettings'
   Properties: {
     /**

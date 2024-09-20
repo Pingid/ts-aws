@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * You can optionally create a run group to limit the compute resources for the runs that you add to the group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html */
 
-export interface OmicsRunGroup {
+export interface OmicsRunGroup extends ResourceAttributes {
   Type: 'AWS::Omics::RunGroup'
   Properties: {
     /**

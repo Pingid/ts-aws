@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html */
@@ -672,7 +674,7 @@ export interface FieldConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html */
 
-export interface AmplifyUIBuilderForm {
+export interface AmplifyUIBuilderForm extends ResourceAttributes {
   Type: 'AWS::AmplifyUIBuilder::Form'
   Properties: {
     /**

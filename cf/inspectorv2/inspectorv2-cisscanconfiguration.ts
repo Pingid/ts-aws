@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The CIS targets.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html */
@@ -164,7 +166,7 @@ export interface Schedule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html */
 
-export interface InspectorV2CisScanConfiguration {
+export interface InspectorV2CisScanConfiguration extends ResourceAttributes {
   Type: 'AWS::InspectorV2::CisScanConfiguration'
   Properties: {
     /**

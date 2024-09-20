@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGatewayV2::Route` resource creates a route for an API.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html */
 
-export interface ApiGatewayV2Route {
+export interface ApiGatewayV2Route extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::Route'
   Properties: {
     /**

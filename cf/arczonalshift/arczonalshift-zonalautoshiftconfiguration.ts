@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an _outcome alarm_, to monitor application health during practice runs and, optionally, a _blocking alarm_, to block practice runs from starting or to interrupt a practice run in progress.
  * Control condition alarms do not apply for autoshifts.
  * For more information, see [Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html) in the Route 53 ARC Developer Guide.
@@ -88,7 +90,7 @@ export interface PracticeRunConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html */
 
-export interface ARCZonalShiftZonalAutoshiftConfiguration {
+export interface ARCZonalShiftZonalAutoshiftConfiguration extends ResourceAttributes {
   Type: 'AWS::ARCZonalShift::ZonalAutoshiftConfiguration'
   Properties: {
     /**

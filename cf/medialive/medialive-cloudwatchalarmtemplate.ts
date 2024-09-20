@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::MediaLive::CloudWatchAlarmTemplate` resource Property description not available. for MediaLive.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html */
 
-export interface MediaLiveCloudWatchAlarmTemplate {
+export interface MediaLiveCloudWatchAlarmTemplate extends ResourceAttributes {
   Type: 'AWS::MediaLive::CloudWatchAlarmTemplate'
   Properties: {
     /**

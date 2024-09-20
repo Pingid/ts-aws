@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The DNS information.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html */
@@ -58,7 +60,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html */
 
-export interface VpcLatticeServiceNetworkServiceAssociation {
+export interface VpcLatticeServiceNetworkServiceAssociation extends ResourceAttributes {
   Type: 'AWS::VpcLattice::ServiceNetworkServiceAssociation'
   Properties: {
     /**

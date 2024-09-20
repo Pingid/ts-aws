@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `IntegrationOverrides` property overrides the integration settings for an API Gateway-managed integration. If you remove this property, API Gateway restores the default values.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html */
@@ -219,7 +221,7 @@ export interface StageOverrides {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html */
 
-export interface ApiGatewayV2ApiGatewayManagedOverrides {
+export interface ApiGatewayV2ApiGatewayManagedOverrides extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::ApiGatewayManagedOverrides'
   Properties: {
     /**

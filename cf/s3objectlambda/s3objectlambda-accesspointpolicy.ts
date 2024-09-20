@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::S3ObjectLambda::AccessPointPolicy` resource specifies the Object Lambda Access Point resource policy document.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html */
 
-export interface S3ObjectLambdaAccessPointPolicy {
+export interface S3ObjectLambdaAccessPointPolicy extends ResourceAttributes {
   Type: 'AWS::S3ObjectLambda::AccessPointPolicy'
   Properties: {
     /**

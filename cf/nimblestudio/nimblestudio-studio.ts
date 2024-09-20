@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration of the encryption method that is used for the studio.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html */
@@ -32,7 +34,7 @@ export interface StudioEncryptionConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html */
 
-export interface NimbleStudioStudio {
+export interface NimbleStudioStudio extends ResourceAttributes {
   Type: 'AWS::NimbleStudio::Studio'
   Properties: {
     /**

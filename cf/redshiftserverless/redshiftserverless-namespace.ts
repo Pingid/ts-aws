@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The object that you configure to copy snapshots from one namespace to a namespace in another AWS Region.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html */
@@ -63,7 +65,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html */
 
-export interface RedshiftServerlessNamespace {
+export interface RedshiftServerlessNamespace extends ResourceAttributes {
   Type: 'AWS::RedshiftServerless::Namespace'
   Properties: {
     /**

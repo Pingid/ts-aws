@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes Infrastructure Performance subscriptions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html */
 
-export interface EC2NetworkPerformanceMetricSubscription {
+export interface EC2NetworkPerformanceMetricSubscription extends ResourceAttributes {
   Type: 'AWS::EC2::NetworkPerformanceMetricSubscription'
   Properties: {
     /**

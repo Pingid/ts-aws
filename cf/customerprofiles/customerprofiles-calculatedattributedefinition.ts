@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::CustomerProfiles::CalculatedAttributeDefinition](./aws-resource-customerprofiles-calculatedattributedefinition.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html */
@@ -166,7 +168,7 @@ export interface Conditions {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html */
 
-export interface CustomerProfilesCalculatedAttributeDefinition {
+export interface CustomerProfilesCalculatedAttributeDefinition extends ResourceAttributes {
   Type: 'AWS::CustomerProfiles::CalculatedAttributeDefinition'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::SNS::TopicInlinePolicy` resource associates one Amazon SNS topic with one policy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicinlinepolicy.html */
 
-export interface SNSTopicInlinePolicy {
+export interface SNSTopicInlinePolicy extends ResourceAttributes {
   Type: 'AWS::SNS::TopicInlinePolicy'
   Properties: {
     /**

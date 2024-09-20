@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tags` property type specifies Property description not available. for an [AWS::MediaLive::SdiSource](./aws-resource-medialive-sdisource.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html */
@@ -27,7 +29,7 @@ export interface Tags {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html */
 
-export interface MediaLiveSdiSource {
+export interface MediaLiveSdiSource extends ResourceAttributes {
   Type: 'AWS::MediaLive::SdiSource'
   Properties: {
     /**

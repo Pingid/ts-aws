@@ -1,5 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A user-defined key-value pair that describes metadata added to an AWS DMS resource and that is used by operations such as the following:
+ * *   `AddTagsToResource`
+ *
+ * *   `ListTagsForResource`
+ *
+ * *   `RemoveTagsFromResource`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html */
 
@@ -24,10 +31,13 @@ export interface Tag {
 
 /**
  * The `AWS::DMS::ReplicationSubnetGroup` resource creates an AWS DMS replication subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same AWS Region.
+ * ###### Note
+ *
+ * Resource creation fails if the `dms-vpc-role` AWS Identity and Access Management (IAM) role doesn't already exist. For more information, see [Creating the IAM Roles to Use With the AWS CLI and AWS DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html) in the _AWS Database Migration Service User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html */
 
-export interface DMSReplicationSubnetGroup {
+export interface DMSReplicationSubnetGroup extends ResourceAttributes {
   Type: 'AWS::DMS::ReplicationSubnetGroup'
   Properties: {
     /**

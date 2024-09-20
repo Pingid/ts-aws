@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The client authentication information used in order to authenticate with the Apache Kafka cluster.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html */
@@ -465,7 +467,7 @@ export interface LogDelivery {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html */
 
-export interface KafkaConnectConnector {
+export interface KafkaConnectConnector extends ResourceAttributes {
   Type: 'AWS::KafkaConnect::Connector'
   Properties: {
     /**

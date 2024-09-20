@@ -1,5 +1,40 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * _Public DNS and HTTP namespaces only._ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig`.
+ * ###### Important
+ *
+ * If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+ * Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/).
+ * Note the following about configuring health checks.
+ * A and AAAA records
+ *
+ * If `DnsConfig` includes configurations for both `A` and `AAAA` records, AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint tthat's specified by the IPv4 address is unhealthy, Route 53 considers both the `A` and `AAAA` records to be unhealthy.
+ *
+ * CNAME records
+ *
+ * You can't specify settings for `HealthCheckConfig` when the `DNSConfig` includes `CNAME` for the value of `Type`. If you do, the `CreateService` request will fail with an `InvalidInput` error.
+ *
+ * Request interval
+ *
+ * A Route 53 health checker in each health-checking AWS Region sends a health check request to an endpoint every 30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health checkers don't coordinate with one another. Therefore, you might sometimes see several requests in one second that's followed by a few seconds with no health checks at all.
+ *
+ * Health checking regions
+ *
+ * Health checkers perform checks from all Route 53 health-checking Regions. For a list of the current Regions, see [Regions](https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions).
+ *
+ * Alias records
+ *
+ * When you register an instance, if you include the `AWS_ALIAS_DNS_NAME` attribute, AWS Cloud Map creates a Route 53 alias record. Note the following:
+ *
+ * *   Route 53 automatically sets `EvaluateTargetHealth` to true for alias records. When `EvaluateTargetHealth` is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see [EvaluateTargetHealth](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth).
+ *
+ * *   If you include `HealthCheckConfig` and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.
+ *
+ *
+ * Charges for health checks
+ *
+ * Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html */
 
@@ -39,6 +74,31 @@ export interface HealthCheckConfig {
 
 /**
  * A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:
+ * *   You can't use a health check that's defined by `HealthCheckConfig` because the resource isn't available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)
+ *
+ * *   You want to use a third-party health checker regardless of where your resources are located.
+ * ###### Important
+ *
+ * If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+ * To change the status of a custom health check, submit an `UpdateInstanceCustomHealthStatus` request. AWS Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent `UpdateInstanceCustomHealthStatus` request.
+ * Here's how custom health checks work:
+ * 1.  You create a service.
+ *
+ * 2.  You register an instance.
+ *
+ * 3.  You configure a third-party health checker to monitor the resource that's associated with the new instance.
+ *
+ *     ###### Note
+ *
+ *     AWS Cloud Map doesn't check the health of the resource directly.
+ *
+ * 4.  The third-party health-checker determines that the resource is unhealthy and notifies your application.
+ *
+ * 5.  Your application submits an `UpdateInstanceCustomHealthStatus` request.
+ *
+ * 6.  AWS Cloud Map waits for 30 seconds.
+ *
+ * 7.  If another `UpdateInstanceCustomHealthStatus` request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html */
 
@@ -149,10 +209,24 @@ export interface DnsConfig {
 
 /**
  * A complex type that contains information about a service, which defines the configuration of the following entities:
+ * *   For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:
+ *
+ *     *   A
+ *
+ *     *   AAAA
+ *
+ *     *   A and AAAA
+ *
+ *     *   SRV
+ *
+ *     *   CNAME
+ *
+ *
+ * *   Optionally, a health check
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html */
 
-export interface ServiceDiscoveryService {
+export interface ServiceDiscoveryService extends ResourceAttributes {
   Type: 'AWS::ServiceDiscovery::Service'
   Properties: {
     /**

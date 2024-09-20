@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds an inbound (ingress) rule to a security group.
  * An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a source security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
  * You must specify exactly one of the following sources: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
@@ -7,7 +9,7 @@ import type { Intrinsic } from '../intrinsic/index.js' /**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html */
 
-export interface EC2SecurityGroupIngress {
+export interface EC2SecurityGroupIngress extends ResourceAttributes {
   Type: 'AWS::EC2::SecurityGroupIngress'
   Properties: {
     /**

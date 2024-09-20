@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A named set of parameters that are applied to all of the nodes in a DAX cluster.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html */
 
-export interface DAXParameterGroup {
+export interface DAXParameterGroup extends ResourceAttributes {
   Type: 'AWS::DAX::ParameterGroup'
   Properties: {
     /**

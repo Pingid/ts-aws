@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The set of accounts that will be under the billing group. The set of accounts resemble the linked accounts in a consolidated billing family.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html */
@@ -73,7 +75,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html */
 
-export interface BillingConductorBillingGroup {
+export interface BillingConductorBillingGroup extends ResourceAttributes {
   Type: 'AWS::BillingConductor::BillingGroup'
   Properties: {
     /**

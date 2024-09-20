@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag for a service network.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html */
@@ -32,7 +34,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html */
 
-export interface VpcLatticeServiceNetwork {
+export interface VpcLatticeServiceNetwork extends ResourceAttributes {
   Type: 'AWS::VpcLattice::ServiceNetwork'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3, see the [_Amazon Simple Storage Service User Guide_](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html */
@@ -33,7 +35,7 @@ export interface S3Location {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html */
 
-export interface SimSpaceWeaverSimulation {
+export interface SimSpaceWeaverSimulation extends ResourceAttributes {
   Type: 'AWS::SimSpaceWeaver::Simulation'
   Properties: {
     /**

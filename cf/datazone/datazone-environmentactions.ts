@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The parameters of the console link specified as part of the environment action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html */
@@ -21,7 +23,7 @@ export interface AwsConsoleLinkParameters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html */
 
-export interface DataZoneEnvironmentActions {
+export interface DataZoneEnvironmentActions extends ResourceAttributes {
   Type: 'AWS::DataZone::EnvironmentActions'
   Properties: {
     /**

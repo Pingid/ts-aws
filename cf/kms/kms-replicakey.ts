@@ -1,5 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
+ * ###### Important
+ *
+ * Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.
+ * For information about the rules that apply to tag keys and tag values, see [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html) in the _AWS Billing and Cost Management User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html */
 
@@ -40,7 +46,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html */
 
-export interface KMSReplicaKey {
+export interface KMSReplicaKey extends ResourceAttributes {
   Type: 'AWS::KMS::ReplicaKey'
   Properties: {
     /**

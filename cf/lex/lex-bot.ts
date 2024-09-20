@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines an Amazon S3 bucket location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html */
@@ -85,6 +87,13 @@ export interface DataPrivacy {
 /**
  * Defines settings for using an Amazon Polly voice to communicate with a user.
  * Valid values include:
+ * *   `standard`
+ *
+ * *   `neural`
+ *
+ * *   `long-form`
+ *
+ * *   `generative`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html */
 
@@ -2773,10 +2782,15 @@ export interface BotLocale {
 }
 
 /**
+ * ###### Note
+ *
+ * Amazon Lex V2 is the only supported version in AWS CloudFormation.
+ * Specifies an Amazon Lex conversational bot.
+ * You must configure an intent based on the `AMAZON.FallbackIntent` built-in intent. If you don't add one, creating the bot will fail.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html */
 
-export interface LexBot {
+export interface LexBot extends ResourceAttributes {
   Type: 'AWS::Lex::Bot'
   Properties: {
     /**

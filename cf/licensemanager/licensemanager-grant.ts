@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a grant.
  * A grant shares the use of license entitlements with specific AWS accounts. For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the _AWS License Manager User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html */
 
-export interface LicenseManagerGrant {
+export interface LicenseManagerGrant extends ResourceAttributes {
   Type: 'AWS::LicenseManager::Grant'
   Properties: {
     /**

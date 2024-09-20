@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that defines the email template to use for an email message, and the values to use for any message variables in that template. An _email template_ is a type of message template that contains content that you want to define, save, and reuse in email messages that you send.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html */
@@ -46,7 +48,7 @@ export interface Template {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html */
 
-export interface SESTemplate {
+export interface SESTemplate extends ResourceAttributes {
   Type: 'AWS::SES::Template'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The details of the file system location for the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html */
@@ -41,7 +43,7 @@ export interface FileSystemLocation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html */
 
-export interface DeadlineStorageProfile {
+export interface DeadlineStorageProfile extends ResourceAttributes {
   Type: 'AWS::Deadline::StorageProfile'
   Properties: {
     /**

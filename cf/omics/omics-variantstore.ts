@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The read set's genome reference ARN.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html */
@@ -50,7 +52,7 @@ export interface SseConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html */
 
-export interface OmicsVariantStore {
+export interface OmicsVariantStore extends ResourceAttributes {
   Type: 'AWS::Omics::VariantStore'
   Properties: {
     /**

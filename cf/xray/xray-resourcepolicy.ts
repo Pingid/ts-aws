@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Use `AWS::XRay::ResourcePolicy` to specify an X-Ray resource-based policy, which grants one or more AWS services and accounts permissions to access X-Ray. Each resource-based policy is associated with a specific AWS account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-resourcepolicy.html */
 
-export interface XRayResourcePolicy {
+export interface XRayResourcePolicy extends ResourceAttributes {
   Type: 'AWS::XRay::ResourcePolicy'
   Properties: {
     /**

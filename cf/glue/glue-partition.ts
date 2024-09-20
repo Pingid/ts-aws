@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A column in a `Table`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html */
@@ -353,7 +355,7 @@ export interface PartitionInput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html */
 
-export interface GluePartition {
+export interface GluePartition extends ResourceAttributes {
   Type: 'AWS::Glue::Partition'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::AppStream::User` resource creates a new user in the AppStream 2.0 user pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html */
 
-export interface AppStreamUser {
+export interface AppStreamUser extends ResourceAttributes {
   Type: 'AWS::AppStream::User'
   Properties: {
     /**

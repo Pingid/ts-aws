@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type that contains `Tag` key and `Tag` value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html */
@@ -181,7 +183,7 @@ export interface StreamingDistributionConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html */
 
-export interface CloudFrontStreamingDistribution {
+export interface CloudFrontStreamingDistribution extends ResourceAttributes {
   Type: 'AWS::CloudFront::StreamingDistribution'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `S3` property type specifies information about the Amazon S3 bucket that contains the code to be committed to the new repository.
  * `S3` is a property of the `AWS::CodeStar::GitHubRepository` resource.
  *
@@ -53,7 +55,7 @@ export interface Code {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html */
 
-export interface CodeStarGitHubRepository {
+export interface CodeStarGitHubRepository extends ResourceAttributes {
   Type: 'AWS::CodeStar::GitHubRepository'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
  * This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
  * For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the _Amazon CloudFront Developer Guide_.
@@ -59,7 +61,7 @@ export interface OriginAccessControlConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html */
 
-export interface CloudFrontOriginAccessControl {
+export interface CloudFrontOriginAccessControl extends ResourceAttributes {
   Type: 'AWS::CloudFront::OriginAccessControl'
   Properties: {
     /**

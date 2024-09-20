@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates a CIDR block with your subnet. You can associate a single IPv6 CIDR block with your subnet.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html */
 
-export interface EC2SubnetCidrBlock {
+export interface EC2SubnetCidrBlock extends ResourceAttributes {
   Type: 'AWS::EC2::SubnetCidrBlock'
   Properties: {
     /**

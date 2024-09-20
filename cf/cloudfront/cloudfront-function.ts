@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains metadata about a CloudFront function.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html */
@@ -75,7 +77,7 @@ export interface FunctionConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html */
 
-export interface CloudFrontFunction {
+export interface CloudFrontFunction extends ResourceAttributes {
   Type: 'AWS::CloudFront::Function'
   Properties: {
     /**

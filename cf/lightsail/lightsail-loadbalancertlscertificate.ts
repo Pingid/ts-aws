@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Lightsail::LoadBalancerTlsCertificate` resource specifies a TLS certificate that can be used with a Lightsail load balancer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html */
 
-export interface LightsailLoadBalancerTlsCertificate {
+export interface LightsailLoadBalancerTlsCertificate extends ResourceAttributes {
   Type: 'AWS::Lightsail::LoadBalancerTlsCertificate'
   Properties: {
     /**

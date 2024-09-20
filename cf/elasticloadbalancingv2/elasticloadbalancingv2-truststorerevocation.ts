@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a revocation file. You must specify `S3Bucket` and `S3Key`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html */
@@ -44,7 +46,7 @@ export interface RevocationContent {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html */
 
-export interface ElasticLoadBalancingV2TrustStoreRevocation {
+export interface ElasticLoadBalancingV2TrustStoreRevocation extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancingV2::TrustStoreRevocation'
   Properties: {
     /**

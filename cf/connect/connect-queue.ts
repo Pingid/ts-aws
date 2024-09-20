@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The outbound caller ID name, number, and outbound whisper flow.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html */
@@ -70,7 +72,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html */
 
-export interface ConnectQueue {
+export interface ConnectQueue extends ResourceAttributes {
   Type: 'AWS::Connect::Queue'
   Properties: {
     /**

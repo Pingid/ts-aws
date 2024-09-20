@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The maintenance setting of a flow. MediaConnect routinely performs maintenance on underlying systems for security, reliability, and operational performance. The maintenance activities include actions such as patching the operating system, updating drivers, or installing software and patches.
  * You can select the day and time that maintenance events occur. This is called a maintenance window and is used every time a maintenance event is required. To change the day and time, you can edit the maintenance window using `MaintenanceDay` and `MaintenanceStartHour`.
  *
@@ -526,6 +528,11 @@ export interface MediaStreamSourceConfiguration {
 /**
  * The details of the sources of the flow.
  * If you are creating a flow with a VPC source, you must first create the flow with a temporary standard source by doing the following:
+ * 1.  Use CloudFormation to create a flow with a standard source that uses the flow’s public IP address.
+ *
+ * 2.  Use CloudFormation to create the VPC interface to add to this flow. This can also be done as part of the previous step.
+ *
+ * 3.  After CloudFormation has created the flow and the VPC interface, update the source to point to the VPC interface that you created.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html */
 
@@ -714,7 +721,7 @@ export interface Source {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html */
 
-export interface MediaConnectFlow {
+export interface MediaConnectFlow extends ResourceAttributes {
   Type: 'AWS::MediaConnect::Flow'
   Properties: {
     /**

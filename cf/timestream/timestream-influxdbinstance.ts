@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag is a label that you assign to a Timestream for InfluxDB resource. Each tag consists of a key and an optional value, both of which you define. With tags, you can categorize databases and/or tables, for example, by purpose, owner, or environment.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html */
@@ -74,7 +76,7 @@ export interface LogDeliveryConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html */
 
-export interface TimestreamInfluxDBInstance {
+export interface TimestreamInfluxDBInstance extends ResourceAttributes {
   Type: 'AWS::Timestream::InfluxDBInstance'
   Properties: {
     /**

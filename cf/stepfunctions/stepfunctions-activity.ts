@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Settings to configure server-side encryption for an activity. By default, Step Functions provides transparent server-side encryption. With this configuration, you can specify a customer managed AWS KMS key for encryption.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html */
@@ -69,7 +71,7 @@ export interface TagsEntry {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html */
 
-export interface StepFunctionsActivity {
+export interface StepFunctionsActivity extends ResourceAttributes {
   Type: 'AWS::StepFunctions::Activity'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html */
@@ -56,7 +58,7 @@ export interface ServiceAccountCredentials {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html */
 
-export interface AppStreamDirectoryConfig {
+export interface AppStreamDirectoryConfig extends ResourceAttributes {
   Type: 'AWS::AppStream::DirectoryConfig'
   Properties: {
     /**

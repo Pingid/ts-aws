@@ -1,5 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the _Amazon ECS Developer Guide;_.
+ * ###### Note
+ *
+ * For tasks using the Fargate launch type, the task requires the following platforms:
+ *
+ * *   Linux platform version `1.4.0` or later.
+ *
+ * *   Windows platform version `1.0.0` or later.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -40,6 +49,9 @@ export interface InferenceAccelerator {
 
 /**
  * The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the _Amazon Elastic Container Service Developer Guide_.
+ * ###### Note
+ *
+ * Task placement constraints aren't supported for tasks run on AWS Fargate.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -128,6 +140,19 @@ export interface RuntimePlatform {
 /**
  * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
  * The following basic restrictions apply to tags:
+ * *   Maximum number of tags per resource - 50
+ *
+ * *   For each resource, each tag key must be unique, and each tag key can have only one value.
+ *
+ * *   Maximum key length - 128 Unicode characters in UTF-8
+ *
+ * *   Maximum value length - 256 Unicode characters in UTF-8
+ *
+ * *   If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @.
+ *
+ * *   Tag keys and values are case-sensitive.
+ *
+ * *   Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -159,6 +184,9 @@ export interface Tag {
 /**
  * The `ContainerDependency` property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
  * Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the _Amazon Elastic Container Service Developer Guide_. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the `ecs-init` package. If your container instances are launched from version `20190301` or later, then they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the _Amazon Elastic Container Service Developer Guide_.
+ * ###### Note
+ *
+ * For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -211,6 +239,15 @@ export interface KeyValuePair {
  * If there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the _Amazon Elastic Container Service Developer Guide_.
  * Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply.
  * You must use the following platforms for the Fargate launch type:
+ * *   Linux platform version `1.4.0` or later.
+ *
+ * *   Windows platform version `1.0.0` or later.
+ * Consider the following when using the Fargate launch type:
+ * *   The file is handled like a native Docker env-file.
+ *
+ * *   There is no support for shell escape handling.
+ *
+ * *   The container entry point interperts the `VARIABLE` values.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -287,6 +324,16 @@ export interface FirelensConfiguration {
 
 /**
  * The `HealthCheck` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the `HEALTHCHECK` parameter of docker run.
+ * ###### Note
+ *
+ * The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+ * If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+ * The following are notes about container health check support:
+ * *   Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+ *
+ * *   Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+ *
+ * *   Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -558,6 +605,10 @@ export interface RestartPolicy {
 
 /**
  * An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+ * *   To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
+ *
+ * *   To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
+ * For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the _Amazon Elastic Container Service Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -584,6 +635,19 @@ export interface Secret {
 /**
  * A list of namespaced kernel parameters to set in the container. This parameter maps to `Sysctls` in the docker container create command and the `--sysctl` option to docker run. For example, you can configure `net.ipv4.tcp_keepalive_time` setting to maintain longer lived connections.
  * We don't recommend that you specify network-related `systemControls` parameters for multiple containers in a single task that also uses either the `awsvpc` or `host` network mode. Doing this has the following disadvantages:
+ * *   For tasks that use the `awsvpc` network mode including Fargate, if you set `systemControls` for any container, it applies to all containers in the task. If you set different `systemControls` for multiple containers in a single task, the container that's started last determines which `systemControls` take effect.
+ *
+ * *   For tasks that use the `host` network mode, the network namespace `systemControls` aren't supported.
+ * If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+ * *   For tasks that use the `host` IPC mode, IPC namespace `systemControls` aren't supported.
+ *
+ * *   For tasks that use the `task` IPC mode, IPC namespace `systemControls` values apply to all containers within a task.
+ * ###### Note
+ *
+ * This parameter is not supported for Windows containers.
+ * ###### Note
+ *
+ * This parameter is only supported for tasks that are hosted on AWS Fargate if the tasks are using platform version `1.4.0` or later (Linux). This isn't supported for Windows containers on Fargate.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
@@ -1470,7 +1534,7 @@ export interface Volume {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html */
 
-export interface ECSTaskDefinition {
+export interface ECSTaskDefinition extends ResourceAttributes {
   Type: 'AWS::ECS::TaskDefinition'
   Properties: {
     /**

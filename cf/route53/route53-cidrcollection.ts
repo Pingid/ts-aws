@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the list of CIDR blocks for a CIDR location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html */
@@ -31,7 +33,7 @@ export interface Location {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html */
 
-export interface Route53CidrCollection {
+export interface Route53CidrCollection extends ResourceAttributes {
   Type: 'AWS::Route53::CidrCollection'
   Properties: {
     /**

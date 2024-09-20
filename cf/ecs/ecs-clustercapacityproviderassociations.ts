@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `CapacityProviderStrategy` property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html */
@@ -42,7 +44,7 @@ export interface CapacityProviderStrategy {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html */
 
-export interface ECSClusterCapacityProviderAssociations {
+export interface ECSClusterCapacityProviderAssociations extends ResourceAttributes {
   Type: 'AWS::ECS::ClusterCapacityProviderAssociations'
   Properties: {
     /**

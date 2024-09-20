@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html */
@@ -41,6 +43,9 @@ export interface LoggingConfig {
 
 /**
  * `Subscription` is an embedded property that describes the subscription endpoints of an Amazon SNS topic.
+ * ###### Note
+ *
+ * For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html */
 
@@ -93,10 +98,13 @@ export interface Tag {
 
 /**
  * The `AWS::SNS::Topic` resource creates a topic to which notifications can be published.
+ * ###### Note
+ *
+ * One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [Amazon SNS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the _AWS General Reference_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html */
 
-export interface SNSTopic {
+export interface SNSTopic extends ResourceAttributes {
   Type: 'AWS::SNS::Topic'
   Properties: {
     /**

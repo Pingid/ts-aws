@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.
  * An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html) operation to trigger reloading of data into your application.
  *
@@ -241,7 +243,7 @@ export interface ReferenceDataSource {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html */
 
-export interface KinesisAnalyticsApplicationReferenceDataSource {
+export interface KinesisAnalyticsApplicationReferenceDataSource extends ResourceAttributes {
   Type: 'AWS::KinesisAnalytics::ApplicationReferenceDataSource'
   Properties: {
     /**

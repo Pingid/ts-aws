@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A scoring strategy of the evaluation form.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html */
@@ -555,7 +557,7 @@ export interface EvaluationFormBaseItem {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html */
 
-export interface ConnectEvaluationForm {
+export interface ConnectEvaluationForm extends ResourceAttributes {
   Type: 'AWS::Connect::EvaluationForm'
   Properties: {
     /**

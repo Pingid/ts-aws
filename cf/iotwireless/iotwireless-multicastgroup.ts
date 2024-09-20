@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The LoRaWAN information that is to be used with the multicast group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-multicastgroup.html */
@@ -75,7 +77,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-multicastgroup.html */
 
-export interface IoTWirelessMulticastGroup {
+export interface IoTWirelessMulticastGroup extends ResourceAttributes {
   Type: 'AWS::IoTWireless::MulticastGroup'
   Properties: {
     /**

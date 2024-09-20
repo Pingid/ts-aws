@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html */
@@ -213,6 +215,11 @@ export interface OpenIdConnectConfiguration {
 
 /**
  * A structure that contains configuration information used when creating or updating a new identity source.
+ * ###### Note
+ *
+ * At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
+ *
+ * You must specify a `userPoolArn`, and optionally, a `ClientId`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html */
 
@@ -240,10 +247,17 @@ export interface IdentitySourceConfiguration {
  * If you are creating a new identity source, then you must specify a `Configuration`. If you are updating an existing identity source, then you must specify an `UpdateConfiguration`.
  * After you create an identity source, you can use the identities provided by the IdP as proxies for the principal in authorization queries that use the [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) operation. These identities take the form of tokens that contain claims about the user, such as IDs, attributes and group memberships. Amazon Cognito provides both identity tokens and access tokens, and Verified Permissions can use either or both. Any combination of identity and access tokens results in the same Cedar principal. Verified Permissions automatically translates the information about the identities into the standard Cedar attributes that can be evaluated by your policies. Because the Amazon Cognito identity and access tokens can contain different information, the tokens you choose to use determine the attributes that are available to access in the Cedar principal from your policies.
  * Amazon Cognito Identity is not available in all of the same AWS Regions as Amazon Verified Permissions. Because of this, the `AWS::VerifiedPermissions::IdentitySource` type is not available to create from AWS CloudFormation in Regions where Amazon Cognito Identity is not currently available. Users can still create `AWS::VerifiedPermissions::IdentitySource` in those Regions, but only from the AWS CLI, Amazon Verified Permissions SDK, or from the AWS console.
+ * ###### Note
+ *
+ * To reference a user from this identity source in your Cedar policies, use the following syntax.
+ *
+ * _IdentityType::"<CognitoUserPoolIdentifier>|<CognitoClientId>_
+ *
+ * Where `IdentityType` is the string that you provide to the `PrincipalEntityType` parameter for this operation. The `CognitoUserPoolId` and `CognitoClientId` are defined by the Amazon Cognito user pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html */
 
-export interface VerifiedPermissionsIdentitySource {
+export interface VerifiedPermissionsIdentitySource extends ResourceAttributes {
   Type: 'AWS::VerifiedPermissions::IdentitySource'
   Properties: {
     /**

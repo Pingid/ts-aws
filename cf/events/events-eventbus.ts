@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
  * For more information, see [Using dead-letter queues to process undelivered events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq) in the _EventBridge User Guide_.
  *
@@ -47,10 +49,13 @@ export interface Tag {
 
 /**
  * Specifies an event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
+ * ###### Note
+ *
+ * As an aid to help you jumpstart developing CloudFormation templates, the EventBridge console enables you to create templates from the existing event buses in your account. For more information, see [Generating CloudFormation templates from an EventBridge event bus](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-generate-event-bus-template.html) in the _Amazon EventBridge User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html */
 
-export interface EventsEventBus {
+export interface EventsEventBus extends ResourceAttributes {
   Type: 'AWS::Events::EventBus'
   Properties: {
     /**

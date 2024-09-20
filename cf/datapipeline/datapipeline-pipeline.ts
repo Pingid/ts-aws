@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A value or list of parameter values.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html */
@@ -192,10 +194,24 @@ export interface PipelineObject {
 
 /**
  * The AWS::DataPipeline::Pipeline resource specifies a data pipeline that you can use to automate the movement and transformation of data.
+ * ###### Important
+ *
+ * AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
+ * In each pipeline, you define pipeline objects, such as activities, schedules, data nodes, and resources.
+ * The `AWS::DataPipeline::Pipeline` resource adds tasks, schedules, and preconditions to the specified pipeline. You can use `PutPipelineDefinition` to populate a new pipeline.
+ * `PutPipelineDefinition` also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following validation errors exist in the pipeline.
+ * *   An object is missing a name or identifier field.
+ *
+ * *   A string or reference field is empty.
+ *
+ * *   The number of objects in the pipeline exceeds the allowed maximum number of objects.
+ *
+ * *   The pipeline is in a FINISHED state.
+ * Pipeline object definitions are passed to the [PutPipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html) action and returned by the [GetPipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html) action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html */
 
-export interface DataPipelinePipeline {
+export interface DataPipelinePipeline extends ResourceAttributes {
   Type: 'AWS::DataPipeline::Pipeline'
   Properties: {
     /**

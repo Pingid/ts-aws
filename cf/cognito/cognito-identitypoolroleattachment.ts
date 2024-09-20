@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines how to map a claim to a role ARN.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html */
@@ -102,7 +104,7 @@ export interface RoleMapping {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html */
 
-export interface CognitoIdentityPoolRoleAttachment {
+export interface CognitoIdentityPoolRoleAttachment extends ResourceAttributes {
   Type: 'AWS::Cognito::IdentityPoolRoleAttachment'
   Properties: {
     /**

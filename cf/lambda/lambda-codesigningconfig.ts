@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * List of signing profiles that can sign a code package.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html */
@@ -67,7 +69,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html */
 
-export interface LambdaCodeSigningConfig {
+export interface LambdaCodeSigningConfig extends ResourceAttributes {
   Type: 'AWS::Lambda::CodeSigningConfig'
   Properties: {
     /**

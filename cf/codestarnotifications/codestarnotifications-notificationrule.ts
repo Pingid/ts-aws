@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html */
@@ -30,7 +32,7 @@ export interface Target {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html */
 
-export interface CodeStarNotificationsNotificationRule {
+export interface CodeStarNotificationsNotificationRule extends ResourceAttributes {
   Type: 'AWS::CodeStarNotifications::NotificationRule'
   Properties: {
     /**

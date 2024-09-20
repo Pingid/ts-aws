@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The HTTP package configuration properties for the requested VOD source.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-livesource.html */
@@ -60,7 +62,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-livesource.html */
 
-export interface MediaTailorLiveSource {
+export interface MediaTailorLiveSource extends ResourceAttributes {
   Type: 'AWS::MediaTailor::LiveSource'
   Properties: {
     /**

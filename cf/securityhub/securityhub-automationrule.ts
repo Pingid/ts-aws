@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A string filter for filtering AWS Security Hub findings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html */
@@ -763,7 +765,7 @@ export interface AutomationRulesFindingFilters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html */
 
-export interface SecurityHubAutomationRule {
+export interface SecurityHubAutomationRule extends ResourceAttributes {
   Type: 'AWS::SecurityHub::AutomationRule'
   Properties: {
     /**

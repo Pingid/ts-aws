@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * In AWS CloudFormation, use the `PlacementTemplate` property type to define the template for an AWS IoT 1-Click project.
  * `PlacementTemplate` is a property of the `AWS::IoT1Click::Project` resource.
  *
@@ -28,7 +30,7 @@ export interface PlacementTemplate {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html */
 
-export interface IoT1ClickProject {
+export interface IoT1ClickProject extends ResourceAttributes {
   Type: 'AWS::IoT1Click::Project'
   Properties: {
     /**

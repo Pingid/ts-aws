@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the backend associated with an Amplify `Branch`.
  * This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
  *
@@ -115,7 +117,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html */
 
-export interface AmplifyBranch {
+export interface AmplifyBranch extends ResourceAttributes {
   Type: 'AWS::Amplify::Branch'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines where AWS Network Firewall sends logs for the firewall for one log type. This is used in [AWS::NetworkFirewall::LoggingConfiguration](./aws-resource-networkfirewall-loggingconfiguration.html). You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
  * Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT`.
  *
@@ -57,10 +59,16 @@ export interface LoggingConfiguration {
  * Use the AWS::NetworkFirewall::LoggingConfiguration to define the destinations and logging options for an [AWS::NetworkFirewall::Firewall](./aws-resource-networkfirewall-firewall.html).
  * You must change the logging configuration by changing one `LogDestinationConfig` setting at a time in your `LogDestinationConfigs`.
  * You can make only one of the following changes to your AWS::NetworkFirewall::LoggingConfiguration resource:
+ * *   Create a new log destination object by adding a single `LogDestinationConfig` array element to `LogDestinationConfigs`.
+ *
+ * *   Delete a log destination object by removing a single `LogDestinationConfig` array element from `LogDestinationConfigs`.
+ *
+ * *   Change the `LogDestination` setting in a single `LogDestinationConfig` array element.
+ * You can't change the `LogDestinationType` or `LogType` in a `LogDestinationConfig`. To change these settings, delete the existing `LogDestinationConfig` object and create a new one, in two separate modifications.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html */
 
-export interface NetworkFirewallLoggingConfiguration {
+export interface NetworkFirewallLoggingConfiguration extends ResourceAttributes {
   Type: 'AWS::NetworkFirewall::LoggingConfiguration'
   Properties: {
     /**

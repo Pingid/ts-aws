@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the association of an AWS resource such as Lex bot (both v1 and v2) and Lambda function with an Amazon Connect instance.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html */
 
-export interface ConnectIntegrationAssociation {
+export interface ConnectIntegrationAssociation extends ResourceAttributes {
   Type: 'AWS::Connect::IntegrationAssociation'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a version that the alias maps to.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html */
@@ -22,7 +24,7 @@ export interface FlowAliasRoutingConfigurationListItem {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html */
 
-export interface BedrockFlowAlias {
+export interface BedrockFlowAlias extends ResourceAttributes {
   Type: 'AWS::Bedrock::FlowAlias'
   Properties: {
     /**

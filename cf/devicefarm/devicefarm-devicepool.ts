@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents a condition for a device pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-devicepool.html */
@@ -66,7 +68,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-devicepool.html */
 
-export interface DeviceFarmDevicePool {
+export interface DeviceFarmDevicePool extends ResourceAttributes {
   Type: 'AWS::DeviceFarm::DevicePool'
   Properties: {
     /**

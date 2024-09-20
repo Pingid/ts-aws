@@ -1,5 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A user-defined key-value pair that describes metadata added to an AWS DMS resource and that is used by operations such as the following:
+ * *   `AddTagsToResource`
+ *
+ * *   `ListTagsForResource`
+ *
+ * *   `RemoveTagsFromResource`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html */
 
@@ -27,7 +34,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html */
 
-export interface DMSEventSubscription {
+export interface DMSEventSubscription extends ResourceAttributes {
   Type: 'AWS::DMS::EventSubscription'
   Properties: {
     /**

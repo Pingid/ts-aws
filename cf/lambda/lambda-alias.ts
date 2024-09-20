@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A provisioned concurrency configuration for a function's alias.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html */
@@ -60,7 +62,7 @@ export interface AliasRoutingConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html */
 
-export interface LambdaAlias {
+export interface LambdaAlias extends ResourceAttributes {
   Type: 'AWS::Lambda::Alias'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents an object that contains entries and targets for `HomeDirectoryMappings`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html */
@@ -91,7 +93,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html */
 
-export interface TransferUser {
+export interface TransferUser extends ResourceAttributes {
   Type: 'AWS::Transfer::User'
   Properties: {
     /**

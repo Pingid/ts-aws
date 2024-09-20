@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A _channel_ is a type of platform that you can deliver messages to. You can use the APNs sandbox channel to send push notification messages to the sandbox environment of the Apple Push Notification service (APNs). Before you can use Amazon Pinpoint to send notifications to the APNs sandbox environment, you have to enable the APNs sandbox channel for an Amazon Pinpoint application.
  * The APNSSandboxChannel resource represents the status and authentication settings of the APNs sandbox channel for an application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnssandboxchannel.html */
 
-export interface PinpointAPNSSandboxChannel {
+export interface PinpointAPNSSandboxChannel extends ResourceAttributes {
   Type: 'AWS::Pinpoint::APNSSandboxChannel'
   Properties: {
     /**

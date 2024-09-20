@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A CIDR provisioned to an IPAM pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html */
 
-export interface EC2IPAMPoolCidr {
+export interface EC2IPAMPoolCidr extends ResourceAttributes {
   Type: 'AWS::EC2::IPAMPoolCidr'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains a summary of a gateway capability configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html */
@@ -131,7 +133,7 @@ export interface GatewayPlatform {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html */
 
-export interface IoTSiteWiseGateway {
+export interface IoTSiteWiseGateway extends ResourceAttributes {
   Type: 'AWS::IoTSiteWise::Gateway'
   Properties: {
     /**

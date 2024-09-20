@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The AWS Lake Formation principal.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html */
@@ -417,7 +419,7 @@ export interface Resource {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html */
 
-export interface LakeFormationPrincipalPermissions {
+export interface LakeFormationPrincipalPermissions extends ResourceAttributes {
   Type: 'AWS::LakeFormation::PrincipalPermissions'
   Properties: {
     /**

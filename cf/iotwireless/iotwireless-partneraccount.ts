@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a Sidewalk account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html */
@@ -105,7 +107,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html */
 
-export interface IoTWirelessPartnerAccount {
+export interface IoTWirelessPartnerAccount extends ResourceAttributes {
   Type: 'AWS::IoTWireless::PartnerAccount'
   Properties: {
     /**

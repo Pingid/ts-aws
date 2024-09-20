@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The structure containing configurations related to insights.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html */
@@ -25,6 +27,11 @@ export interface InsightsConfiguration {
 /**
  * A map that contains tag keys and tag values to attach to an AWS X-Ray group or sampling rule. For more information about ways to use tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the _AWS General Reference_.
  * The following restrictions apply to tags:
+ * *   Maximum number of user-applied tags per resource: 50
+ *
+ * *   Tag keys and values are case sensitive.
+ *
+ * *   Don't use `aws:` as a prefix for keys; it's reserved for AWS use. You cannot edit or delete system tags.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html */
 
@@ -56,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html */
 
-export interface XRayGroup {
+export interface XRayGroup extends ResourceAttributes {
   Type: 'AWS::XRay::Group'
   Properties: {
     /**

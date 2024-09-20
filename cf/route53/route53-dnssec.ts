@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Route53::DNSSEC` resource is used to enable DNSSEC signing in a hosted zone.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html */
 
-export interface Route53DNSSEC {
+export interface Route53DNSSEC extends ResourceAttributes {
   Type: 'AWS::Route53::DNSSEC'
   Properties: {
     /**

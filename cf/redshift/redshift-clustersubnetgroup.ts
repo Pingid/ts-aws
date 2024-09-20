@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag consisting of a name/value pair for a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html */
@@ -32,7 +34,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html */
 
-export interface RedshiftClusterSubnetGroup {
+export interface RedshiftClusterSubnetGroup extends ResourceAttributes {
   Type: 'AWS::Redshift::ClusterSubnetGroup'
   Properties: {
     /**

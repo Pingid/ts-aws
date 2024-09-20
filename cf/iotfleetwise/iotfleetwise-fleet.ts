@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key/value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-fleet.html */
@@ -28,10 +30,14 @@ export interface Tag {
 
 /**
  * Creates a fleet that represents a group of vehicles.
+ * ###### Note
+ *
+ * You must create both a signal catalog and vehicles before you can create a fleet.
+ * For more information, see [Fleets](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html) in the _AWS IoT FleetWise Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-fleet.html */
 
-export interface IoTFleetWiseFleet {
+export interface IoTFleetWiseFleet extends ResourceAttributes {
   Type: 'AWS::IoTFleetWise::Fleet'
   Properties: {
     /**

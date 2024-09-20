@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html */
@@ -27,7 +29,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html */
 
-export interface NeptuneDBSubnetGroup {
+export interface NeptuneDBSubnetGroup extends ResourceAttributes {
   Type: 'AWS::Neptune::DBSubnetGroup'
   Properties: {
     /**

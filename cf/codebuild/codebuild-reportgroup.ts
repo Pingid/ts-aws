@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag, consisting of a key and a value.
  * This tag is available for use by AWS services that support tags in AWS CodeBuild.
  *
@@ -118,7 +120,7 @@ export interface ReportExportConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html */
 
-export interface CodeBuildReportGroup {
+export interface CodeBuildReportGroup extends ResourceAttributes {
   Type: 'AWS::CodeBuild::ReportGroup'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Sidewalk-related information about a wireless device import task.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html */
@@ -75,7 +77,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html */
 
-export interface IoTWirelessWirelessDeviceImportTask {
+export interface IoTWirelessWirelessDeviceImportTask extends ResourceAttributes {
   Type: 'AWS::IoTWireless::WirelessDeviceImportTask'
   Properties: {
     /**

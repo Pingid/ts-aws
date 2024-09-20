@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The day that you want yout dataset to refresh.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html */
@@ -121,7 +123,7 @@ export interface RefreshScheduleMap {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html */
 
-export interface QuickSightRefreshSchedule {
+export interface QuickSightRefreshSchedule extends ResourceAttributes {
   Type: 'AWS::QuickSight::RefreshSchedule'
   Properties: {
     /**

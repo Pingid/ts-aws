@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Runtime settings for a model that is deployed with an inference component.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html */
@@ -265,7 +267,7 @@ export interface InferenceComponentSpecification {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html */
 
-export interface SageMakerInferenceComponent {
+export interface SageMakerInferenceComponent extends ResourceAttributes {
   Type: 'AWS::SageMaker::InferenceComponent'
   Properties: {
     /**

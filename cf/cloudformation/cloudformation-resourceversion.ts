@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Logging configuration information for a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html */
@@ -29,10 +31,17 @@ export interface LoggingConfig {
 
 /**
  * Registers a resource version with the CloudFormation service. Registering a resource version makes it available for use in CloudFormation templates in your AWS account, and includes:
+ * *   Validating the resource schema.
+ *
+ * *   Determining which handlers, if any, have been specified for the resource.
+ *
+ * *   Making the resource available for use in your account.
+ * For more information on how to develop resources and ready them for registration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html) in the _CloudFormation CLI User Guide_.
+ * You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per Region.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html */
 
-export interface CloudFormationResourceVersion {
+export interface CloudFormationResourceVersion extends ResourceAttributes {
   Type: 'AWS::CloudFormation::ResourceVersion'
   Properties: {
     /**

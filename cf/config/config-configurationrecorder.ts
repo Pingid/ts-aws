@@ -1,6 +1,35 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies whether the configuration recorder excludes certain resource types from being recorded. Use the `ResourceTypes` field to enter a comma-separated list of resource types you want to exclude from recording.
  * By default, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+ * ###### Note
+ *
+ * **How to use the exclusion recording strategy**
+ *
+ * To use this option, you must set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `EXCLUSION_BY_RESOURCE_TYPES`.
+ *
+ * AWS Config will then record configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded.
+ *
+ * **Global resource types and the exclusion recording strategy**
+ *
+ * Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+ *
+ * IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+ *
+ * *   Asia Pacific (Hyderabad)
+ *
+ * *   Asia Pacific (Melbourne)
+ *
+ * *   Canada West (Calgary)
+ *
+ * *   Europe (Spain)
+ *
+ * *   Europe (Zurich)
+ *
+ * *   Israel (Tel Aviv)
+ *
+ * *   Middle East (UAE)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html */
 
@@ -71,6 +100,17 @@ export interface RecordingModeOverride {
  * Specifies which resource types AWS Config records for configuration changes. By default, AWS Config records configuration changes for all current and future supported resource types in the AWS Region where you have enabled AWS Config, excluding the global IAM resource types: IAM users, groups, roles, and customer managed policies.
  * In the recording group, you specify whether you want to record all supported current and future supported resource types or to include or exclude specific resources types. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the _AWS Config developer guide_.
  * If you don't want AWS Config to record all current and future supported resource types (excluding the global IAM resource types), use one of the following recording strategies:
+ * 1.  **Record all current and future resource types with exclusions** (`EXCLUSION_BY_RESOURCE_TYPES`), or
+ *
+ * 2.  **Record specific resource types** (`INCLUSION_BY_RESOURCE_TYPES`).
+ * If you use the recording strategy to **Record all current and future resource types** (`ALL_SUPPORTED_RESOURCE_TYPES`), you can use the flag `IncludeGlobalResourceTypes` to include the global IAM resource types in your recording.
+ * ###### Important
+ *
+ * **Aurora global clusters are recorded in all enabled Regions**
+ *
+ * The `AWS::RDS::GlobalCluster` resource type will be recorded in all supported AWS Config Regions where the configuration recorder is enabled.
+ *
+ * If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use the `EXCLUSION_BY_RESOURCE_TYPES` or `INCLUSION_BY_RESOURCE_TYPES` recording strategy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html */
 
@@ -123,6 +163,13 @@ export interface RecordingGroup {
 
 /**
  * Specifies the default recording frequency that AWS Config uses to record configuration changes. AWS Config supports _Continuous recording_ and _Daily recording_.
+ * *   Continuous recording allows you to record configuration changes continuously whenever a change occurs.
+ *
+ * *   Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+ * ###### Note
+ *
+ * AWS Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.
+ * You can also override the recording frequency for specific resource types.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html */
 
@@ -151,10 +198,18 @@ export interface RecordingMode {
 /**
  * The `AWS::Config::ConfigurationRecorder` resource type describes the AWS resource types that AWS Config records for configuration changes.
  * The configuration recorder stores the configuration changes of the specified resources in your account as configuration items.
+ * ###### Note
+ *
+ * To enable AWS Config, you must create a configuration recorder and a delivery channel.
+ *
+ * AWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html).
+ * AWS CloudFormation starts the recorder as soon as the delivery channel is available.
+ * To stop the recorder and delete it, delete the configuration recorder from your stack. To stop the recorder without deleting it, call the [StopConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html) action of the AWS Config API directly.
+ * For more information, see [Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-recorder) in the AWS Config Developer Guide.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html */
 
-export interface ConfigConfigurationRecorder {
+export interface ConfigConfigurationRecorder extends ResourceAttributes {
   Type: 'AWS::Config::ConfigurationRecorder'
   Properties: {
     /**

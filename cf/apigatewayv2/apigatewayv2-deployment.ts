@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGatewayV2::Deployment` resource creates a deployment for an API.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html */
 
-export interface ApiGatewayV2Deployment {
+export interface ApiGatewayV2Deployment extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::Deployment'
   Properties: {
     /**

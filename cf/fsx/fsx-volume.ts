@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a key-value pair for a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html */
@@ -53,6 +55,10 @@ export interface AggregateConfiguration {
 /**
  * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
  * Valid tiering policies are the following:
+ * *   `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+ * *   `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+ * *   `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+ * *   `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html */
 
@@ -581,7 +587,7 @@ export interface OntapConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html */
 
-export interface FSxVolume {
+export interface FSxVolume extends ResourceAttributes {
   Type: 'AWS::FSx::Volume'
   Properties: {
     /**

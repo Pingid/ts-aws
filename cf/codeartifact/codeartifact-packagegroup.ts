@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag is a key-value pair that can be used to manage, search for, or filter resources in AWS CodeArtifact.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html */
@@ -104,7 +106,7 @@ export interface OriginConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html */
 
-export interface CodeArtifactPackageGroup {
+export interface CodeArtifactPackageGroup extends ResourceAttributes {
   Type: 'AWS::CodeArtifact::PackageGroup'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the configuration parameters of a MediaPackage V2 channel policy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html */
 
-export interface MediaPackageV2ChannelPolicy {
+export interface MediaPackageV2ChannelPolicy extends ResourceAttributes {
   Type: 'AWS::MediaPackageV2::ChannelPolicy'
   Properties: {
     /**

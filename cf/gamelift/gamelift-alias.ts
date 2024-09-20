@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The routing configuration for a fleet alias.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html */
@@ -38,7 +40,7 @@ export interface RoutingStrategy {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html */
 
-export interface GameLiftAlias {
+export interface GameLiftAlias extends ResourceAttributes {
   Type: 'AWS::GameLift::Alias'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html */
@@ -2583,7 +2585,7 @@ export interface ExtendedS3DestinationConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html */
 
-export interface KinesisFirehoseDeliveryStream {
+export interface KinesisFirehoseDeliveryStream extends ResourceAttributes {
   Type: 'AWS::KinesisFirehose::DeliveryStream'
   Properties: {
     /**

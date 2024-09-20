@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html */
@@ -212,7 +214,7 @@ export interface BackupPlanResourceType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html */
 
-export interface BackupBackupPlan {
+export interface BackupBackupPlan extends ResourceAttributes {
   Type: 'AWS::Backup::BackupPlan'
   Properties: {
     /**

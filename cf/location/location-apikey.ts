@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * API Restrictions on the allowed actions, resources, and referers for an API key resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html */
@@ -74,7 +76,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html */
 
-export interface LocationAPIKey {
+export interface LocationAPIKey extends ResourceAttributes {
   Type: 'AWS::Location::APIKey'
   Properties: {
     /**

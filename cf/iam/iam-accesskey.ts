@@ -1,10 +1,15 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is `Active`.
  * For information about quotas on the number of keys you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the _IAM User Guide_.
+ * ###### Important
+ *
+ * To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can rotate access keys by increasing the value of the `serial` property.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html */
 
-export interface IAMAccessKey {
+export interface IAMAccessKey extends ResourceAttributes {
   Type: 'AWS::IAM::AccessKey'
   Properties: {
     /**

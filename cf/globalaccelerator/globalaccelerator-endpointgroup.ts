@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type for endpoints. A resource must be valid and active when you add it as an endpoint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html */
@@ -79,7 +81,7 @@ export interface PortOverride {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html */
 
-export interface GlobalAcceleratorEndpointGroup {
+export interface GlobalAcceleratorEndpointGroup extends ResourceAttributes {
   Type: 'AWS::GlobalAccelerator::EndpointGroup'
   Properties: {
     /**

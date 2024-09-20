@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * One tag that you want to add to the specified resource. A tag consists of a `Key` (a name for the tag) and a `Value`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html */
@@ -80,7 +82,7 @@ export interface TargetAddress {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html */
 
-export interface Route53ResolverResolverRule {
+export interface Route53ResolverResolverRule extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverRule'
   Properties: {
     /**

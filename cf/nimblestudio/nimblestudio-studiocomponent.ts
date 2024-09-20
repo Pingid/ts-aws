@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Initialization scripts for studio components.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html */
@@ -277,7 +279,7 @@ export interface StudioComponentConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html */
 
-export interface NimbleStudioStudioComponent {
+export interface NimbleStudioStudioComponent extends ResourceAttributes {
   Type: 'AWS::NimbleStudio::StudioComponent'
   Properties: {
     /**

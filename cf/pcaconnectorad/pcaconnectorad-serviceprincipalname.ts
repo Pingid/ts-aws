@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a service principal name (SPN) for the service account in Active Directory. Kerberos authentication uses SPNs to associate a service instance with a service sign-in account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-serviceprincipalname.html */
 
-export interface PCAConnectorADServicePrincipalName {
+export interface PCAConnectorADServicePrincipalName extends ResourceAttributes {
   Type: 'AWS::PCAConnectorAD::ServicePrincipalName'
   Properties: {
     /**

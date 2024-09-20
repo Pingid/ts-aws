@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a rendering engine.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html */
@@ -117,7 +119,7 @@ export interface SourceConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html */
 
-export interface RoboMakerSimulationApplication {
+export interface RoboMakerSimulationApplication extends ResourceAttributes {
   Type: 'AWS::RoboMaker::SimulationApplication'
   Properties: {
     /**

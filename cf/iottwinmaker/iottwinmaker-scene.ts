@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Use the `AWS::IoTTwinMaker::Scene` resource to declare a scene.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html */
 
-export interface IoTTwinMakerScene {
+export interface IoTTwinMakerScene extends ResourceAttributes {
   Type: 'AWS::IoTTwinMaker::Scene'
   Properties: {
     /**

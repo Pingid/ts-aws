@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A structure that defines a static policy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html */
@@ -60,6 +62,9 @@ export interface EntityIdentifier {
 
 /**
  * A structure that describes a policy created by instantiating a policy template.
+ * ###### Note
+ *
+ * You can't directly update a template-linked policy. You must update the associated policy template instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html */
 
@@ -121,10 +126,36 @@ export interface PolicyDefinition {
 /**
  * Creates or updates a Cedar policy and saves it in the specified policy store. You can create either a static policy or a policy linked to a policy template.
  * You can directly update only static policies. To update a template-linked policy, you must update its linked policy template instead.
+ * *   To create a static policy, in the `Definition` include a `Static` element that includes the Cedar policy text in the `Statement` element.
+ *
+ * *   To create a policy that is dynamically linked to a policy template, in the `Definition` include a `Templatelinked` element that specifies the policy template ID and the principal and resource to associate with this policy. If the policy template is ever updated, any policies linked to the policy template automatically use the updated template.
+ * ###### Note
+ *
+ * *   If policy validation is enabled in the policy store, then updating a static policy causes Verified Permissions to validate the policy against the schema in the policy store. If the updated static policy doesn't pass validation, the operation fails and the update isn't stored.
+ *
+ * *   When you edit a static policy, You can change only certain elements of a static policy:
+ *
+ *     *   The action referenced by the policy.
+ *
+ *     *   A condition clause, such as when and unless.
+ *
+ *
+ *     You can't change these elements of a static policy:
+ *
+ *     *   Changing a policy from a static policy to a template-linked policy.
+ *
+ *     *   Changing the effect of a static policy from permit or forbid.
+ *
+ *     *   The principal referenced by a static policy.
+ *
+ *     *   The resource referenced by a static policy.
+ *
+ *
+ * *   To update a template-linked policy, you must update the template instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html */
 
-export interface VerifiedPermissionsPolicy {
+export interface VerifiedPermissionsPolicy extends ResourceAttributes {
   Type: 'AWS::VerifiedPermissions::Policy'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The LoRaWAN information used with a FUOTA task.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html */
@@ -58,7 +60,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html */
 
-export interface IoTWirelessFuotaTask {
+export interface IoTWirelessFuotaTask extends ResourceAttributes {
   Type: 'AWS::IoTWireless::FuotaTask'
   Properties: {
     /**

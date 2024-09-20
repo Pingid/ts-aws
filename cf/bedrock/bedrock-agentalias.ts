@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains details about the routing configuration of the alias.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agentalias.html */
@@ -19,10 +21,13 @@ export interface AgentAliasRoutingConfigurationListItem {
 
 /**
  * Specifies an agent alias as a resource in a top-level template. Minimally, you must specify the following properties:
+ * *   AgentAliasName – Specify a name for the alias.
+ * For more information about creating aliases for an agent in Amazon Bedrock, see [Deploy an Amazon Bedrock agent](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-deploy.html).
+ * See the **Properties** section below for descriptions of both the required and optional properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agentalias.html */
 
-export interface BedrockAgentAlias {
+export interface BedrockAgentAlias extends ResourceAttributes {
   Type: 'AWS::Bedrock::AgentAlias'
   Properties: {
     /**

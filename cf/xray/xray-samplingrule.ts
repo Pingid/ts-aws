@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html */
@@ -131,6 +133,11 @@ export interface SamplingRule {
 /**
  * A map that contains tag keys and tag values to attach to an AWS X-Ray group or sampling rule. For more information about ways to use tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the _AWS General Reference_.
  * The following restrictions apply to tags:
+ * *   Maximum number of user-applied tags per resource: 50
+ *
+ * *   Tag keys and values are case sensitive.
+ *
+ * *   Don't use `aws:` as a prefix for keys; it's reserved for AWS use. You cannot edit or delete system tags.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html */
 
@@ -159,10 +166,14 @@ export interface Tag {
 
 /**
  * Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. Include a `SamplingRule` entity to create or update a sampling rule.
+ * ###### Note
+ *
+ * `SamplingRule.Version` can only be set when creating a sampling rule. Updating the version will cause the update to fail.
+ * Services retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of _priority_ for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html */
 
-export interface XRaySamplingRule {
+export interface XRaySamplingRule extends ResourceAttributes {
   Type: 'AWS::XRay::SamplingRule'
   Properties: {
     /**

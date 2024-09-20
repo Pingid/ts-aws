@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object containing `InputSourceARN`, `SchemaName`, and `Type`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html */
@@ -255,7 +257,7 @@ export interface IdMappingTechniques {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html */
 
-export interface EntityResolutionIdMappingWorkflow {
+export interface EntityResolutionIdMappingWorkflow extends ResourceAttributes {
   Type: 'AWS::EntityResolution::IdMappingWorkflow'
   Properties: {
     /**

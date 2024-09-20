@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * This structure contains a metric namespace and optionally, a list of metric names, to either include in a metric ' stream or exclude from a metric stream.
  * A metric stream's filters can include up to 1000 total names. This limit applies to the sum of namespace names and metric names in the filters. For example, this could include 10 metric namespace filters with 99 metrics each, or 20 namespace filters with 49 metrics specified in each filter.
  *
@@ -117,10 +119,17 @@ export interface MetricStreamStatisticsConfiguration {
  * Creates or updates a metric stream. Metrics streams can automatically stream CloudWatch metrics to AWS destinations including Amazon S3 and to many third-party solutions. For more information, see [Metric streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html).
  * To create a metric stream, you must be logged on to an account that has the `iam:PassRole` permission and either the **CloudWatchFullAccess** policy or the `cloudwatch:PutMetricStream` permission.
  * When you create or update a metric stream, you choose one of the following:
+ * *   Stream metrics from all metric namespaces in the account.
+ *
+ * *   Stream metrics from all metric namespaces in the account, except for the namespaces that you list in `ExcludeFilters`.
+ *
+ * *   Stream metrics from only the metric namespaces that you list in `IncludeFilters`.
+ * When you create a metric stream, the stream is created in the `running` state. If you update an existing metric stream, the state does not change.
+ * If you create a metric stream in an account that has been set up as a monitoring account in CloudWatch cross-account observability, you can choose whether to include metrics from linked source accounts in the metric stream.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html */
 
-export interface CloudWatchMetricStream {
+export interface CloudWatchMetricStream extends ResourceAttributes {
   Type: 'AWS::CloudWatch::MetricStream'
   Properties: {
     /**

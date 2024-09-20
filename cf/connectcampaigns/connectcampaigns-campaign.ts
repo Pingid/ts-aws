@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::ConnectCampaigns::Campaign](./aws-resource-connectcampaigns-campaign.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html */
@@ -207,7 +209,7 @@ export interface OutboundCallConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html */
 
-export interface ConnectCampaignsCampaign {
+export interface ConnectCampaignsCampaign extends ResourceAttributes {
   Type: 'AWS::ConnectCampaigns::Campaign'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates a virtual private gateway or internet gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html */
 
-export interface EC2GatewayRouteTableAssociation {
+export interface EC2GatewayRouteTableAssociation extends ResourceAttributes {
   Type: 'AWS::EC2::GatewayRouteTableAssociation'
   Properties: {
     /**

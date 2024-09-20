@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key/value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html */
@@ -512,10 +514,17 @@ export interface SignalDecodersItems {
 
 /**
  * Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:
+ * *   Every signal decoder has a unique name.
+ *
+ * *   Each signal decoder is associated with a network interface.
+ *
+ * *   Each network interface has a unique ID.
+ *
+ * *   The signal decoders are specified in the model manifest.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html */
 
-export interface IoTFleetWiseDecoderManifest {
+export interface IoTFleetWiseDecoderManifest extends ResourceAttributes {
   Type: 'AWS::IoTFleetWise::DecoderManifest'
   Properties: {
     /**

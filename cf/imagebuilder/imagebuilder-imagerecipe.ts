@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains settings for the Systems Manager agent on your build instance.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html */
@@ -230,7 +232,7 @@ export interface ComponentConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html */
 
-export interface ImageBuilderImageRecipe {
+export interface ImageBuilderImageRecipe extends ResourceAttributes {
   Type: 'AWS::ImageBuilder::ImageRecipe'
   Properties: {
     /**

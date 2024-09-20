@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Registers a package version.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html */
 
-export interface PanoramaPackageVersion {
+export interface PanoramaPackageVersion extends ResourceAttributes {
   Type: 'AWS::Panorama::PackageVersion'
   Properties: {
     /**

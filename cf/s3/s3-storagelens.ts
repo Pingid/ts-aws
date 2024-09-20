@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A container of a key value name pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html */
@@ -571,7 +573,7 @@ export interface StorageLensConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html */
 
-export interface S3StorageLens {
+export interface S3StorageLens extends ResourceAttributes {
   Type: 'AWS::S3::StorageLens'
   Properties: {
     /**

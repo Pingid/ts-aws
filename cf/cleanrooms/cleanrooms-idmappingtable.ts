@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Provides the input reference configuration for the ID mapping table.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-idmappingtable.html */
@@ -58,7 +60,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-idmappingtable.html */
 
-export interface CleanRoomsIdMappingTable {
+export interface CleanRoomsIdMappingTable extends ResourceAttributes {
   Type: 'AWS::CleanRooms::IdMappingTable'
   Properties: {
     /**

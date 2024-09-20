@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A structure containing the alert target ARN and the role ARN.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html */
@@ -375,7 +377,7 @@ export interface Behavior {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html */
 
-export interface IoTSecurityProfile {
+export interface IoTSecurityProfile extends ResourceAttributes {
   Type: 'AWS::IoT::SecurityProfile'
   Properties: {
     /**

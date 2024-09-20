@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Detective::OrganizationAdmin` resource is an Amazon Detective resource type that designates the Detective administrator account for the organization in the current region. If the account does not have Detective enabled, then this resource enables Detective for that account and creates a new behavior graph.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html */
 
-export interface DetectiveOrganizationAdmin {
+export interface DetectiveOrganizationAdmin extends ResourceAttributes {
   Type: 'AWS::Detective::OrganizationAdmin'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A label that you can assign to a Amazon GameLift resource.
  * **Learn more**
  * [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the _AWS General Reference_
@@ -36,7 +38,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-location.html */
 
-export interface GameLiftLocation {
+export interface GameLiftLocation extends ResourceAttributes {
   Type: 'AWS::GameLift::Location'
   Properties: {
     /**

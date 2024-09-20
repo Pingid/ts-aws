@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::IVS::AutoParticipantRecordingConfiguration` property type describes a configuration for individual participant recording.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html */
@@ -61,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html */
 
-export interface IVSStage {
+export interface IVSStage extends ResourceAttributes {
   Type: 'AWS::IVS::Stage'
   Properties: {
     /**

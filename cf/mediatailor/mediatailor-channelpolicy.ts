@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an IAM policy for the channel. IAM policies are used to control access to your channel.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channelpolicy.html */
 
-export interface MediaTailorChannelPolicy {
+export interface MediaTailorChannelPolicy extends ResourceAttributes {
   Type: 'AWS::MediaTailor::ChannelPolicy'
   Properties: {
     /**

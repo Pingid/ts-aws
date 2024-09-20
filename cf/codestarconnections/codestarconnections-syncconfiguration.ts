@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information, such as repository, branch, provider, and resource names for a specific sync configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html */
 
-export interface CodeStarConnectionsSyncConfiguration {
+export interface CodeStarConnectionsSyncConfiguration extends ResourceAttributes {
   Type: 'AWS::CodeStarConnections::SyncConfiguration'
   Properties: {
     /**

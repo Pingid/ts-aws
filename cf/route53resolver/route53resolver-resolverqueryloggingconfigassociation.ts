@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation resource is a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html */
 
-export interface Route53ResolverResolverQueryLoggingConfigAssociation {
+export interface Route53ResolverResolverQueryLoggingConfigAssociation extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html */
@@ -56,10 +58,26 @@ export interface Validators {
 
 /**
  * The `AWS::AppConfig::ConfigurationProfile` resource creates a configuration profile that enables AWS AppConfig to access the configuration source. Valid configuration sources include AWS Systems Manager (SSM) documents, SSM Parameter Store parameters, and Amazon S3. A configuration profile includes the following information.
+ * *   The Uri location of the configuration data.
+ *
+ * *   The AWS Identity and Access Management (IAM) role that provides access to the configuration data.
+ *
+ * *   A validator for the configuration data. Available validators include either a JSON Schema or the Amazon Resource Name (ARN) of an AWS Lambda function.
+ * AWS AppConfig requires that you create resources and deploy a configuration in the following order:
+ * 1.  Create an application
+ *
+ * 2.  Create an environment
+ *
+ * 3.  Create a configuration profile
+ *
+ * 4.  Choose a pre-defined deployment strategy or create your own
+ *
+ * 5.  Deploy the configuration
+ * For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the _AWS AppConfig User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html */
 
-export interface AppConfigConfigurationProfile {
+export interface AppConfigConfigurationProfile extends ResourceAttributes {
   Type: 'AWS::AppConfig::ConfigurationProfile'
   Properties: {
     /**

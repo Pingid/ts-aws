@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a provisioning artifact (also known as a version) for a product.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html */
@@ -176,7 +178,7 @@ export interface SourceConnection {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html */
 
-export interface ServiceCatalogCloudFormationProduct {
+export interface ServiceCatalogCloudFormationProduct extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::CloudFormationProduct'
   Properties: {
     /**

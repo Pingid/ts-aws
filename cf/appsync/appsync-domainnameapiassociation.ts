@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::AppSync::DomainNameApiAssociation` resource represents the mapping of your custom domain name to the assigned API URL.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html */
 
-export interface AppSyncDomainNameApiAssociation {
+export interface AppSyncDomainNameApiAssociation extends ResourceAttributes {
   Type: 'AWS::AppSync::DomainNameApiAssociation'
   Properties: {
     /**

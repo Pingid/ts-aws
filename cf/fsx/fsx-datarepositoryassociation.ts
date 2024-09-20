@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a key-value pair for a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html */
@@ -96,7 +98,7 @@ export interface S3 {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html */
 
-export interface FSxDataRepositoryAssociation {
+export interface FSxDataRepositoryAssociation extends ResourceAttributes {
   Type: 'AWS::FSx::DataRepositoryAssociation'
   Properties: {
     /**

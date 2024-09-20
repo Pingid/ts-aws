@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::MSK::BatchScramSecret` resource Property description not available. for MSK.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html */
 
-export interface MSKBatchScramSecret {
+export interface MSKBatchScramSecret extends ResourceAttributes {
   Type: 'AWS::MSK::BatchScramSecret'
   Properties: {
     /**

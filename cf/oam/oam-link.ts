@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
  * When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
  *
@@ -54,7 +56,7 @@ export interface LinkConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html */
 
-export interface OamLink {
+export interface OamLink extends ResourceAttributes {
   Type: 'AWS::Oam::Link'
   Properties: {
     /**

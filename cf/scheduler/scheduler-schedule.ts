@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html */
@@ -568,7 +570,7 @@ export interface Target {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html */
 
-export interface SchedulerSchedule {
+export interface SchedulerSchedule extends ResourceAttributes {
   Type: 'AWS::Scheduler::Schedule'
   Properties: {
     /**

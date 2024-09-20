@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair that you can use to categorize and manage Amazon IVS Channels.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html */
@@ -28,10 +30,13 @@ export interface Tag {
 
 /**
  * The `AWS::IVS::Channel` resource specifies an Amazon IVS channel. A channel stores configuration information related to your live stream. For more information, see [CreateChannel](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_CreateChannel.html) in the _Amazon IVS Low-Latency Streaming API Reference_.
+ * ###### Note
+ *
+ * By default, the IVS API CreateChannel endpoint creates a stream key in addition to a channel. The Amazon IVS Channel resource _does not_ create a stream key; to create a stream key, use the StreamKey resource instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html */
 
-export interface IVSChannel {
+export interface IVSChannel extends ResourceAttributes {
   Type: 'AWS::IVS::Channel'
   Properties: {
     /**

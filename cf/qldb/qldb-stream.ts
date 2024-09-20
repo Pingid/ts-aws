@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html */
@@ -58,7 +60,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html */
 
-export interface QLDBStream {
+export interface QLDBStream extends ResourceAttributes {
   Type: 'AWS::QLDB::Stream'
   Properties: {
     /**

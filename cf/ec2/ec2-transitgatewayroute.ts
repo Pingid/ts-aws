@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a static route for a transit gateway route table.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html */
 
-export interface EC2TransitGatewayRoute {
+export interface EC2TransitGatewayRoute extends ResourceAttributes {
   Type: 'AWS::EC2::TransitGatewayRoute'
   Properties: {
     /**

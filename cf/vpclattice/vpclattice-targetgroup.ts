@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag for a target group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html */
@@ -254,7 +256,7 @@ export interface TargetGroupConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html */
 
-export interface VpcLatticeTargetGroup {
+export interface VpcLatticeTargetGroup extends ResourceAttributes {
   Type: 'AWS::VpcLattice::TargetGroup'
   Properties: {
     /**

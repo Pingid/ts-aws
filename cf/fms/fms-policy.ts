@@ -1,7 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in or exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
  * This is used for the policy's `IncludeMap` and `ExcludeMap`.
  * You can specify account IDs, OUs, or a combination:
+ * *   Specify account IDs by setting the key to `ACCOUNT`. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”]}`.
+ *
+ * *   Specify OUs by setting the key to `ORGUNIT`. For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}`.
+ *
+ * *   Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html */
 
@@ -374,10 +381,27 @@ export interface SecurityServicePolicyData {
  * If you add a new account to an organization that you created with AWS Organizations, Firewall Manager automatically applies the policy to the resources in that account that are within scope of the policy.
  * Policies require some setup to use. For more information, see the sections on prerequisites and getting started under [Firewall Manager prerequisites](https://docs.aws.amazon.com/waf/latest/developerguide/fms-prereq.html).
  * Firewall Manager provides the following types of policies:
+ * *   **AWS WAF policy** - This policy applies AWS WAF web ACL protections to specified accounts and resources.
+ *
+ * *   **Shield Advanced policy** - This policy applies Shield Advanced protection to specified accounts and resources.
+ *
+ * *   **Security Groups policy** - This type of policy gives you control over security groups that are in use throughout your organization in AWS Organizations and lets you enforce a baseline set of rules across your organization.
+ *
+ * *   **Network ACL policy** - This type of policy gives you control over the network ACLs that are in use throughout your organization in AWS Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization.
+ *
+ * *   **Network Firewall policy** - This policy applies Network Firewall protection to your organization's VPCs.
+ *
+ * *   **DNS Firewall policy** - This policy applies Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
+ *
+ * *   **Third-party firewall policy** - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the AWS Marketplace console at [AWS Marketplace](https://aws.amazon.com/marketplace).
+ *
+ *     *   **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
+ *
+ *     *   **Fortigate CNF policy** - This policy applies Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html */
 
-export interface FMSPolicy {
+export interface FMSPolicy extends ResourceAttributes {
   Type: 'AWS::FMS::Policy'
   Properties: {
     /**

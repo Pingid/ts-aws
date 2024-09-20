@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the load balancer options when creating an AWS Verified Access endpoint using the `load-balancer` type.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html */
@@ -134,7 +136,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html */
 
-export interface EC2VerifiedAccessEndpoint {
+export interface EC2VerifiedAccessEndpoint extends ResourceAttributes {
   Type: 'AWS::EC2::VerifiedAccessEndpoint'
   Properties: {
     /**

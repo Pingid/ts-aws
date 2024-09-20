@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration for a hosted UI custom domain.
  * This data type is a request parameter of [CreateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.html) and [UpdateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.html).
  *
@@ -23,7 +25,7 @@ export interface CustomDomainConfigType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html */
 
-export interface CognitoUserPoolDomain {
+export interface CognitoUserPoolDomain extends ResourceAttributes {
   Type: 'AWS::Cognito::UserPoolDomain'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key and value pair that is associated with the specified signaling channel.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html */
@@ -35,7 +37,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html */
 
-export interface KinesisVideoStream {
+export interface KinesisVideoStream extends ResourceAttributes {
   Type: 'AWS::KinesisVideo::Stream'
   Properties: {
     /**

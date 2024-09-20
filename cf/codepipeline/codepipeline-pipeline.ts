@@ -1,5 +1,10 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A mapping of `artifactStore` objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+ * ###### Note
+ *
+ * You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html */
 
@@ -437,6 +442,9 @@ export interface RuleTypeId {
 
 /**
  * The S3 bucket where artifacts for the pipeline are stored.
+ * ###### Note
+ *
+ * You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html */
 
@@ -705,6 +713,9 @@ export interface RuleDeclaration {
 
 /**
  * A type of trigger configuration for Git-based source actions.
+ * ###### Note
+ *
+ * You can specify the Git configuration trigger type for all third-party Git-based source actions that are supported by the `CodeStarSourceConnection` action type.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html */
 
@@ -771,6 +782,12 @@ export interface Condition {
 
 /**
  * Represents information about the specified trigger configuration, such as the filter criteria and the source stage for the action that contains the trigger.
+ * ###### Note
+ *
+ * This is only supported for the `CodeStarSourceConnection` action type.
+ * ###### Note
+ *
+ * When a trigger configuration is specified, default change detection for repository and branch commits is disabled.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html */
 
@@ -877,7 +894,7 @@ export interface StageDeclaration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html */
 
-export interface CodePipelinePipeline {
+export interface CodePipelinePipeline extends ResourceAttributes {
   Type: 'AWS::CodePipeline::Pipeline'
   Properties: {
     /**

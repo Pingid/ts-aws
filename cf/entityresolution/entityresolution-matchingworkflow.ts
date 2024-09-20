@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object which defines an incremental run type and has only `incrementalRunType` as a field.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html */
@@ -304,7 +306,7 @@ export interface ResolutionTechniques {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html */
 
-export interface EntityResolutionMatchingWorkflow {
+export interface EntityResolutionMatchingWorkflow extends ResourceAttributes {
   Type: 'AWS::EntityResolution::MatchingWorkflow'
   Properties: {
     /**

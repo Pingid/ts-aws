@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a routing control in Amazon Route 53 Application Recovery Controller. Routing control states are maintained on the highly reliable cluster data plane.
  * To get or update the state of the routing control, you must specify a cluster endpoint, which is an endpoint URL and an AWS Region. For more information, see [Code examples](https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html */
 
-export interface Route53RecoveryControlRoutingControl {
+export interface Route53RecoveryControlRoutingControl extends ResourceAttributes {
   Type: 'AWS::Route53RecoveryControl::RoutingControl'
   Properties: {
     /**

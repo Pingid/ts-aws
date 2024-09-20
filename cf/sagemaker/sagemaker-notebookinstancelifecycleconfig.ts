@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html */
@@ -22,7 +24,7 @@ export interface NotebookInstanceLifecycleHook {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html */
 
-export interface SageMakerNotebookInstanceLifecycleConfig {
+export interface SageMakerNotebookInstanceLifecycleConfig extends ResourceAttributes {
   Type: 'AWS::SageMaker::NotebookInstanceLifecycleConfig'
   Properties: {
     /**

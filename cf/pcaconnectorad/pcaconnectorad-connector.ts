@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about your VPC and security groups used with the connector.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-connector.html */
@@ -21,7 +23,7 @@ export interface VpcInformation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-connector.html */
 
-export interface PCAConnectorADConnector {
+export interface PCAConnectorADConnector extends ResourceAttributes {
   Type: 'AWS::PCAConnectorAD::Connector'
   Properties: {
     /**

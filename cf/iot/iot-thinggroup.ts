@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key/value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html */
@@ -73,10 +75,14 @@ export interface ThingGroupProperties {
 
 /**
  * Creates a new thing group. A dynamic thing group is created if the resource template contains the `QueryString` attribute. A dynamic thing group will not contain the `ParentGroupName` attribute. A static thing group and dynamic thing group can't be converted to each other via the addition or removal of the `QueryString` attribute.
+ * ###### Note
+ *
+ * This is a control plane operation. See [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for information about authorizing control plane actions.
+ * Requires permission to access the [CreateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html */
 
-export interface IoTThingGroup {
+export interface IoTThingGroup extends ResourceAttributes {
   Type: 'AWS::IoT::ThingGroup'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `TlsConfig` property specifies the TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html */
@@ -19,7 +21,7 @@ export interface TlsConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html */
 
-export interface ApiGatewayV2Integration {
+export interface ApiGatewayV2Integration extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::Integration'
   Properties: {
     /**

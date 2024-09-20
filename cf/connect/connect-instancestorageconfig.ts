@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration information of a Kinesis Data Firehose delivery stream.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html */
@@ -137,7 +139,7 @@ export interface KinesisVideoStreamConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html */
 
-export interface ConnectInstanceStorageConfig {
+export interface ConnectInstanceStorageConfig extends ResourceAttributes {
   Type: 'AWS::Connect::InstanceStorageConfig'
   Properties: {
     /**

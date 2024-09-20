@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AutoStartConfiguration` property type specifies Property description not available. for an [AWS::EMRServerless::Application](./aws-resource-emrserverless-application.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html */
@@ -517,7 +519,7 @@ export interface MonitoringConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html */
 
-export interface EMRServerlessApplication {
+export interface EMRServerlessApplication extends ResourceAttributes {
   Type: 'AWS::EMRServerless::Application'
   Properties: {
     /**

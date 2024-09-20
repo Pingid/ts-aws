@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html */
@@ -83,7 +85,7 @@ export interface Protocol {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html */
 
-export interface DataSyncLocationFSxOpenZFS {
+export interface DataSyncLocationFSxOpenZFS extends ResourceAttributes {
   Type: 'AWS::DataSync::LocationFSxOpenZFS'
   Properties: {
     /**

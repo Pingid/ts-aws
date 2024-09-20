@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The model.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html */
@@ -606,7 +608,7 @@ export interface Rule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html */
 
-export interface FraudDetectorDetector {
+export interface FraudDetectorDetector extends ResourceAttributes {
   Type: 'AWS::FraudDetector::Detector'
   Properties: {
     /**

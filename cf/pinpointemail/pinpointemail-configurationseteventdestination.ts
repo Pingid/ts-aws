@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html */
@@ -166,7 +168,7 @@ export interface EventDestination {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html */
 
-export interface PinpointEmailConfigurationSetEventDestination {
+export interface PinpointEmailConfigurationSetEventDestination extends ResourceAttributes {
   Type: 'AWS::PinpointEmail::ConfigurationSetEventDestination'
   Properties: {
     /**

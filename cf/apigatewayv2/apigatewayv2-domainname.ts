@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `DomainNameConfiguration` property type specifies the configuration for an API's domain name.
  * `DomainNameConfiguration` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
  *
@@ -77,7 +79,7 @@ export interface MutualTlsAuthentication {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html */
 
-export interface ApiGatewayV2DomainName {
+export interface ApiGatewayV2DomainName extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::DomainName'
   Properties: {
     /**

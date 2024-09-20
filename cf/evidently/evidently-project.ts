@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html */
@@ -115,7 +117,7 @@ export interface DataDeliveryObject {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html */
 
-export interface EvidentlyProject {
+export interface EvidentlyProject extends ResourceAttributes {
   Type: 'AWS::Evidently::Project'
   Properties: {
     /**

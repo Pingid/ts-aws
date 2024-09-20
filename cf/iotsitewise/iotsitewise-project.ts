@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A list of key-value pairs that contain metadata for the project. For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the _AWS IoT SiteWise User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html */
@@ -24,10 +26,13 @@ export interface Tag {
 
 /**
  * Creates a project in the specified portal.
+ * ###### Note
+ *
+ * Make sure that the project name and description don't contain confidential information.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html */
 
-export interface IoTSiteWiseProject {
+export interface IoTSiteWiseProject extends ResourceAttributes {
   Type: 'AWS::IoTSiteWise::Project'
   Properties: {
     /**

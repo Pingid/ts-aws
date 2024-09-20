@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::DocDBElastic::Cluster](./aws-resource-docdbelastic-cluster.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html */
@@ -32,7 +34,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html */
 
-export interface DocDBElasticCluster {
+export interface DocDBElasticCluster extends ResourceAttributes {
   Type: 'AWS::DocDBElastic::Cluster'
   Properties: {
     /**

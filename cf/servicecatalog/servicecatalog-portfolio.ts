@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html */
@@ -33,7 +35,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html */
 
-export interface ServiceCatalogPortfolio {
+export interface ServiceCatalogPortfolio extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::Portfolio'
   Properties: {
     /**

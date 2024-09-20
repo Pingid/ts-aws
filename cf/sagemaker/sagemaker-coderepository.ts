@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies configuration details for a Git repository in your AWS account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html */
@@ -78,7 +80,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html */
 
-export interface SageMakerCodeRepository {
+export interface SageMakerCodeRepository extends ResourceAttributes {
   Type: 'AWS::SageMaker::CodeRepository'
   Properties: {
     /**

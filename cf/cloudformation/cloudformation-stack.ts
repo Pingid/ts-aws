@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The Output data type.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html */
@@ -71,10 +73,74 @@ export interface Tag {
 /**
  * The `AWS::CloudFormation::Stack` resource nests a stack as a resource in a top-level template.
  * You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs._NestedStackOutputName_` .
+ * ###### Important
+ *
+ * We strongly recommend that updates to nested stacks are run from the parent stack.
+ * When you apply template changes to update a top-level stack, CloudFormation updates the top-level stack and initiates an update to its nested stacks. CloudFormation updates the resources of modified nested stacks, but doesn't update the resources of unmodified nested stacks. For more information, see [CloudFormation stack updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
+ * ###### Note
+ *
+ * You must acknowledge IAM capabilities for nested stacks that contain IAM resources. Also, verify that you have cancel update stack permissions, which is required if an update rolls back. For more information about IAM and CloudFormation, see [Controlling access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html).
+ * ###### Important
+ *
+ * A subset of `AWS::CloudFormation::Stack` resource type properties listed below are available to customers using AWS CloudFormation, AWS CDK, and AWS Cloud Control API to configure.
+ *
+ * *   `NotificationARNs`
+ *
+ * *   `Parameters`
+ *
+ * *   `Tags`
+ *
+ * *   `TemplateURL`
+ *
+ * *   `TimeoutInMinutes`
+ *
+ *
+ * These properties can be configured only when using AWS Cloud Control API. This is because the below properties are set by the parent stack, and thus cannot be configured using AWS CloudFormation or AWS CDK but only AWS Cloud Control API.
+ *
+ * *   `Capabilities`
+ *
+ * *   `Description`
+ *
+ * *   `DisableRollback`
+ *
+ * *   `EnableTerminationProtection`
+ *
+ * *   `RoleARN`
+ *
+ * *   `StackName`
+ *
+ * *   `StackPolicyBody`
+ *
+ * *   `StackPolicyURL`
+ *
+ * *   `StackStatusReason`
+ *
+ * *   `TemplateBody`
+ *
+ *
+ * Customers that configure `AWS::CloudFormation::Stack` using AWS CloudFormation and AWS CDK can do so for nesting a CloudFormation stack as a resource in their top-level template.
+ *
+ * These read-only properties can be accessed only when using AWS Cloud Control API.
+ *
+ * *   `ChangeSetId`
+ *
+ * *   `CreationTime`
+ *
+ * *   `LastUpdateTime`
+ *
+ * *   `Outputs`
+ *
+ * *   `ParentId`
+ *
+ * *   `RootId`
+ *
+ * *   `StackId`
+ *
+ * *   `StackStatus`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html */
 
-export interface CloudFormationStack {
+export interface CloudFormationStack extends ResourceAttributes {
   Type: 'AWS::CloudFormation::Stack'
   Properties: {
     /**

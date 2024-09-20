@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The output of the bridge. A network output is delivered to your premises.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html */
@@ -52,7 +54,7 @@ export interface BridgeNetworkOutput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html */
 
-export interface MediaConnectBridgeOutput {
+export interface MediaConnectBridgeOutput extends ResourceAttributes {
   Type: 'AWS::MediaConnect::BridgeOutput'
   Properties: {
     /**

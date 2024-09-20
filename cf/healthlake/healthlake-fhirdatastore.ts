@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The identity provider configuration that you gave when the data store was created.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html */
@@ -138,10 +140,13 @@ export interface SseConfiguration {
 
 /**
  * Creates a Data Store that can ingest and export FHIR formatted data.
+ * ###### Important
+ *
+ * Please note that when a user tries to do an Update operation via CloudFormation, changes to the Data Store name, Type Version, PreloadDataConfig, or SSEConfiguration will delete their existing Data Store for the stack and create a new one. This will lead to potential loss of data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html */
 
-export interface HealthLakeFHIRDatastore {
+export interface HealthLakeFHIRDatastore extends ResourceAttributes {
   Type: 'AWS::HealthLake::FHIRDatastore'
   Properties: {
     /**

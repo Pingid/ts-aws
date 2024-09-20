@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Targets` property type specifies adding a target to a maintenance window target in AWS Systems Manager.
  * `Targets` is a property of the [AWS::SSM::MaintenanceWindowTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html) resource.
  *
@@ -34,7 +36,7 @@ export interface Targets {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html */
 
-export interface SSMMaintenanceWindowTarget {
+export interface SSMMaintenanceWindowTarget extends ResourceAttributes {
   Type: 'AWS::SSM::MaintenanceWindowTarget'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `Application` is a property of `AWS::EMR::Cluster`. The `Application` property type defines the open-source big data applications for EMR to install and configure when a cluster is created.
  * With Amazon EMR release version 4.0 and later, the only accepted parameter is the application `Name`. To pass arguments to these applications, you use configuration classifications specified using JSON objects in a `Configuration` property. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
  * With earlier Amazon EMR releases, the application is any AWS or third-party software that you can add to the cluster. You can specify the version of the application and arguments to pass to it. Amazon EMR accepts and forwards the argument list to the corresponding installation script as a bootstrap action argument.
@@ -58,6 +60,10 @@ export interface AutoTerminationPolicy {
 }
 
 /**
+ * ###### Note
+ *
+ * Used only with Amazon EMR release 4.0 and later.
+ * `Configuration` is a subproperty of `InstanceFleetConfig` or `InstanceGroupConfig`. `Configuration` specifies optional configurations for customizing open-source big data applications and environment parameters. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) in the _Amazon EMR Release Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -301,6 +307,10 @@ export interface ComputeLimits {
 }
 
 /**
+ * ###### Note
+ *
+ * The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
+ * `InstanceTypeConfig` is a sub-property of `InstanceFleetConfig`. `InstanceTypeConfig` determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -405,6 +415,9 @@ export interface KeyValue {
 
 /**
  * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+ * ###### Note
+ *
+ * The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -422,6 +435,9 @@ export interface OnDemandProvisioningSpecification {
 
 /**
  * `SpotProvisioningSpecification` is a subproperty of the `InstanceFleetProvisioningSpecifications` property type. `SpotProvisioningSpecification` determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+ * ###### Note
+ *
+ * The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -677,6 +693,9 @@ export interface HadoopJarStepConfig {
 
 /**
  * `InstanceFleetProvisioningSpecification` is a subproperty of `InstanceFleetConfig`. `InstanceFleetProvisioningSpecification` defines the launch specification for Spot instances in an instance fleet, which determines the defined duration and provisioning timeout behavior for Spot instances.
+ * ###### Note
+ *
+ * The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -868,6 +887,9 @@ export interface StepConfig {
 
 /**
  * Use `InstanceFleetConfig` to define instance fleets for an EMR cluster. A cluster can not use both instance fleets and instance groups. For more information, see [Configure Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html) in the _Amazon EMR Management Guide_.
+ * ###### Note
+ *
+ * The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
@@ -1301,7 +1323,7 @@ export interface JobFlowInstancesConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html */
 
-export interface EMRCluster {
+export interface EMRCluster extends ResourceAttributes {
   Type: 'AWS::EMR::Cluster'
   Properties: {
     /**

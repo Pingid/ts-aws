@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines the details of a high availability configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html */
@@ -97,7 +99,7 @@ export interface StorageConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html */
 
-export interface M2Environment {
+export interface M2Environment extends ResourceAttributes {
   Type: 'AWS::M2::Environment'
   Properties: {
     /**

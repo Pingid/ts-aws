@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Identifying information about a document attachment, including the file name and a key-value pair that identifies the location of an attachment to a document.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html */
@@ -96,10 +98,13 @@ export interface Tag {
 
 /**
  * The `AWS::SSM::Document` resource creates a Systems Manager (SSM) document in AWS Systems Manager. This document d efines the actions that Systems Manager performs on your AWS resources.
+ * ###### Note
+ *
+ * This resource does not support AWS CloudFormation drift detection.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html */
 
-export interface SSMDocument {
+export interface SSMDocument extends ResourceAttributes {
   Type: 'AWS::SSM::Document'
   Properties: {
     /**

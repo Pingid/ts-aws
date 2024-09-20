@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html */
@@ -179,7 +181,7 @@ export interface LogDeliveryConfigurationRequest {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html */
 
-export interface ElastiCacheReplicationGroup {
+export interface ElastiCacheReplicationGroup extends ResourceAttributes {
   Type: 'AWS::ElastiCache::ReplicationGroup'
   Properties: {
     /**

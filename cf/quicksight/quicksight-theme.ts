@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Permission for the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html */
@@ -435,7 +437,7 @@ export interface ThemeConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html */
 
-export interface QuickSightTheme {
+export interface QuickSightTheme extends ResourceAttributes {
   Type: 'AWS::QuickSight::Theme'
   Properties: {
     /**

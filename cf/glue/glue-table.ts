@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an input structure that defines an Apache Iceberg metadata table.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html */
@@ -511,7 +513,7 @@ export interface TableInput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html */
 
-export interface GlueTable {
+export interface GlueTable extends ResourceAttributes {
   Type: 'AWS::Glue::Table'
   Properties: {
     /**

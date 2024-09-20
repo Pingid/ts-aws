@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * This resource associates the specified application with the specified fleet. This is only supported for Elastic fleets.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html */
 
-export interface AppStreamApplicationFleetAssociation {
+export interface AppStreamApplicationFleetAssociation extends ResourceAttributes {
   Type: 'AWS::AppStream::ApplicationFleetAssociation'
   Properties: {
     /**

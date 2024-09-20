@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The access log configuration parameters for your channel.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html */
@@ -103,7 +105,7 @@ export interface HlsIngest {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html */
 
-export interface MediaPackageChannel {
+export interface MediaPackageChannel extends ResourceAttributes {
   Type: 'AWS::MediaPackage::Channel'
   Properties: {
     /**

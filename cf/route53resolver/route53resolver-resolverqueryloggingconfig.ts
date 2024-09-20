@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The AWS::Route53Resolver::ResolverQueryLoggingConfig resource is a complex type that contains settings for one query logging configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html */
 
-export interface Route53ResolverResolverQueryLoggingConfig {
+export interface Route53ResolverResolverQueryLoggingConfig extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverQueryLoggingConfig'
   Properties: {
     /**

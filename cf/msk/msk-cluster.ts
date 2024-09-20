@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `ConfigurationInfo` property type specifies Property description not available. for an [AWS::MSK::Cluster](./aws-resource-msk-cluster.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html */
@@ -700,7 +702,7 @@ export interface BrokerNodeGroupInfo {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html */
 
-export interface MSKCluster {
+export interface MSKCluster extends ResourceAttributes {
   Type: 'AWS::MSK::Cluster'
   Properties: {
     /**

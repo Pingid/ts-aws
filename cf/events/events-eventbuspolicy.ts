@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A JSON string which you can use to limit the event bus permissions you are granting to only accounts that fulfill the condition. Currently, the only supported condition is membership in a certain AWS organization. The string must contain `Type`, `Key`, and `Value` fields. The `Value` field specifies the ID of the AWS organization. Following is an example value for `Condition`:
  * `'{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value": "o-1234567890"}'`
  *
@@ -40,7 +42,7 @@ export interface Condition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html */
 
-export interface EventsEventBusPolicy {
+export interface EventsEventBusPolicy extends ResourceAttributes {
   Type: 'AWS::Events::EventBusPolicy'
   Properties: {
     /**

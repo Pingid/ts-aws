@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html */
@@ -28,6 +30,9 @@ export interface Tag {
 
 /**
  * A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.
+ * ###### Note
+ *
+ * If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html */
 
@@ -73,7 +78,7 @@ export interface EdiType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html */
 
-export interface B2BITransformer {
+export interface B2BITransformer extends ResourceAttributes {
   Type: 'AWS::B2BI::Transformer'
   Properties: {
     /**

@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Assigns access to a Principal for a specified AWS account using a specified permission set.
+ * ###### Note
+ *
+ * The term _principal_ here refers to a user or group that is defined in IAM Identity Center.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html */
 
-export interface SSOAssignment {
+export interface SSOAssignment extends ResourceAttributes {
   Type: 'AWS::SSO::Assignment'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A map of key-value pairs.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html */
@@ -104,7 +106,7 @@ export interface ContainerProvider {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html */
 
-export interface EMRContainersVirtualCluster {
+export interface EMRContainersVirtualCluster extends ResourceAttributes {
   Type: 'AWS::EMRContainers::VirtualCluster'
   Properties: {
     /**

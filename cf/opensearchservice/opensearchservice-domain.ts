@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html */
@@ -765,7 +767,7 @@ export interface OffPeakWindowOptions {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html */
 
-export interface OpenSearchServiceDomain {
+export interface OpenSearchServiceDomain extends ResourceAttributes {
   Type: 'AWS::OpenSearchService::Domain'
   Properties: {
     /**

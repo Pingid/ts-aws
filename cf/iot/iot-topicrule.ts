@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key/value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html */
@@ -246,6 +248,9 @@ export interface DynamoDBAction {
 
 /**
  * Describes an action that writes data to an Amazon OpenSearch Service domain.
+ * ###### Note
+ *
+ * The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html */
 
@@ -1631,7 +1636,7 @@ export interface TopicRulePayload {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html */
 
-export interface IoTTopicRule {
+export interface IoTTopicRule extends ResourceAttributes {
   Type: 'AWS::IoT::TopicRule'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The output configuration for storing sample data collected by the fleet.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html */
@@ -64,7 +66,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html */
 
-export interface SageMakerDeviceFleet {
+export interface SageMakerDeviceFleet extends ResourceAttributes {
   Type: 'AWS::SageMaker::DeviceFleet'
   Properties: {
     /**

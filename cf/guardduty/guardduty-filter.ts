@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html */
@@ -152,7 +154,7 @@ export interface FindingCriteria {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html */
 
-export interface GuardDutyFilter {
+export interface GuardDutyFilter extends ResourceAttributes {
   Type: 'AWS::GuardDuty::Filter'
   Properties: {
     /**

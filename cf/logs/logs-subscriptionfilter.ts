@@ -1,9 +1,19 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Logs::SubscriptionFilter` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:
+ * *   An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.
+ *
+ * *   A logical destination that belongs to a different account, for cross-account delivery.
+ *
+ * *   An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
+ *
+ * *   An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.
+ * There can be as many as two subscription filters associated with a log group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html */
 
-export interface LogsSubscriptionFilter {
+export interface LogsSubscriptionFilter extends ResourceAttributes {
   Type: 'AWS::Logs::SubscriptionFilter'
   Properties: {
     /**

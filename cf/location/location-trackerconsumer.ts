@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Location::TrackerConsumer` resource specifies an association between a geofence collection and a tracker resource. The geofence collection is referred to as the _consumer_ of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
+ * ###### Note
+ *
+ * Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html */
 
-export interface LocationTrackerConsumer {
+export interface LocationTrackerConsumer extends ResourceAttributes {
   Type: 'AWS::Location::TrackerConsumer'
   Properties: {
     /**

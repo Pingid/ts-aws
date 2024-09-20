@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key group configuration.
  * A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
  *
@@ -37,7 +39,7 @@ export interface KeyGroupConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html */
 
-export interface CloudFrontKeyGroup {
+export interface CloudFrontKeyGroup extends ResourceAttributes {
   Type: 'AWS::CloudFront::KeyGroup'
   Properties: {
     /**

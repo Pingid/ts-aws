@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag for a VPC association.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html */
@@ -34,7 +36,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html */
 
-export interface VpcLatticeServiceNetworkVpcAssociation {
+export interface VpcLatticeServiceNetworkVpcAssociation extends ResourceAttributes {
   Type: 'AWS::VpcLattice::ServiceNetworkVpcAssociation'
   Properties: {
     /**

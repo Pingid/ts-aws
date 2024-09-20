@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html */
@@ -29,7 +31,7 @@ export interface AccessRights {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html */
 
-export interface PCAConnectorADTemplateGroupAccessControlEntry {
+export interface PCAConnectorADTemplateGroupAccessControlEntry extends ResourceAttributes {
   Type: 'AWS::PCAConnectorAD::TemplateGroupAccessControlEntry'
   Properties: {
     /**

@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A _channel_ is a type of platform that you can deliver messages to. To send an SMS text message, you send the message through the SMS channel. Before you can use Amazon Pinpoint to send text messages, you have to enable the SMS channel for an Amazon Pinpoint application.
  * The SMSChannel resource represents the status, sender ID, and other settings for the SMS channel for an application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html */
 
-export interface PinpointSMSChannel {
+export interface PinpointSMSChannel extends ResourceAttributes {
   Type: 'AWS::Pinpoint::SMSChannel'
   Properties: {
     /**

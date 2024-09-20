@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a new attribute group as a container for user-defined attributes. This feature enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html */
 
-export interface ServiceCatalogAppRegistryAttributeGroup {
+export interface ServiceCatalogAppRegistryAttributeGroup extends ResourceAttributes {
   Type: 'AWS::ServiceCatalogAppRegistry::AttributeGroup'
   Properties: {
     /**

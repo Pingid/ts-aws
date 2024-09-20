@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the options that DataSync can use to mount your NFS file server.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html */
@@ -70,7 +72,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html */
 
-export interface DataSyncLocationNFS {
+export interface DataSyncLocationNFS extends ResourceAttributes {
   Type: 'AWS::DataSync::LocationNFS'
   Properties: {
     /**

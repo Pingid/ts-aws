@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds the specified user to the specified group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html */
 
-export interface CognitoUserPoolUserToGroupAttachment {
+export interface CognitoUserPoolUserToGroupAttachment extends ResourceAttributes {
   Type: 'AWS::Cognito::UserPoolUserToGroupAttachment'
   Properties: {
     /**

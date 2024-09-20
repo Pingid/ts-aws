@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A JSON string that contains a list of Insights types that are logged on a trail.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html */
@@ -129,6 +131,30 @@ export interface AdvancedFieldSelector {
 
 /**
  * You can configure the `DataResource` in an `EventSelector` to log data events for the following three resource types:
+ * *   `AWS::DynamoDB::Table`
+ *
+ * *   `AWS::Lambda::Function`
+ *
+ * *   `AWS::S3::Object`
+ * To log data events for all other resource types including objects stored in [directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html), you must use [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html). You must also use `AdvancedEventSelectors` if you want to filter on the `eventName` field.
+ * Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
+ * ###### Note
+ *
+ * The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
+ * The following example demonstrates how logging works when you configure logging of all data events for a general purpose bucket named `amzn-s3-demo-bucket1`. In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
+ * 1.  A user uploads an image file to `amzn-s3-demo-bucket1`.
+ *
+ * 2.  The `PutObject` API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.
+ *
+ * 3.  A user uploads an object to an Amazon S3 bucket named `arn:aws:s3:::amzn-s3-demo-bucket1`.
+ *
+ * 4.  The `PutObject` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.
+ * The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named _MyLambdaFunction_, but not for all Lambda functions.
+ * 1.  A user runs a script that includes a call to the _MyLambdaFunction_ function and the _MyOtherLambdaFunction_ function.
+ *
+ * 2.  The `Invoke` API operation on _MyLambdaFunction_ is an Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for _MyLambdaFunction_, any invocations of that function are logged. The trail processes and logs the event.
+ *
+ * 3.  The `Invoke` API operation on _MyOtherLambdaFunction_ is an Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the `Invoke` operation for _MyOtherLambdaFunction_ does not match the function specified for the trail. The trail doesn’t log the event.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html */
 
@@ -156,6 +182,24 @@ export interface DataResource {
  * Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events. They help you control costs by logging only those events that are important to you. For more information about advanced event selectors, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the _AWS CloudTrail User Guide_.
  * You cannot apply both event selectors and advanced event selectors to a trail.
  * **Supported CloudTrail event record fields for management events**
+ * *   `eventCategory` (required)
+ *
+ * *   `eventSource`
+ *
+ * *   `readOnly`
+ * **Supported CloudTrail event record fields for data events**
+ * *   `eventCategory` (required)
+ *
+ * *   `resources.type` (required)
+ *
+ * *   `readOnly`
+ *
+ * *   `eventName`
+ *
+ * *   `resources.ARN`
+ * ###### Note
+ *
+ * For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS, the only supported field is `eventCategory`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html */
 
@@ -234,7 +278,7 @@ export interface EventSelector {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html */
 
-export interface CloudTrailTrail {
+export interface CloudTrailTrail extends ResourceAttributes {
   Type: 'AWS::CloudTrail::Trail'
   Properties: {
     /**

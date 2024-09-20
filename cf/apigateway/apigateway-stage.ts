@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AccessLogSetting` property type specifies settings for logging access in this stage.
  * `AccessLogSetting` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
  *
@@ -191,7 +193,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html */
 
-export interface ApiGatewayStage {
+export interface ApiGatewayStage extends ResourceAttributes {
   Type: 'AWS::ApiGateway::Stage'
   Properties: {
     /**

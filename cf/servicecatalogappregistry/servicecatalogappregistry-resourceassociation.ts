@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates a resource with an application. Both the resource and the application can be specified either by ID or name.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html */
 
-export interface ServiceCatalogAppRegistryResourceAssociation {
+export interface ServiceCatalogAppRegistryResourceAssociation extends ResourceAttributes {
   Type: 'AWS::ServiceCatalogAppRegistry::ResourceAssociation'
   Properties: {
     /**

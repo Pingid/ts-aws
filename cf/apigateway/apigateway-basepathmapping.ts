@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGateway::BasePathMapping` resource creates a base path that clients who call your API must use in the invocation URL.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html */
 
-export interface ApiGatewayBasePathMapping {
+export interface ApiGatewayBasePathMapping extends ResourceAttributes {
   Type: 'AWS::ApiGateway::BasePathMapping'
   Properties: {
     /**

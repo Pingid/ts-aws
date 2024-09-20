@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html */
@@ -206,7 +208,7 @@ export interface CFNDataSourceConfigurations {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html */
 
-export interface GuardDutyDetector {
+export interface GuardDutyDetector extends ResourceAttributes {
   Type: 'AWS::GuardDuty::Detector'
   Properties: {
     /**

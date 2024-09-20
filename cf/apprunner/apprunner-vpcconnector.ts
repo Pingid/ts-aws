@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html */
@@ -34,7 +36,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html */
 
-export interface AppRunnerVpcConnector {
+export interface AppRunnerVpcConnector extends ResourceAttributes {
   Type: 'AWS::AppRunner::VpcConnector'
   Properties: {
     /**

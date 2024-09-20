@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `Target` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies the targets for an SSM document in Systems Manager. You can target all instances in an AWS account by specifying the `InstanceIds` key with a value of `*`. To view a JSON and a YAML example that targets all instances, see the example "Create an association for all managed instances in an AWS account" later in this page.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html */
@@ -85,7 +87,7 @@ export interface InstanceAssociationOutputLocation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html */
 
-export interface SSMAssociation {
+export interface SSMAssociation extends ResourceAttributes {
   Type: 'AWS::SSM::Association'
   Properties: {
     /**

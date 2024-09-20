@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A subscription configuration for additional CloudWatch metrics.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html */
@@ -36,7 +38,7 @@ export interface MonitoringSubscription {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html */
 
-export interface CloudFrontMonitoringSubscription {
+export interface CloudFrontMonitoringSubscription extends ResourceAttributes {
   Type: 'AWS::CloudFront::MonitoringSubscription'
   Properties: {
     /**

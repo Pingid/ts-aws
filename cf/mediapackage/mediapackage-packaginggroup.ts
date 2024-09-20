@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Parameters for enabling CDN authorization.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html */
@@ -71,7 +73,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html */
 
-export interface MediaPackagePackagingGroup {
+export interface MediaPackagePackagingGroup extends ResourceAttributes {
   Type: 'AWS::MediaPackage::PackagingGroup'
   Properties: {
     /**

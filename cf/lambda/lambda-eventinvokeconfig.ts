@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A destination for events that failed processing.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html */
@@ -69,7 +71,7 @@ export interface DestinationConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html */
 
-export interface LambdaEventInvokeConfig {
+export interface LambdaEventInvokeConfig extends ResourceAttributes {
   Type: 'AWS::Lambda::EventInvokeConfig'
   Properties: {
     /**

@@ -1,8 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
+ * ###### Note
+ *
+ * Amazon Lex V2 is the only supported version in AWS CloudFormation.
+ * Specifies a new resource policy with the specified policy statements.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html */
 
-export interface LexResourcePolicy {
+export interface LexResourcePolicy extends ResourceAttributes {
   Type: 'AWS::Lex::ResourcePolicy'
   Properties: {
     /**

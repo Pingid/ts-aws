@@ -1,9 +1,24 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * You can use the `AWS::SupportApp::SlackChannelConfiguration` resource to specify your AWS account when you configure the AWS Support App. This resource includes the following information:
+ * *   The Slack channel name and ID
+ *
+ * *   The team ID in Slack
+ *
+ * *   The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+ *
+ * *   Whether you want the AWS Support App to notify you when your support cases are created, updated, resolved, or reopened
+ *
+ * *   The case severity that you want to get notified for
+ * For more information, see the following topics in the _AWS Support User Guide_:
+ * *   [AWS Support App in Slack](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html)
+ *
+ * *   [Creating AWS Support App in Slack resources with AWS CloudFormation](https://docs.aws.amazon.com/awssupport/latest/user/creating-resources-with-cloudformation.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html */
 
-export interface SupportAppSlackChannelConfiguration {
+export interface SupportAppSlackChannelConfiguration extends ResourceAttributes {
   Type: 'AWS::SupportApp::SlackChannelConfiguration'
   Properties: {
     /**

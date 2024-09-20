@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html */
@@ -52,7 +54,7 @@ export interface EndPoint {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html */
 
-export interface CloudFrontRealtimeLogConfig {
+export interface CloudFrontRealtimeLogConfig extends ResourceAttributes {
   Type: 'AWS::CloudFront::RealtimeLogConfig'
   Properties: {
     /**

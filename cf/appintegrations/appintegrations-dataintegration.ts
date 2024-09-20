@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration for what files should be pulled from the source.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html */
@@ -100,7 +102,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html */
 
-export interface AppIntegrationsDataIntegration {
+export interface AppIntegrationsDataIntegration extends ResourceAttributes {
   Type: 'AWS::AppIntegrations::DataIntegration'
   Properties: {
     /**

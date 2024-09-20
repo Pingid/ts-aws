@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * LoRaWAN device profile object.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html */
@@ -217,7 +219,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html */
 
-export interface IoTWirelessDeviceProfile {
+export interface IoTWirelessDeviceProfile extends ResourceAttributes {
   Type: 'AWS::IoTWireless::DeviceProfile'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A container of a key-value name pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html */
@@ -191,10 +193,13 @@ export interface RecurrenceSettings {
 
 /**
  * Specifies a rotation in an on-call schedule.
+ * ###### Note
+ *
+ * **Template example**: We recommend creating all Incident Manager `Contacts` resources using a single AWS CloudFormation template. For a demonstration, see the examples for [AWS::SSMContacts::Contacts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html */
 
-export interface SSMContactsRotation {
+export interface SSMContactsRotation extends ResourceAttributes {
   Type: 'AWS::SSMContacts::Rotation'
   Properties: {
     /**

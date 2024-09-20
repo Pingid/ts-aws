@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `LatestRevision` property type specifies Property description not available. for an [AWS::MSK::Configuration](./aws-resource-msk-configuration.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html */
@@ -35,7 +37,7 @@ export interface LatestRevision {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html */
 
-export interface MSKConfiguration {
+export interface MSKConfiguration extends ResourceAttributes {
   Type: 'AWS::MSK::Configuration'
   Properties: {
     /**

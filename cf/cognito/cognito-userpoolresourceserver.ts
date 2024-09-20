@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * One custom scope associated with a user pool resource server. This data type is a member of `ResourceServerScopeType`. For more information, see [Scopes, M2M, and API authorization with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
  * This data type is a request parameter of [CreateResourceServer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateResourceServer.html) and a response parameter of [DescribeResourceServer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeResourceServer.html).
  *
@@ -30,10 +32,13 @@ export interface ResourceServerScopeType {
 
 /**
  * The `AWS::Cognito::UserPoolResourceServer` resource creates a new OAuth2.0 resource server and defines custom scopes in it.
+ * ###### Note
+ *
+ * If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html */
 
-export interface CognitoUserPoolResourceServer {
+export interface CognitoUserPoolResourceServer extends ResourceAttributes {
   Type: 'AWS::Cognito::UserPoolResourceServer'
   Properties: {
     /**

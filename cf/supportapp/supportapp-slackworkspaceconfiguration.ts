@@ -1,9 +1,18 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * You can use the `AWS::SupportApp::SlackWorkspaceConfiguration` resource to specify your Slack workspace configuration. This resource configures your AWS account so that you can use the specified Slack workspace in the AWS Support App. This resource includes the following information:
+ * *   The team ID for the Slack workspace
+ *
+ * *   The version ID of the resource to use with AWS CloudFormation
+ * For more information, see the following topics in the _AWS Support User Guide_:
+ * *   [AWS Support App in Slack](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html)
+ *
+ * *   [Creating AWS Support App in Slack resources with AWS CloudFormation](https://docs.aws.amazon.com/awssupport/latest/user/creating-resources-with-cloudformation.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html */
 
-export interface SupportAppSlackWorkspaceConfiguration {
+export interface SupportAppSlackWorkspaceConfiguration extends ResourceAttributes {
   Type: 'AWS::SupportApp::SlackWorkspaceConfiguration'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The value used for mapping a specified attribute to an identity source.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html */
@@ -44,10 +46,13 @@ export interface AccessControlAttribute {
 
 /**
  * Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html) in the _IAM Identity Center User Guide_.
+ * ###### Note
+ *
+ * The `InstanceAccessControlAttributeConfiguration` property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the `AccessControlAttributes` property instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html */
 
-export interface SSOInstanceAccessControlAttributeConfiguration {
+export interface SSOInstanceAccessControlAttributeConfiguration extends ResourceAttributes {
   Type: 'AWS::SSO::InstanceAccessControlAttributeConfiguration'
   Properties: {
     /**

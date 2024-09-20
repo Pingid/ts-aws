@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGateway::UsagePlanKey` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html */
 
-export interface ApiGatewayUsagePlanKey {
+export interface ApiGatewayUsagePlanKey extends ResourceAttributes {
   Type: 'AWS::ApiGateway::UsagePlanKey'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html */
@@ -60,7 +62,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html */
 
-export interface MemoryDBUser {
+export interface MemoryDBUser extends ResourceAttributes {
   Type: 'AWS::MemoryDB::User'
   Properties: {
     /**

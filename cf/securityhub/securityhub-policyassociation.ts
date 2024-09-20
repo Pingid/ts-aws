@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::SecurityHub::PolicyAssociation` resource specifies associations for a configuration policy or a self-managed configuration. You can associate a AWS Security Hub configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts. After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the _AWS Security Hub User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html */
 
-export interface SecurityHubPolicyAssociation {
+export interface SecurityHubPolicyAssociation extends ResourceAttributes {
   Type: 'AWS::SecurityHub::PolicyAssociation'
   Properties: {
     /**

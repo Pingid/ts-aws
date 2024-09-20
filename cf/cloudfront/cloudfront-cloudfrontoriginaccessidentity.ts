@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Origin access identity configuration. Send a `GET` request to the `/_CloudFront API version_/CloudFront/identity ID/config` resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html */
@@ -19,7 +21,7 @@ export interface CloudFrontOriginAccessIdentityConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html */
 
-export interface CloudFrontCloudFrontOriginAccessIdentity {
+export interface CloudFrontCloudFrontOriginAccessIdentity extends ResourceAttributes {
   Type: 'AWS::CloudFront::CloudFrontOriginAccessIdentity'
   Properties: {
     /**

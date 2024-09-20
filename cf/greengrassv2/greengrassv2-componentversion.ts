@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a component dependency for a Lambda function component.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html */
@@ -384,10 +386,23 @@ export interface LambdaFunctionRecipeSource {
 /**
  * Creates a component. Components are software that run on AWS IoT Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.
  * You can use this operation to do the following:
+ * *   **Create components from recipes**
+ *
+ *     Create a component from a recipe, which is a file that defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see [AWS IoT Greengrass component recipe reference](https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html) in the _AWS IoT Greengrass V2 Developer Guide_.
+ *
+ *     To create a component from a recipe, specify `inlineRecipe` when you call this operation.
+ *
+ * *   **Create components from Lambda functions**
+ *
+ *     Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2.
+ *
+ *     This function accepts Lambda functions in all supported versions of Python, Node.js, and Java runtimes. AWS IoT Greengrass doesn't apply any additional restrictions on deprecated Lambda runtime versions.
+ *
+ *     To create a component from a Lambda function, specify `lambdaFunction` when you call this operation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html */
 
-export interface GreengrassV2ComponentVersion {
+export interface GreengrassV2ComponentVersion extends ResourceAttributes {
   Type: 'AWS::GreengrassV2::ComponentVersion'
   Properties: {
     /**

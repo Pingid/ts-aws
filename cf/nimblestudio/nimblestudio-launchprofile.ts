@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configures how streaming sessions are backed up when launched from this launch profile.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html */
@@ -229,7 +231,7 @@ export interface StreamConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html */
 
-export interface NimbleStudioLaunchProfile {
+export interface NimbleStudioLaunchProfile extends ResourceAttributes {
   Type: 'AWS::NimbleStudio::LaunchProfile'
   Properties: {
     /**

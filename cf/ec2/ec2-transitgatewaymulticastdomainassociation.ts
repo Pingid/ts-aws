@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.
  * The transit gateway attachment must be in the available state before you can add a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html */
 
-export interface EC2TransitGatewayMulticastDomainAssociation {
+export interface EC2TransitGatewayMulticastDomainAssociation extends ResourceAttributes {
   Type: 'AWS::EC2::TransitGatewayMulticastDomainAssociation'
   Properties: {
     /**

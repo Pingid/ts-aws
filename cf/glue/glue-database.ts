@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A `FederatedDatabase` structure that references an entity outside the AWS Glue Data Catalog.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html */
@@ -174,7 +176,7 @@ export interface DatabaseInput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html */
 
-export interface GlueDatabase {
+export interface GlueDatabase extends ResourceAttributes {
   Type: 'AWS::Glue::Database'
   Properties: {
     /**

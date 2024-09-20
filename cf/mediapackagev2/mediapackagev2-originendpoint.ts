@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `ForceEndpointErrorConfiguration` property type specifies Property description not available. for an [AWS::MediaPackageV2::OriginEndpoint](./aws-resource-mediapackagev2-originendpoint.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html */
@@ -521,6 +523,25 @@ export interface SpekeKeyProvider {
 /**
  * A collection of video encryption presets.
  * Value description:
+ * *   `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+ *
+ * *   `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+ *
+ * *   `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+ *
+ * *   `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+ *
+ * *   `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+ *
+ * *   `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+ *
+ * *   `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+ *
+ * *   `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+ *
+ * *   `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+ *
+ * *   `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html */
 
@@ -638,7 +659,7 @@ export interface Segment {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html */
 
-export interface MediaPackageV2OriginEndpoint {
+export interface MediaPackageV2OriginEndpoint extends ResourceAttributes {
   Type: 'AWS::MediaPackageV2::OriginEndpoint'
   Properties: {
     /**

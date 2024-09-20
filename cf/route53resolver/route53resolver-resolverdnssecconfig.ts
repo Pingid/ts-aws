@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Route53Resolver::ResolverDNSSECConfig` resource is a complex type that contains information about a configuration for DNSSEC validation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html */
 
-export interface Route53ResolverResolverDNSSECConfig {
+export interface Route53ResolverResolverDNSSECConfig extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverDNSSECConfig'
   Properties: {
     /**

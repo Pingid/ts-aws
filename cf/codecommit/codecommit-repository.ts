@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag is a key-value pair that is used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html */
@@ -24,6 +26,9 @@ export interface Tag {
 
 /**
  * Information about a trigger for a repository.
+ * ###### Note
+ *
+ * If you want to receive notifications about repository events, consider using notifications instead of triggers. For more information, see [Configuring notifications for repository events](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-repository-email.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html */
 
@@ -128,10 +133,13 @@ export interface Code {
 
 /**
  * Creates a new, empty repository.
+ * ###### Important
+ *
+ * AWS CodeCommit is no longer available to new customers. Existing customers of AWS CodeCommit can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html */
 
-export interface CodeCommitRepository {
+export interface CodeCommitRepository extends ResourceAttributes {
   Type: 'AWS::CodeCommit::Repository'
   Properties: {
     /**

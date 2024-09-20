@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tag structure that contains a tag key and value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html */
@@ -255,7 +257,7 @@ export interface Export {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html */
 
-export interface BCMDataExportsExport {
+export interface BCMDataExportsExport extends ResourceAttributes {
   Type: 'AWS::BCMDataExports::Export'
   Properties: {
     /**

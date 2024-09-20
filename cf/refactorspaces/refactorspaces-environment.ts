@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::RefactorSpaces::Environment](./aws-resource-refactorspaces-environment.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-environment.html */
@@ -33,7 +35,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-environment.html */
 
-export interface RefactorSpacesEnvironment {
+export interface RefactorSpacesEnvironment extends ResourceAttributes {
   Type: 'AWS::RefactorSpaces::Environment'
   Properties: {
     /**

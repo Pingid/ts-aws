@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies labels that help you categorize, filter, and search for your AWS resources. We recommend creating at least a name tag for your location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html */
@@ -158,7 +160,7 @@ export interface Protocol {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html */
 
-export interface DataSyncLocationFSxONTAP {
+export interface DataSyncLocationFSxONTAP extends ResourceAttributes {
   Type: 'AWS::DataSync::LocationFSxONTAP'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A container of a key value name pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html */
@@ -25,10 +27,17 @@ export interface Tag {
 
 /**
  * The `AWS::S3::AccessGrantInstance` resource creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account.
+ * Permissions
+ *
+ * You must have the `s3:CreateAccessGrantsInstance` permission to use this resource.
+ *
+ * Additional Permissions
+ *
+ * To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the `sso:DescribeInstance`, `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod` permissions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html */
 
-export interface S3AccessGrantsInstance {
+export interface S3AccessGrantsInstance extends ResourceAttributes {
   Type: 'AWS::S3::AccessGrantsInstance'
   Properties: {
     /**

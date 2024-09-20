@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The access configuration for the cluster.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
@@ -59,6 +61,15 @@ export interface KubernetesNetworkConfig {
 
 /**
  * An object representing the VPC configuration to use for an Amazon EKS cluster.
+ * ###### Important
+ *
+ * When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
+ *
+ * *   `EndpointPublicAccess`
+ *
+ * *   `EndpointPrivateAccess`
+ *
+ * *   `PublicAccessCidrs`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
 
@@ -108,6 +119,19 @@ export interface ResourcesVpcConfig {
 /**
  * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
  * The following basic restrictions apply to tags:
+ * *   Maximum number of tags per resource – 50
+ *
+ * *   For each resource, each tag key must be unique, and each tag key can have only one value.
+ *
+ * *   Maximum key length – 128 Unicode characters in UTF-8
+ *
+ * *   Maximum value length – 256 Unicode characters in UTF-8
+ *
+ * *   If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @.
+ *
+ * *   Tag keys and values are case-sensitive.
+ *
+ * *   Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
 
@@ -260,6 +284,9 @@ export interface OutpostConfig {
 
 /**
  * The cluster control plane logging configuration for your cluster.
+ * ###### Important
+ *
+ * When updating a resource, you must include this `ClusterLogging` property if the previous CloudFormation template of the resource had it.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
 
@@ -276,6 +303,12 @@ export interface ClusterLogging {
 
 /**
  * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the __Amazon EKS User Guide__ .
+ * ###### Important
+ *
+ * When updating a resource, you must include this `Logging` property if the previous CloudFormation template of the resource had it.
+ * ###### Note
+ *
+ * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
 
@@ -297,10 +330,14 @@ export interface Logging {
  * Amazon EKS nodes run in your AWS account and connect to your cluster's control plane over the Kubernetes API server endpoint and a certificate file that is created for your cluster.
  * You can use the `endpointPublicAccess` and `endpointPrivateAccess` parameters to enable or disable public and private access to your cluster's Kubernetes API server endpoint. By default, public access is enabled, and private access is disabled. For more information, see [Amazon EKS Cluster Endpoint Access Control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the __Amazon EKS User Guide__ .
  * You can use the `logging` parameter to enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster Control Plane Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the __Amazon EKS User Guide__ .
+ * ###### Note
+ *
+ * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+ * In most cases, it takes several minutes to create a cluster. After you create an Amazon EKS cluster, you must configure your Kubernetes tooling to communicate with the API server and launch nodes into your cluster. For more information, see [Allowing users to access your cluster](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html) and [Launching Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in the _Amazon EKS User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html */
 
-export interface EKSCluster {
+export interface EKSCluster extends ResourceAttributes {
   Type: 'AWS::EKS::Cluster'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type that contains information about a Resolver configuration for a VPC.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html */
 
-export interface Route53ResolverResolverConfig {
+export interface Route53ResolverResolverConfig extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverConfig'
   Properties: {
     /**

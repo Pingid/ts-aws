@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An array of tags to add to the replication set.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html */
@@ -75,7 +77,7 @@ export interface ReplicationRegion {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html */
 
-export interface SSMIncidentsReplicationSet {
+export interface SSMIncidentsReplicationSet extends ResourceAttributes {
   Type: 'AWS::SSMIncidents::ReplicationSet'
   Properties: {
     /**

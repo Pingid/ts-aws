@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Enables the specified attachment to propagate routes to the specified propagation route table.
  * For more information about enabling transit gateway route propagation, see [EnableTransitGatewayRouteTablePropagation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableTransitGatewayRouteTablePropagation.html) in the _Amazon EC2 API Reference_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html */
 
-export interface EC2TransitGatewayRouteTablePropagation {
+export interface EC2TransitGatewayRouteTablePropagation extends ResourceAttributes {
   Type: 'AWS::EC2::TransitGatewayRouteTablePropagation'
   Properties: {
     /**

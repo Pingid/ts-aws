@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `JWTConfiguration` property specifies the configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html */
@@ -27,7 +29,7 @@ export interface JWTConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html */
 
-export interface ApiGatewayV2Authorizer {
+export interface ApiGatewayV2Authorizer extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::Authorizer'
   Properties: {
     /**

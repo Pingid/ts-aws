@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a connection notification for a VPC endpoint or VPC endpoint service. A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the _Amazon Simple Notification Service Developer Guide_.
  * You can create a connection notification for interface endpoints only.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html */
 
-export interface EC2VPCEndpointConnectionNotification {
+export interface EC2VPCEndpointConnectionNotification extends ResourceAttributes {
   Type: 'AWS::EC2::VPCEndpointConnectionNotification'
   Properties: {
     /**

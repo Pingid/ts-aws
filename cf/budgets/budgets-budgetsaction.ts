@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The trigger threshold of the action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html */
@@ -54,6 +56,9 @@ export interface ResourceTag {
 /**
  * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
  * For example, an email subscriber has the following parameters:
+ * *   A `subscriptionType` of `EMAIL`
+ *
+ * *   An `address` of `example@example.com`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html */
 
@@ -231,7 +236,7 @@ export interface Definition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html */
 
-export interface BudgetsBudgetsAction {
+export interface BudgetsBudgetsAction extends ResourceAttributes {
   Type: 'AWS::Budgets::BudgetsAction'
   Properties: {
     /**

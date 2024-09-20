@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html */
@@ -91,7 +93,7 @@ export interface RoutingConfigurationVersion {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html */
 
-export interface StepFunctionsStateMachineAlias {
+export interface StepFunctionsStateMachineAlias extends ResourceAttributes {
   Type: 'AWS::StepFunctions::StateMachineAlias'
   Properties: {
     /**

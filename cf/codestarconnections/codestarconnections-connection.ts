@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag is a key-value pair that is used to manage the resource.
  * This tag is available for use by AWS services that support tags.
  *
@@ -33,7 +35,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html */
 
-export interface CodeStarConnectionsConnection {
+export interface CodeStarConnectionsConnection extends ResourceAttributes {
   Type: 'AWS::CodeStarConnections::Connection'
   Properties: {
     /**

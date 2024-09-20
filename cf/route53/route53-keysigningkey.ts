@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Route53::KeySigningKey` resource creates a new key-signing key (KSK) in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the `Name`, `Status`, and `KeyManagementServiceArn` properties of the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html */
 
-export interface Route53KeySigningKey {
+export interface Route53KeySigningKey extends ResourceAttributes {
   Type: 'AWS::Route53::KeySigningKey'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html */
@@ -120,7 +122,7 @@ export interface ScheduledActionType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html */
 
-export interface RedshiftScheduledAction {
+export interface RedshiftScheduledAction extends ResourceAttributes {
   Type: 'AWS::Redshift::ScheduledAction'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::CodeGuruReviewer::RepositoryAssociation](./aws-resource-codegurureviewer-repositoryassociation.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html */
@@ -28,10 +30,20 @@ export interface Tag {
 
 /**
  * This resource configures how Amazon CodeGuru Reviewer retrieves the source code to be reviewed. You can use an AWS CloudFormation template to create an association with the following repository types:
+ * *   AWS CodeCommit - For more information, see [Create an AWS CodeCommit repository association](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-codecommit-association.html) in the _Amazon CodeGuru Reviewer User Guide_.
+ *
+ * *   Bitbucket - For more information, see [Create a Bitbucket repository association](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-bitbucket-association.html) in the _Amazon CodeGuru Reviewer User Guide_.
+ *
+ * *   GitHub Enterprise Server - For more information, see [Create a GitHub Enterprise Server repository association](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-github-enterprise-association.html) in the _Amazon CodeGuru Reviewer User Guide_.
+ *
+ * *   S3Bucket - For more information, see [Create code reviews with GitHub Actions](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html) in the _Amazon CodeGuru Reviewer User Guide_.
+ * ###### Note
+ *
+ * You cannot use a CloudFormation template to create an association with a GitHub repository.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html */
 
-export interface CodeGuruReviewerRepositoryAssociation {
+export interface CodeGuruReviewerRepositoryAssociation extends ResourceAttributes {
   Type: 'AWS::CodeGuruReviewer::RepositoryAssociation'
   Properties: {
     /**

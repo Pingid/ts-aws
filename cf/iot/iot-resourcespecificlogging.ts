@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configure resource-specific logging.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html */
 
-export interface IoTResourceSpecificLogging {
+export interface IoTResourceSpecificLogging extends ResourceAttributes {
   Type: 'AWS::IoT::ResourceSpecificLogging'
   Properties: {
     /**

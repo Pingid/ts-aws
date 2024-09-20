@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type for a range of ports for a listener.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html */
@@ -31,7 +33,7 @@ export interface PortRange {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html */
 
-export interface GlobalAcceleratorListener {
+export interface GlobalAcceleratorListener extends ResourceAttributes {
   Type: 'AWS::GlobalAccelerator::Listener'
   Properties: {
     /**

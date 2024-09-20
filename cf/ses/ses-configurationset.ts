@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html */
@@ -152,10 +154,30 @@ export interface VdmOptions {
 
 /**
  * Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/).
+ * ###### Note
+ *
+ * **Required permissions:**
+ *
+ * To apply any of the resource options, you will need to have the corresponding AWS Identity and Access Management (IAM) SES API v2 permissions:
+ *
+ * *   `ses:GetConfigurationSet`
+ *
+ *     *   (This permission is replacing the v1 _ses:DescribeConfigurationSet_ permission which will not work with these v2 resource options.)
+ *
+ *
+ * *   `ses:PutConfigurationSetDeliveryOptions`
+ *
+ * *   `ses:PutConfigurationSetReputationOptions`
+ *
+ * *   `ses:PutConfigurationSetSendingOptions`
+ *
+ * *   `ses:PutConfigurationSetSuppressionOptions`
+ *
+ * *   `ses:PutConfigurationSetTrackingOptions`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html */
 
-export interface SESConfigurationSet {
+export interface SESConfigurationSet extends ResourceAttributes {
   Type: 'AWS::SES::ConfigurationSet'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The credentials of your SAP application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html */
@@ -66,7 +68,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html */
 
-export interface SystemsManagerSAPApplication {
+export interface SystemsManagerSAPApplication extends ResourceAttributes {
   Type: 'AWS::SystemsManagerSAP::Application'
   Properties: {
     /**

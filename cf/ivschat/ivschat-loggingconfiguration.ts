@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair that you can use to categorize and manage Amazon IVSChat LoggingConfigurations.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html */
@@ -120,7 +122,7 @@ export interface DestinationConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html */
 
-export interface IVSChatLoggingConfiguration {
+export interface IVSChatLoggingConfiguration extends ResourceAttributes {
   Type: 'AWS::IVSChat::LoggingConfiguration'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The target to which to send matching events.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html */
@@ -22,7 +24,7 @@ export interface EventBridgeRuleTemplateTarget {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html */
 
-export interface MediaLiveEventBridgeRuleTemplate {
+export interface MediaLiveEventBridgeRuleTemplate extends ResourceAttributes {
   Type: 'AWS::MediaLive::EventBridgeRuleTemplate'
   Properties: {
     /**

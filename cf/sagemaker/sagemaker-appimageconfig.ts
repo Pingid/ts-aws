@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app. The `FileSystemConfig` object is not supported.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html */
@@ -226,7 +228,7 @@ export interface CodeEditorAppImageConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html */
 
-export interface SageMakerAppImageConfig {
+export interface SageMakerAppImageConfig extends ResourceAttributes {
   Type: 'AWS::SageMaker::AppImageConfig'
   Properties: {
     /**

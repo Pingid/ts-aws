@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Error information for the data source creation or update.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html */
@@ -1170,7 +1172,7 @@ export interface DataSourceParameters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html */
 
-export interface QuickSightDataSource {
+export interface QuickSightDataSource extends ResourceAttributes {
   Type: 'AWS::QuickSight::DataSource'
   Properties: {
     /**

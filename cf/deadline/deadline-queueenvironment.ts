@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates an environment for a queue that defines how jobs in the queue run.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html */
 
-export interface DeadlineQueueEnvironment {
+export interface DeadlineQueueEnvironment extends ResourceAttributes {
   Type: 'AWS::Deadline::QueueEnvironment'
   Properties: {
     /**

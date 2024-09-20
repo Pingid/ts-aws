@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html */
 
@@ -154,7 +156,7 @@ export interface SslConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html */
 
-export interface OpsWorksApp {
+export interface OpsWorksApp extends ResourceAttributes {
   Type: 'AWS::OpsWorks::App'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes an enhanced metrics configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html */
@@ -284,7 +286,7 @@ export interface AdditionalAuthenticationProvider {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html */
 
-export interface AppSyncGraphQLApi {
+export interface AppSyncGraphQLApi extends ResourceAttributes {
   Type: 'AWS::AppSync::GraphQLApi'
   Properties: {
     /**
