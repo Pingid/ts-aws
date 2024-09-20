@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html */
@@ -19,10 +21,13 @@ export interface CloudWatchLoggingOption {
 
 /**
  * Adds an Amazon CloudWatch log stream to monitor application configuration errors.
+ * ###### Note
+ *
+ * Only one _ApplicationCloudWatchLoggingOption_ resource can be attached per application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html */
 
-export interface KinesisAnalyticsV2ApplicationCloudWatchLoggingOption {
+export interface KinesisAnalyticsV2ApplicationCloudWatchLoggingOption extends ResourceAttributes {
   Type: 'AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption'
   Properties: {
     /**

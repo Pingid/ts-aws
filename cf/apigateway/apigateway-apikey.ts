@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `StageKey` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html */
@@ -55,7 +57,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html */
 
-export interface ApiGatewayApiKey {
+export interface ApiGatewayApiKey extends ResourceAttributes {
   Type: 'AWS::ApiGateway::ApiKey'
   Properties: {
     /**

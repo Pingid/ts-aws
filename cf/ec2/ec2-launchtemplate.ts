@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the _Amazon Elastic Compute Cloud User Guide_.
  * `CpuOptions` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  *
@@ -51,6 +53,11 @@ export interface CreditSpecification {
 }
 
 /**
+ * ###### Note
+ *
+ * Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+ * Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+ * `ElasticGpuSpecification` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html */
 
@@ -704,6 +711,9 @@ export interface MemoryMiB {
 
 /**
  * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+ * ###### Note
+ *
+ * Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the _Amazon EC2 User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html */
 
@@ -1046,6 +1056,15 @@ export interface InstanceMarketOptions {
  * You must specify `VCpuCount` and `MemoryMiB`. All other attributes are optional. Any unspecified optional attribute is set to its default.
  * When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
  * To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+ * *   `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+ *
+ * *   `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+ * ###### Note
+ *
+ * If you specify `InstanceRequirements`, you can't specify `InstanceType`.
+ *
+ * Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements`.
+ * For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the _Amazon EC2 User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html */
 
@@ -1504,6 +1523,9 @@ export interface NetworkInterface {
 
 /**
  * The information to include in the launch template.
+ * ###### Note
+ *
+ * You must specify at least one parameter for the launch template data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html */
 
@@ -1778,10 +1800,15 @@ export interface LaunchTemplateData {
 /**
  * Specifies the properties for creating a launch template.
  * The minimum required properties for specifying a launch template are as follows:
+ * *   You must specify at least one property for the launch template data.
+ *
+ * *   You can optionally specify a name for the launch template. If you do not specify a name, AWS CloudFormation creates a name for you.
+ * A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the `ImageId` property, which has no default value. If you do not specify an AMI ID for the launch template `ImageId` property, you must specify an AMI ID for the instance `ImageId` property.
+ * For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the _Amazon EC2 User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html */
 
-export interface EC2LaunchTemplate {
+export interface EC2LaunchTemplate extends ResourceAttributes {
   Type: 'AWS::EC2::LaunchTemplate'
   Properties: {
     /**

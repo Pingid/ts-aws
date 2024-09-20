@@ -1,13 +1,24 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds or updates an inline policy document that is embedded in the specified IAM group, user or role.
  * An IAM user can also have a managed policy attached to it. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the _IAM User Guide_.
  * The Groups, Roles, and Users properties are optional. However, you must specify at least one of these properties.
  * For information about policy documents see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the _IAM User Guide_.
  * For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the _IAM User Guide_.
+ * ###### Important
+ *
+ * This resource does not support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) . The following inline policy resource types support drift detection:
+ *
+ * *   [`AWS::IAM::GroupPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html)
+ *
+ * *   [`AWS::IAM::RolePolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html)
+ *
+ * *   [`AWS::IAM::UserPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html */
 
-export interface IAMPolicy {
+export interface IAMPolicy extends ResourceAttributes {
   Type: 'AWS::IAM::Policy'
   Properties: {
     /**

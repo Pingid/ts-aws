@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html */
@@ -61,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html */
 
-export interface LightsailBucket {
+export interface LightsailBucket extends ResourceAttributes {
   Type: 'AWS::Lightsail::Bucket'
   Properties: {
     /**

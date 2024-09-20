@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The details of the subscription target configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html */
@@ -30,7 +32,7 @@ export interface SubscriptionTargetForm {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html */
 
-export interface DataZoneSubscriptionTarget {
+export interface DataZoneSubscriptionTarget extends ResourceAttributes {
   Type: 'AWS::DataZone::SubscriptionTarget'
   Properties: {
     /**

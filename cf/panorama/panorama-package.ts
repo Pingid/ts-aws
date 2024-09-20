@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A storage location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html */
@@ -81,7 +83,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html */
 
-export interface PanoramaPackage {
+export interface PanoramaPackage extends ResourceAttributes {
   Type: 'AWS::Panorama::Package'
   Properties: {
     /**

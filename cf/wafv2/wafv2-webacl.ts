@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
@@ -109,6 +111,12 @@ export interface VisibilityConfig {
 
 /**
  * Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
+ * ###### Note
+ *
+ * You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
+ * Example JSON: `{ "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }`
+ * For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB (8,192 bytes).
+ * This is used in the `AssociationConfig` of the web ACL.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -147,6 +155,9 @@ export interface ImmunityTimeProperty {
 /**
  * The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
  * You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement`.
+ * ###### Note
+ *
+ * This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -227,6 +238,19 @@ export interface CustomResponse {
 
 /**
  * Specifies that AWS WAF should run a `CAPTCHA` check against the request:
+ * *   If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction`.
+ *
+ * *   If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+ *
+ *     AWS WAF generates a response that it sends back to the client, which includes the following:
+ *
+ *     *   The header `x-amzn-waf-action` with a value of `captcha`.
+ *
+ *     *   The HTTP status code `405 Method Not Allowed`.
+ *
+ *     *   If the request contains an `Accept` header with a value of `text/html`, the response includes a `CAPTCHA` challenge.
+ * You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
+ * This action option is available for rules. It isn't available for web ACL default actions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -244,6 +268,26 @@ export interface CaptchaAction {
 
 /**
  * Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
+ * *   If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction`.
+ *
+ * *   If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+ *
+ *     AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
+ *
+ *     *   The header `x-amzn-waf-action` with a value of `challenge`.
+ *
+ *     *   The HTTP status code `202 Request Accepted`.
+ *
+ *     *   If the request contains an `Accept` header with a value of `text/html`, the response includes a JavaScript page interstitial with a challenge script.
+ *
+ *
+ *     Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
+ *
+ *     A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
+ *
+ *     After the client session successfully responds to the challenge, it receives a new token from AWS WAF, which the challenge script uses to resubmit the original request.
+ * You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
+ * This action option is available for rules. It isn't available for web ACL default actions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -627,6 +671,11 @@ export interface TextTransformation {
 
 /**
  * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+ * ###### Note
+ *
+ * If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+ * This configuration is used for [GeoMatchStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement) and [RateBasedStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement). For [IPSetReferenceStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement), use [IPSetForwardedIPConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig) instead.
+ * AWS WAF only evaluates the first IP address found in the specified HTTP header.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -654,6 +703,10 @@ export interface ForwardedIPConfiguration {
 
 /**
  * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+ * ###### Note
+ *
+ * If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+ * This configuration is used only for [IPSetReferenceStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement). For [GeoMatchStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement) and [RateBasedStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement), use [ForwardedIPConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig) instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -691,6 +744,9 @@ export interface IPSetForwardedIPConfiguration {
 
 /**
  * Specifies a single rule in a rule group whose action you want to override to `Count`.
+ * ###### Note
+ *
+ * Instead of this option, use `RuleActionOverrides`. It accepts any valid action setting, including `Count`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -756,6 +812,11 @@ export interface Body {
 
 /**
  * Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+ * ###### Note
+ *
+ * You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY`.
+ * You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the _AWS WAF Developer Guide_.
+ * Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1213,6 +1274,10 @@ export interface RequestInspection {
 /**
  * Specifies custom configurations for the associations between the web ACL and protected resources.
  * Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
+ * ###### Note
+ *
+ * You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
+ * For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB (8,192 bytes).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1247,6 +1312,9 @@ export interface CaptchaConfig {
 
 /**
  * Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet`.
+ * ###### Note
+ *
+ * Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1277,6 +1345,9 @@ export interface ResponseInspectionBodyContains {
 
 /**
  * Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet`.
+ * ###### Note
+ *
+ * Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1319,6 +1390,9 @@ export interface ResponseInspectionHeader {
 
 /**
  * Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet`.
+ * ###### Note
+ *
+ * Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1361,6 +1435,9 @@ export interface ResponseInspectionJson {
 
 /**
  * Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet`.
+ * ###### Note
+ *
+ * Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1478,6 +1555,13 @@ export interface CustomRequestHandling {
 
 /**
  * A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
+ * *   To manage requests only by country, you can use this statement by itself and specify the countries that you want to match against in the `CountryCodes` array.
+ *
+ * *   Otherwise, configure your geo match rule with Count action so that it only labels requests. Then, add one or more label match rules to run after the geo match rule and configure them to match against the geographic labels and handle the requests as needed.
+ * AWS WAF labels requests using the alpha-2 country and region codes from the International Organization for Standardization (ISO) 3166 standard. AWS WAF determines the codes using either the IP address in the web request origin or, if you specify it, the address in the geo match `ForwardedIPConfig`.
+ * If you use the web request origin, the label formats are `awswaf:clientip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:clientip:geo:country:<ISO country code>`.
+ * If you use a forwarded IP address, the label formats are `awswaf:forwardedip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:forwardedip:geo:country:<ISO country code>`.
+ * For additional details, see [Geographic match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1532,6 +1616,9 @@ export interface IPSetReferenceStatement {
 
 /**
  * Specifies a single custom aggregate key for a rate-base rule.
+ * ###### Note
+ *
+ * Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1793,6 +1880,12 @@ export interface AWSManagedRulesATPRuleSet {
 
 /**
  * The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+ * ###### Note
+ *
+ * Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+ * The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
+ * This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig`.
+ * Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode`. You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1851,6 +1944,47 @@ export interface AllowAction {
 
 /**
  * A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
+ * ###### Note
+ *
+ * If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute.
+ * You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
+ * Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition.
+ * For example, assume the rule evaluates web requests with the following IP address and HTTP method values:
+ * *   IP address 10.1.1.1, HTTP method POST
+ *
+ * *   IP address 10.1.1.1, HTTP method GET
+ *
+ * *   IP address 127.0.0.0, HTTP method POST
+ *
+ * *   IP address 10.1.1.1, HTTP method GET
+ * The rule would create different aggregation instances according to your aggregation criteria, for example:
+ * *   If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
+ *
+ *     *   IP address 10.1.1.1: count 3
+ *
+ *     *   IP address 127.0.0.0: count 1
+ *
+ *
+ * *   If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
+ *
+ *     *   HTTP method POST: count 2
+ *
+ *     *   HTTP method GET: count 2
+ *
+ *
+ * *   If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
+ *
+ *     *   IP address 10.1.1.1, HTTP method POST: count 1
+ *
+ *     *   IP address 10.1.1.1, HTTP method GET: count 2
+ *
+ *     *   IP address 127.0.0.0, HTTP method POST: count 1
+ * For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which AWS WAF counts and rate-limits individually.
+ * You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule.
+ * You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement`. You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
+ * For additional information about the options, see [Rate limiting web requests using rate-based rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html) in the _AWS WAF Developer Guide_.
+ * If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that AWS WAF is currently rate limiting for a rule through the API call `GetRateBasedStatementManagedKeys`. This option is not available for other aggregation configurations.
+ * AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -1916,6 +2050,23 @@ export interface RateBasedStatement {
 
 /**
  * Specifies a web request component to be used in a rule match statement or in a logging configuration.
+ * *   In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+ *
+ *     Example JSON for a `QueryString` field to match:
+ *
+ *     `"FieldToMatch": { "QueryString": {} }`
+ *
+ *     Example JSON for a `Method` field to match specification:
+ *
+ *     `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
+ *
+ * *   In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
+ *
+ *     *   Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath`, `QueryString`, `SingleHeader`, and `Method`.
+ *
+ *     *   In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
+ *
+ *     *   If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -2169,6 +2320,11 @@ export interface ByteMatchStatement {
 /**
  * Additional information that's used by a managed rule group. Many managed rule groups don't require this.
  * The rule groups used for intelligent threat mitigation require additional configuration:
+ * *   Use the `AWSManagedRulesACFPRuleSet` configuration object to configure the account creation fraud prevention managed rule group. The configuration includes the registration and sign-up pages of your application and the locations in the account creation request payload of data, such as the user email and phone number fields.
+ *
+ * *   Use the `AWSManagedRulesATPRuleSet` configuration object to configure the account takeover prevention managed rule group. The configuration includes the sign-in page of your application and the locations in the login request payload of data such as the username and password.
+ *
+ * *   Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -2237,6 +2393,9 @@ export interface ManagedRuleGroupConfig {
 /**
  * A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups`.
  * You cannot nest a `ManagedRuleGroupStatement`, for example for use inside a `NotStatement` or `OrStatement`. You cannot use a managed rule group statement inside another rule group. You can only use a managed rule group statement as a top-level statement in a rule that you define in a web ACL.
+ * ###### Note
+ *
+ * You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet`, the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet`, or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet`. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
@@ -2551,10 +2710,22 @@ export interface Rule {
 }
 
 /**
+ * ###### Note
+ *
+ * This is the latest version of **AWS WAF** , named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+ * Use an AWS::WAFv2::WebACL to define a collection of rules to use to inspect and control web requests. Each rule in a web ACL has a statement that defines what to look for in web requests and an action that AWS WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that doesn't match any of the rules.
+ * The rules in a web ACL can be a combination of explicitly defined rules and rule groups that you reference from the web ACL. The rule groups can be rule groups that you manage or rule groups that are managed by others.
+ * You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API , an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance.
+ * For more information, see [Web access control lists (web ACLs)](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl.html) in the _AWS WAF developer guide_.
+ * **Web ACLs used in AWS Shield Advanced automatic application layer DDoS mitigation**
+ * If you use Shield Advanced automatic application layer DDoS mitigation, the web ACLs that you use with automatic mitigation have a rule group rule whose name starts with `ShieldMitigationRuleGroup`. This rule is used for automatic mitigations and it's managed for you in the web ACL by Shield Advanced and AWS WAF. You'll see the rule listed among the web ACL rules when you view the web ACL through the AWS WAF interfaces.
+ * When you manage the web ACL through AWS CloudFormation interfaces, you won't see the Shield Advanced rule. AWS CloudFormation doesn't include this type of rule in the stack drift status between the actual configuration of the web ACL and your web ACL template.
+ * Don't add the Shield Advanced rule group rule to your web ACL template. The rule shouldn't be in your template. When you update the web ACL template in a stack, the Shield Advanced rule is maintained for you by AWS WAF in the resulting web ACL.
+ * For more information, see [Shield Advanced automatic application layer DDoS mitigation](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response.html) in the _AWS Shield Advanced developer guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html */
 
-export interface WAFv2WebACL {
+export interface WAFv2WebACL extends ResourceAttributes {
   Type: 'AWS::WAFv2::WebACL'
   Properties: {
     /**

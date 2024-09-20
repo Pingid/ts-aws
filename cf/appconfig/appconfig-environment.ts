@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Amazon CloudWatch alarms to monitor during the deployment process.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html */
@@ -59,10 +61,20 @@ export interface Tag {
 /**
  * The `AWS::AppConfig::Environment` resource creates an environment, which is a logical deployment group of AWS AppConfig targets, such as applications in a `Beta` or `Production` environment. You define one or more environments for each AWS AppConfig application. You can also define environments for application subcomponents such as the `Web`, `Mobile` and `Back-end` components for your application. You can configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls back the configuration.
  * AWS AppConfig requires that you create resources and deploy a configuration in the following order:
+ * 1.  Create an application
+ *
+ * 2.  Create an environment
+ *
+ * 3.  Create a configuration profile
+ *
+ * 4.  Choose a pre-defined deployment strategy or create your own
+ *
+ * 5.  Deploy the configuration
+ * For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the _AWS AppConfig User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html */
 
-export interface AppConfigEnvironment {
+export interface AppConfigEnvironment extends ResourceAttributes {
   Type: 'AWS::AppConfig::Environment'
   Properties: {
     /**

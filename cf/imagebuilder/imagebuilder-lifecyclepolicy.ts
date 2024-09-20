@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines filters that the lifecycle policy uses to determine impacted resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html */
@@ -294,7 +296,7 @@ export interface PolicyDetail {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html */
 
-export interface ImageBuilderLifecyclePolicy {
+export interface ImageBuilderLifecyclePolicy extends ResourceAttributes {
   Type: 'AWS::ImageBuilder::LifecyclePolicy'
   Properties: {
     /**

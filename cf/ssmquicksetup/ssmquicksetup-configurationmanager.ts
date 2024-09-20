@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The definition of a Quick Setup configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-configurationmanager.html */
@@ -66,7 +68,7 @@ export interface ConfigurationDefinition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-configurationmanager.html */
 
-export interface SSMQuickSetupConfigurationManager {
+export interface SSMQuickSetupConfigurationManager extends ResourceAttributes {
   Type: 'AWS::SSMQuickSetup::ConfigurationManager'
   Properties: {
     /**

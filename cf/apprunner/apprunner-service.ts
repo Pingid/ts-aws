@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html */
@@ -620,7 +622,7 @@ export interface SourceConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html */
 
-export interface AppRunnerService {
+export interface AppRunnerService extends ResourceAttributes {
   Type: 'AWS::AppRunner::Service'
   Properties: {
     /**

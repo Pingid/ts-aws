@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds a metered product.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html */
 
-export interface DeadlineMeteredProduct {
+export interface DeadlineMeteredProduct extends ResourceAttributes {
   Type: 'AWS::Deadline::MeteredProduct'
   Properties: {
     /**

@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates or updates the auth policy. The policy string in JSON must not contain newlines or blank lines.
  * For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html) in the _Amazon VPC Lattice User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html */
 
-export interface VpcLatticeAuthPolicy {
+export interface VpcLatticeAuthPolicy extends ResourceAttributes {
   Type: 'AWS::VpcLattice::AuthPolicy'
   Properties: {
     /**

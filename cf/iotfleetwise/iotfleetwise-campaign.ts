@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a signal.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html */
@@ -415,7 +417,7 @@ export interface SignalFetchInformation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html */
 
-export interface IoTFleetWiseCampaign {
+export interface IoTFleetWiseCampaign extends ResourceAttributes {
   Type: 'AWS::IoTFleetWise::Campaign'
   Properties: {
     /**

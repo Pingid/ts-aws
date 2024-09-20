@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates or updates a resource policy that allows other AWS services to put log events to this account. An account can have up to 10 resource policies per AWS Region.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html */
 
-export interface LogsResourcePolicy {
+export interface LogsResourcePolicy extends ResourceAttributes {
   Type: 'AWS::Logs::ResourcePolicy'
   Properties: {
     /**

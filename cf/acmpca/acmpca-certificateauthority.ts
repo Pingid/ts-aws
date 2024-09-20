@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) action. To remove a tag, call the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html */
@@ -403,6 +405,41 @@ export interface Subject {
  * Your private CA uses the value in the **ExpirationInDays** parameter to calculate the **nextUpdate** field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
  * A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
  * CRLs contain the following fields:
+ * *   **Version**: The current version number defined in RFC 5280 is V2. The integer value is 0x1.
+ *
+ * *   **Signature Algorithm**: The name of the algorithm used to sign the CRL.
+ *
+ * *   **Issuer**: The X.500 distinguished name of your private CA that issued the CRL.
+ *
+ * *   **Last Update**: The issue date and time of this CRL.
+ *
+ * *   **Next Update**: The day and time by which the next CRL will be issued.
+ *
+ * *   **Revoked Certificates**: List of revoked certificates. Each list item contains the following information.
+ *
+ *     *   **Serial Number**: The serial number, in hexadecimal format, of the revoked certificate.
+ *
+ *     *   **Revocation Date**: Date and time the certificate was revoked.
+ *
+ *     *   **CRL Entry Extensions**: Optional extensions for the CRL entry.
+ *
+ *         *   **X509v3 CRL Reason Code**: Reason the certificate was revoked.
+ *
+ *
+ *
+ * *   **CRL Extensions**: Optional extensions for the CRL.
+ *
+ *     *   **X509v3 Authority Key Identifier**: Identifies the public key associated with the private key used to sign the certificate.
+ *
+ *     *   **X509v3 CRL Number:**: Decimal sequence number for the CRL.
+ *
+ *
+ * *   **Signature Algorithm**: Algorithm used by your private CA to sign the CRL.
+ *
+ * *   **Signature Value**: Signature computed over the CRL.
+ * Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
+ * `openssl crl -inform DER -text -in _crl_path_ -noout`
+ * For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the _AWS Private Certificate Authority User Guide_
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html */
 
@@ -554,6 +591,15 @@ export interface GeneralName {
 /**
  * Certificate revocation information used by the [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) and [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) actions. Your private certificate authority (CA) can configure Online Certificate Status Protocol (OCSP) support and/or maintain a certificate revocation list (CRL). OCSP returns validation information about certificates as requested by clients, and a CRL contains an updated list of certificates revoked by your CA. For more information, see [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) in the _AWS Private CA API Reference_ and [Setting up a certificate revocation method](https://docs.aws.amazon.com/privateca/latest/userguide/revocation-setup.html) in the _AWS Private CA User Guide_.
  * The following requirements and constraints apply to revocation configurations.
+ * *   A configuration disabling CRLs or OCSP must contain only the `Enabled=False` parameter, and will fail if other parameters such as `CustomCname` or `ExpirationInDays` are included.
+ *
+ * *   In a CRL configuration, the `S3BucketName` parameter must conform to the [Amazon S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+ *
+ * *   A configuration containing a custom Canonical Name (CNAME) parameter for CRLs or OCSP must conform to [RFC2396](https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in a CNAME.
+ *
+ * *   In a CRL or OCSP configuration, the value of a CNAME parameter must not include a protocol prefix such as "http://" or "https://".
+ *
+ * *   To revoke a certificate, delete the resource from your template, and call the AWS Private CA [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) API and specify the resource's certificate authority ARN.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html */
 
@@ -626,10 +672,13 @@ export interface CsrExtensions {
 
 /**
  * Use the `AWS::ACMPCA::CertificateAuthority` resource to create a private CA. Once the CA exists, you can use the `AWS::ACMPCA::Certificate` resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the `AWS::ACMPCA::CertificateAuthorityActivation` resource to import the new CA certificate and activate the CA.
+ * ###### Note
+ *
+ * Before removing a `AWS::ACMPCA::CertificateAuthority` resource from the CloudFormation stack, disable the affected CA. Otherwise, the action will fail. You can disable the CA by removing its associated `AWS::ACMPCA::CertificateAuthorityActivation` resource from CloudFormation.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html */
 
-export interface ACMPCACertificateAuthority {
+export interface ACMPCACertificateAuthority extends ResourceAttributes {
   Type: 'AWS::ACMPCA::CertificateAuthority'
   Properties: {
     /**

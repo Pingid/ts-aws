@@ -1,11 +1,13 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates an encryption or network policy to be used by one or more OpenSearch Serverless collections.
  * Network policies specify access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html).
  * Encryption policies specify a KMS encryption key to assign to particular collections. For more information, see [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html */
 
-export interface OpenSearchServerlessSecurityPolicy {
+export interface OpenSearchServerlessSecurityPolicy extends ResourceAttributes {
   Type: 'AWS::OpenSearchServerless::SecurityPolicy'
   Properties: {
     /**

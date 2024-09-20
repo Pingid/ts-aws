@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A custom key-value pair associated with a Billing Conductor resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingplan.html */
@@ -31,7 +33,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingplan.html */
 
-export interface BillingConductorPricingPlan {
+export interface BillingConductorPricingPlan extends ResourceAttributes {
   Type: 'AWS::BillingConductor::PricingPlan'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::MediaPackageV2::Channel](./aws-resource-mediapackagev2-channel.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html */
@@ -28,7 +30,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html */
 
-export interface MediaPackageV2Channel {
+export interface MediaPackageV2Channel extends ResourceAttributes {
   Type: 'AWS::MediaPackageV2::Channel'
   Properties: {
     /**

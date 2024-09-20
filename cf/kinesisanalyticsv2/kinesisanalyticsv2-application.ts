@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the maintence window parameters for a Kinesis Data Analytics application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html */
@@ -1102,7 +1104,7 @@ export interface ApplicationConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html */
 
-export interface KinesisAnalyticsV2Application {
+export interface KinesisAnalyticsV2Application extends ResourceAttributes {
   Type: 'AWS::KinesisAnalyticsV2::Application'
   Properties: {
     /**

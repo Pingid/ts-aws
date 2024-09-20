@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html */
@@ -28,10 +30,16 @@ export interface Tag {
 
 /**
  * Specifies a key pair for use with an Amazon Elastic Compute Cloud instance as follows:
+ * *   To import an existing key pair, include the `PublicKeyMaterial` property.
+ *
+ * *   To create a new key pair, omit the `PublicKeyMaterial` property.
+ * When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. AWS CloudFormation does not create or return the private key material when you import a key pair.
+ * When you create a new key pair, the private key is saved to AWS Systems Manager Parameter Store, using a parameter with the following name: `/ec2/keypair/{key_pair_id}`. For more information about retrieving private key, and the required permissions, see [Create a key pair using AWS CloudFormation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the _Amazon EC2 User Guide_.
+ * When AWS CloudFormation deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html */
 
-export interface EC2KeyPair {
+export interface EC2KeyPair extends ResourceAttributes {
   Type: 'AWS::EC2::KeyPair'
   Properties: {
     /**

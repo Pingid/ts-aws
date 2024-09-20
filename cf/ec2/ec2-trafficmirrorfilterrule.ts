@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the Traffic Mirror port range.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html */
@@ -53,7 +55,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html */
 
-export interface EC2TrafficMirrorFilterRule {
+export interface EC2TrafficMirrorFilterRule extends ResourceAttributes {
   Type: 'AWS::EC2::TrafficMirrorFilterRule'
   Properties: {
     /**

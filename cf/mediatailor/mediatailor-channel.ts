@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Slate VOD source configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html */
@@ -187,7 +189,7 @@ export interface RequestOutputItem {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html */
 
-export interface MediaTailorChannel {
+export interface MediaTailorChannel extends ResourceAttributes {
   Type: 'AWS::MediaTailor::Channel'
   Properties: {
     /**

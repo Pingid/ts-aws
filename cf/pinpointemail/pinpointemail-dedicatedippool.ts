@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that defines the tags (keys and values) that you want to associate with the dedicated IP pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html */
@@ -28,7 +30,7 @@ export interface Tags {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html */
 
-export interface PinpointEmailDedicatedIpPool {
+export interface PinpointEmailDedicatedIpPool extends ResourceAttributes {
   Type: 'AWS::PinpointEmail::DedicatedIpPool'
   Properties: {
     /**

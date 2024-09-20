@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes an asset hierarchy that contains a hierarchy's name and ID.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html */
@@ -143,7 +145,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html */
 
-export interface IoTSiteWiseAsset {
+export interface IoTSiteWiseAsset extends ResourceAttributes {
   Type: 'AWS::IoTSiteWise::Asset'
   Properties: {
     /**

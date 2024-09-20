@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The billing period range in which the custom line item request will be applied.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html */
@@ -176,7 +178,7 @@ export interface CustomLineItemChargeDetails {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html */
 
-export interface BillingConductorCustomLineItem {
+export interface BillingConductorCustomLineItem extends ResourceAttributes {
   Type: 'AWS::BillingConductor::CustomLineItem'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::S3Outposts::Bucket](./aws-resource-s3outposts-bucket.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html */
@@ -211,10 +213,14 @@ export interface LifecycleConfiguration {
 /**
  * The AWS::S3Outposts::Bucket resource specifies a new Amazon S3 on Outposts bucket. To create an S3 on Outposts bucket, you must have S3 on Outposts capacity provisioned on your Outpost. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html).
  * S3 on Outposts buckets support the following:
+ * *   Tags
+ *
+ * *   Lifecycle configuration rules for deleting expired objects
+ * For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see [Amazon S3 on Outposts Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html */
 
-export interface S3OutpostsBucket {
+export interface S3OutpostsBucket extends ResourceAttributes {
   Type: 'AWS::S3Outposts::Bucket'
   Properties: {
     /**

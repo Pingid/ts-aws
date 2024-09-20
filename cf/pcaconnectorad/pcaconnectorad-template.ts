@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Template configurations for v2 template schema.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html */
@@ -1334,7 +1336,7 @@ export interface TemplateDefinition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html */
 
-export interface PCAConnectorADTemplate {
+export interface PCAConnectorADTemplate extends ResourceAttributes {
   Type: 'AWS::PCAConnectorAD::Template'
   Properties: {
     /**

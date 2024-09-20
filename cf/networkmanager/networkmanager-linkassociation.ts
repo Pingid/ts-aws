@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the association between a device and a link.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html */
 
-export interface NetworkManagerLinkAssociation {
+export interface NetworkManagerLinkAssociation extends ResourceAttributes {
   Type: 'AWS::NetworkManager::LinkAssociation'
   Properties: {
     /**

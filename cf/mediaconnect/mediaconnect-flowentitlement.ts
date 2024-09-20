@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the encryption of the flow.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html */
@@ -85,7 +87,7 @@ export interface Encryption {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html */
 
-export interface MediaConnectFlowEntitlement {
+export interface MediaConnectFlowEntitlement extends ResourceAttributes {
   Type: 'AWS::MediaConnect::FlowEntitlement'
   Properties: {
     /**

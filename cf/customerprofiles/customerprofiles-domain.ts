@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tags (keys and values) associated with the domain
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html */
@@ -377,7 +379,7 @@ export interface Matching {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html */
 
-export interface CustomerProfilesDomain {
+export interface CustomerProfilesDomain extends ResourceAttributes {
   Type: 'AWS::CustomerProfiles::Domain'
   Properties: {
     /**

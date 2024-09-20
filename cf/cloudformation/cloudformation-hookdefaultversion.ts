@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `HookDefaultVersion` resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html */
 
-export interface CloudFormationHookDefaultVersion {
+export interface CloudFormationHookDefaultVersion extends ResourceAttributes {
   Type: 'AWS::CloudFormation::HookDefaultVersion'
   Properties: {
     /**

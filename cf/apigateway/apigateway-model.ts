@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGateway::Model` resource defines the structure of a request or response payload for an API method.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html */
 
-export interface ApiGatewayModel {
+export interface ApiGatewayModel extends ResourceAttributes {
   Type: 'AWS::ApiGateway::Model'
   Properties: {
     /**

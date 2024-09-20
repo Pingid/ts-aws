@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a single task template field.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html */
@@ -202,7 +204,7 @@ export interface DefaultFieldValue {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html */
 
-export interface ConnectTaskTemplate {
+export interface ConnectTaskTemplate extends ResourceAttributes {
   Type: 'AWS::Connect::TaskTemplate'
   Properties: {
     /**

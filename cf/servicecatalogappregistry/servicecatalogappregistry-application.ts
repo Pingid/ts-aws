@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents a AWS Service Catalog AppRegistry application that is the top-level node in a hierarchy of related cloud resource abstractions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-application.html */
 
-export interface ServiceCatalogAppRegistryApplication {
+export interface ServiceCatalogAppRegistryApplication extends ResourceAttributes {
   Type: 'AWS::ServiceCatalogAppRegistry::Application'
   Properties: {
     /**

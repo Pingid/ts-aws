@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tags (keys and values) associated with the integration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html */
@@ -150,7 +152,7 @@ export interface KeyMap {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html */
 
-export interface CustomerProfilesObjectType {
+export interface CustomerProfilesObjectType extends ResourceAttributes {
   Type: 'AWS::CustomerProfiles::ObjectType'
   Properties: {
     /**

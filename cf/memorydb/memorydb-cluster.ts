@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents the information required for client programs to connect to the cluster and its nodes.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html */
@@ -57,7 +59,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html */
 
-export interface MemoryDBCluster {
+export interface MemoryDBCluster extends ResourceAttributes {
   Type: 'AWS::MemoryDB::Cluster'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The event buses the endpoint is associated with.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html */
@@ -117,7 +119,7 @@ export interface RoutingConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html */
 
-export interface EventsEndpoint {
+export interface EventsEndpoint extends ResourceAttributes {
   Type: 'AWS::Events::Endpoint'
   Properties: {
     /**

@@ -1,11 +1,13 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and Region.
  * To register a module version, use the ``[`AWS::CloudFormation::ModuleVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html)`` resource.
  * For more information using modules, see [Using modules to encapsulate and reuse resource configurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) and [Registering extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register) in the _AWS CloudFormation User Guide_. For information on developing modules, see [Developing modules](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html) in the _AWS CloudFormation CLI User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html */
 
-export interface CloudFormationModuleDefaultVersion {
+export interface CloudFormationModuleDefaultVersion extends ResourceAttributes {
   Type: 'AWS::CloudFormation::ModuleDefaultVersion'
   Properties: {
     /**

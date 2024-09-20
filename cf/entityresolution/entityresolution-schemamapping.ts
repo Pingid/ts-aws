@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object containing `FieldName`, `Type`, `GroupName`, `MatchKey`, `Hashing`, and `SubType`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html */
@@ -100,7 +102,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html */
 
-export interface EntityResolutionSchemaMapping {
+export interface EntityResolutionSchemaMapping extends ResourceAttributes {
   Type: 'AWS::EntityResolution::SchemaMapping'
   Properties: {
     /**

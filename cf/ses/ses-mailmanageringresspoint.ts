@@ -1,5 +1,10 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration of the ingress endpoint resource.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html */
 
@@ -61,7 +66,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html */
 
-export interface SESMailManagerIngressPoint {
+export interface SESMailManagerIngressPoint extends ResourceAttributes {
   Type: 'AWS::SES::MailManagerIngressPoint'
   Properties: {
     /**

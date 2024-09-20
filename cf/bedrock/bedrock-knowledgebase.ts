@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains the names of the fields to which to map information about the vector store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html */
@@ -497,10 +499,29 @@ export interface KnowledgeBaseConfiguration {
 
 /**
  * Specifies a knowledge base as a resource in a top-level template. Minimally, you must specify the following properties:
+ * *   Name – Specify a name for the knowledge base.
+ *
+ * *   RoleArn – Specify the Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base. For more information, see [Create a service role for Knowledge base for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html).
+ *
+ * *   KnowledgeBaseConfiguration – Specify the embeddings configuration of the knowledge base. The following sub-properties are required:
+ *
+ *     *   Type – Specify the value `VECTOR`.
+ *
+ *
+ * *   StorageConfiguration – Specify information about the vector store in which the data source is stored. The following sub-properties are required:
+ *
+ *     *   Type – Specify the vector store service that you are using.
+ *
+ *
+ *     ###### Note
+ *
+ *     Redis Enterprise Cloud vector stores are currently unsupported in AWS CloudFormation.
+ * For more information about using knowledge bases in Amazon Bedrock, see [Knowledge base for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html).
+ * See the **Properties** section below for descriptions of both the required and optional properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html */
 
-export interface BedrockKnowledgeBase {
+export interface BedrockKnowledgeBase extends ResourceAttributes {
   Type: 'AWS::Bedrock::KnowledgeBase'
   Properties: {
     /**

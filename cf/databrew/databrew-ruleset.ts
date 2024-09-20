@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::DataBrew::Ruleset](./aws-resource-databrew-ruleset.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html */
@@ -184,7 +186,7 @@ export interface Rule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html */
 
-export interface DataBrewRuleset {
+export interface DataBrewRuleset extends ResourceAttributes {
   Type: 'AWS::DataBrew::Ruleset'
   Properties: {
     /**

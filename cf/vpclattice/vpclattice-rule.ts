@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag for a listener rule.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html */
@@ -297,7 +299,7 @@ export interface Match {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html */
 
-export interface VpcLatticeRule {
+export interface VpcLatticeRule extends ResourceAttributes {
   Type: 'AWS::VpcLattice::Rule'
   Properties: {
     /**

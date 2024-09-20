@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The AWS::ElastiCache::SecurityGroupIngress type authorizes ingress to a cache security group from hosts in specified Amazon EC2 security groups. For more information about ElastiCache security group ingress, go to [AuthorizeCacheSecurityGroupIngress](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html) in the _Amazon ElastiCache API Reference Guide_.
+ * ###### Note
+ *
+ * Updates are not supported.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-securitygroupingress.html */
 
-export interface ElastiCacheSecurityGroupIngress {
+export interface ElastiCacheSecurityGroupIngress extends ResourceAttributes {
   Type: 'AWS::ElastiCache::SecurityGroupIngress'
   Properties: {
     /**

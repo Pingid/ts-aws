@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies whether the parameter is required.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html */
@@ -19,7 +21,7 @@ export interface ParameterConstraints {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html */
 
-export interface ApiGatewayV2RouteResponse {
+export interface ApiGatewayV2RouteResponse extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::RouteResponse'
   Properties: {
     /**

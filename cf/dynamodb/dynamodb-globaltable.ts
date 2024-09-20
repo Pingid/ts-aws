@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents an attribute for describing the schema for the table and indexes.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html */
@@ -370,6 +372,20 @@ export interface ReplicaStreamSpecification {
  * Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
  * In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB. For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
  * While defining resource-based policies in your CloudFormation templates, the following considerations apply:
+ * *   The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+ *
+ * *   Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
+ *
+ * *   Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
+ *
+ *     For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
+ *
+ *     Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
+ *
+ * *   Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
+ *
+ * *   The [AWS::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
+ * For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html */
 
@@ -702,10 +718,102 @@ export interface WriteProvisionedThroughputSettings {
 
 /**
  * The `AWS::DynamoDB::GlobalTable` resource enables you to create and manage a Version 2019.11.21 global table. This resource cannot be used to create or manage a Version 2017.11.29 global table. For more information, see [Global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html).
+ * ###### Important
+ *
+ * You cannot convert a resource of type `AWS::DynamoDB::Table` into a resource of type `AWS::DynamoDB::GlobalTable` by changing its type in your template. **Doing so might result in the deletion of your DynamoDB table.**
+ *
+ * You can instead use the GlobalTable resource to create a new table in a single Region. This will be billed the same as a single Region table. If you later update the stack to add other Regions then Global Tables pricing will apply.
+ * You should be aware of the following behaviors when working with DynamoDB global tables.
+ * *   The IAM Principal executing the stack operation must have the permissions listed below in all regions where you plan to have a global table replica. The IAM Principal's permissions should not have restrictions based on IP source address. Some global tables operations (for example, adding a replica) are asynchronous, and require that the IAM Principal is valid until they complete. You should not delete the Principal (user or IAM role) until CloudFormation has finished updating your stack.
+ *
+ *     *   `dynamodb:CreateTable`
+ *
+ *     *   `dynamodb:UpdateTable`
+ *
+ *     *   `dynamodb:DeleteTable`
+ *
+ *     *   `dynamodb:DescribeContinuousBackups`
+ *
+ *     *   `dynamodb:DescribeContributorInsights`
+ *
+ *     *   `dynamodb:DescribeTable`
+ *
+ *     *   `dynamodb:DescribeTableReplicaAutoScaling`
+ *
+ *     *   `dynamodb:DescribeTimeToLive`
+ *
+ *     *   `dynamodb:ListTables`
+ *
+ *     *   `dynamodb:UpdateTimeToLive`
+ *
+ *     *   `dynamodb:UpdateContributorInsights`
+ *
+ *     *   `dynamodb:UpdateContinuousBackups`
+ *
+ *     *   `dynamodb:ListTagsOfResource`
+ *
+ *     *   `dynamodb:TagResource`
+ *
+ *     *   `dynamodb:UntagResource`
+ *
+ *     *   `dynamodb:BatchWriteItem`
+ *
+ *     *   `dynamodb:CreateTableReplica`
+ *
+ *     *   `dynamodb:DeleteItem`
+ *
+ *     *   `dynamodb:DeleteTableReplica`
+ *
+ *     *   `dynamodb:DisableKinesisStreamingDestination`
+ *
+ *     *   `dynamodb:EnableKinesisStreamingDestination`
+ *
+ *     *   `dynamodb:GetItem`
+ *
+ *     *   `dynamodb:PutItem`
+ *
+ *     *   `dynamodb:Query`
+ *
+ *     *   `dynamodb:Scan`
+ *
+ *     *   `dynamodb:UpdateItem`
+ *
+ *     *   `dynamodb:DescribeTableReplicaAutoScaling`
+ *
+ *     *   `dynamodb:UpdateTableReplicaAutoScaling`
+ *
+ *     *   `iam:CreateServiceLinkedRole`
+ *
+ *     *   `kms:CreateGrant`
+ *
+ *     *   `kms:DescribeKey`
+ *
+ *     *   `application-autoscaling:DeleteScalingPolicy`
+ *
+ *     *   `application-autoscaling:DeleteScheduledAction`
+ *
+ *     *   `application-autoscaling:DeregisterScalableTarget`
+ *
+ *     *   `application-autoscaling:DescribeScalingPolicies`
+ *
+ *     *   `application-autoscaling:DescribeScalableTargets`
+ *
+ *     *   `application-autoscaling:PutScalingPolicy`
+ *
+ *     *   `application-autoscaling:PutScheduledAction`
+ *
+ *     *   `application-autoscaling:RegisterScalableTarget`
+ *
+ *
+ * *   When using provisioned billing mode, CloudFormation will create an auto scaling policy on each of your replicas to control their write capacities. You must configure this policy using the `WriteProvisionedThroughputSettings` property. CloudFormation will ensure that all replicas have the same write capacity auto scaling property. You cannot directly specify a value for write capacity for a global table.
+ *
+ * *   If your table uses provisioned capacity, you must configure auto scaling directly in the `AWS::DynamoDB::GlobalTable` resource. You should not configure additional auto scaling policies on any of the table replicas or global secondary indexes, either via API or via `AWS::ApplicationAutoScaling::ScalableTarget` or `AWS::ApplicationAutoScaling::ScalingPolicy`. Doing so might result in unexpected behavior and is unsupported.
+ *
+ * *   In AWS CloudFormation, each global table is controlled by a single stack, in a single region, regardless of the number of replicas. When you deploy your template, CloudFormation will create/update all replicas as part of a single stack operation. You should not deploy the same `AWS::DynamoDB::GlobalTable` resource in multiple regions. Doing so will result in errors, and is unsupported. If you deploy your application template in multiple regions, you can use conditions to only create the resource in a single region. Alternatively, you can choose to define your `AWS::DynamoDB::GlobalTable` resources in a stack separate from your application stack, and make sure it is only deployed to a single region.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html */
 
-export interface DynamoDBGlobalTable {
+export interface DynamoDBGlobalTable extends ResourceAttributes {
   Type: 'AWS::DynamoDB::GlobalTable'
   Properties: {
     /**

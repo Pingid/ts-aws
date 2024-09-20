@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html */
@@ -49,10 +51,16 @@ export interface ProtectedResourceConditions {
 /**
  * This request can be sent after CreateRestoreTestingPlan request returns successfully. This is the second part of creating a resource testing plan, and it must be completed sequentially.
  * This consists of `RestoreTestingSelectionName`, `ProtectedResourceType`, and one of the following:
+ * *   `ProtectedResourceArns`
+ *
+ * *   `ProtectedResourceConditions`
+ * Each protected resource type can have one single value.
+ * A restore testing selection can include a wildcard value ("\*") for `ProtectedResourceArns` along with `ProtectedResourceConditions`. Alternatively, you can include up to 30 specific protected resource ARNs in `ProtectedResourceArns`.
+ * Cannot select by both protected resource types AND specific ARNs. Request will fail if both are included.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html */
 
-export interface BackupRestoreTestingSelection {
+export interface BackupRestoreTestingSelection extends ResourceAttributes {
   Type: 'AWS::Backup::RestoreTestingSelection'
   Properties: {
     /**

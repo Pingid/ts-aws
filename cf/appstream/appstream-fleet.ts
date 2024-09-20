@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The desired capacity for a fleet.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html */
@@ -131,7 +133,7 @@ export interface VpcConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html */
 
-export interface AppStreamFleet {
+export interface AppStreamFleet extends ResourceAttributes {
   Type: 'AWS::AppStream::Fleet'
   Properties: {
     /**

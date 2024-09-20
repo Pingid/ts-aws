@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html */
 
-export interface RedshiftEndpointAuthorization {
+export interface RedshiftEndpointAuthorization extends ResourceAttributes {
   Type: 'AWS::Redshift::EndpointAuthorization'
   Properties: {
     /**

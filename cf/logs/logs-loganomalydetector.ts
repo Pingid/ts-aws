@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates or updates an _anomaly detector_ that regularly scans one or more log groups and look for patterns and anomalies in the logs.
  * An anomaly detector can help surface issues by automatically discovering anomalies in your log event traffic. An anomaly detector uses machine learning algorithms to scan log events and find _patterns_. A pattern is a shared text structure that recurs among your log fields. Patterns provide a useful tool for analyzing large sets of logs because a large number of log events can often be compressed into a few patterns.
  * The anomaly detector uses pattern recognition to find `anomalies`, which are unusual log events. It compares current log events and patterns with trained baselines.
@@ -7,7 +9,7 @@ import type { Intrinsic } from '../intrinsic/index.js' /**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loganomalydetector.html */
 
-export interface LogsLogAnomalyDetector {
+export interface LogsLogAnomalyDetector extends ResourceAttributes {
   Type: 'AWS::Logs::LogAnomalyDetector'
   Properties: {
     /**

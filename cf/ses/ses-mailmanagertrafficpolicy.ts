@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair (the value is optional), that you can define and assign to AWS resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html */
@@ -250,6 +252,9 @@ export interface IngressBooleanExpression {
 
 /**
  * The email traffic filtering conditions which are contained in a traffic policy resource.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html */
 
@@ -319,7 +324,7 @@ export interface PolicyStatement {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html */
 
-export interface SESMailManagerTrafficPolicy {
+export interface SESMailManagerTrafficPolicy extends ResourceAttributes {
   Type: 'AWS::SES::MailManagerTrafficPolicy'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the `HostedZoneConfig` and `Comment` elements.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html */
@@ -59,6 +61,9 @@ export interface QueryLoggingConfig {
 
 /**
  * _Private hosted zones only:_ A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+ * ###### Note
+ *
+ * For public hosted zones, omit `VPCs`, `VPCId`, and `VPCRegion`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html */
 
@@ -84,10 +89,34 @@ export interface VPC {
 
 /**
  * Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
+ * ###### Important
+ *
+ * You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
+ * For more information about charges for hosted zones, see [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/).
+ * Note the following:
+ * *   You can't create a hosted zone for a top-level domain (TLD) such as .com.
+ *
+ * *   If your domain is registered with a registrar other than Route 53, you must update the name servers with your registrar to make Route 53 the DNS service for the domain. For more information, see [Migrating DNS Service for an Existing Domain to Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html) in the _Amazon Route 53 Developer Guide_.
+ * When you submit a `CreateHostedZone` request, the initial status of the hosted zone is `PENDING`. For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the NS and SOA records are available, the status of the zone changes to `INSYNC`.
+ * The `CreateHostedZone` request requires the caller to have an `ec2:DescribeVpcs` permission.
+ * ###### Note
+ *
+ * When creating private hosted zones, the Amazon VPC must belong to the same partition where the hosted zone is created. A partition is a group of AWS Regions. Each AWS account is scoped to one partition.
+ *
+ * The following are the supported partitions:
+ *
+ * *   `aws` - AWS Regions
+ *
+ * *   `aws-cn` - China Regions
+ *
+ * *   `aws-us-gov` - AWS GovCloud (US) Region
+ *
+ *
+ * For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the _AWS General Reference_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html */
 
-export interface Route53HostedZone {
+export interface Route53HostedZone extends ResourceAttributes {
   Type: 'AWS::Route53::HostedZone'
   Properties: {
     /**

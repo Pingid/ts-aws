@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A _channel_ is a type of platform that you can deliver messages to. You can use the APNs VoIP channel to send VoIP notification messages to the Apple Push Notification service (APNs). Before you can use Amazon Pinpoint to send VoIP notifications to APNs, you have to enable the APNs VoIP channel for an Amazon Pinpoint application.
  * The APNSVoipChannel resource represents the status and authentication settings of the APNs VoIP channel for an application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipchannel.html */
 
-export interface PinpointAPNSVoipChannel {
+export interface PinpointAPNSVoipChannel extends ResourceAttributes {
   Type: 'AWS::Pinpoint::APNSVoipChannel'
   Properties: {
     /**

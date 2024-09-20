@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The approved origin for the instance.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html */
 
-export interface ConnectApprovedOrigin {
+export interface ConnectApprovedOrigin extends ResourceAttributes {
   Type: 'AWS::Connect::ApprovedOrigin'
   Properties: {
     /**

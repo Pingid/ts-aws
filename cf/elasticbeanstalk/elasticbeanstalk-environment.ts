@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `OptionSetting` property type specifies an option for an AWS Elastic Beanstalk environment.
  * The `OptionSettings` property of the [AWS::ElasticBeanstalk::Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html) resource contains a list of `OptionSetting` property types.
  * For a list of possible namespaces and option values, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the _AWS Elastic Beanstalk Developer Guide_.
@@ -109,7 +111,7 @@ export interface Tier {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html */
 
-export interface ElasticBeanstalkEnvironment {
+export interface ElasticBeanstalkEnvironment extends ResourceAttributes {
   Type: 'AWS::ElasticBeanstalk::Environment'
   Properties: {
     /**

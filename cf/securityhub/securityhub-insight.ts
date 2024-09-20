@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A string filter for filtering AWS Security Hub findings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html */
@@ -1184,7 +1186,7 @@ export interface AwsSecurityFindingFilters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html */
 
-export interface SecurityHubInsight {
+export interface SecurityHubInsight extends ResourceAttributes {
   Type: 'AWS::SecurityHub::Insight'
   Properties: {
     /**

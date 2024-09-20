@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The details of a metadata form.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html */
@@ -336,7 +338,7 @@ export interface DataSourceConfigurationInput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html */
 
-export interface DataZoneDataSource {
+export interface DataZoneDataSource extends ResourceAttributes {
   Type: 'AWS::DataZone::DataSource'
   Properties: {
     /**

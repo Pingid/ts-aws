@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines an individual column within the clustering key.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
@@ -51,6 +53,9 @@ export interface EncryptionSpecification {
 
 /**
  * The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
+ * *   `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
+ *
+ * *   `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
 
@@ -77,6 +82,11 @@ export interface Column {
 /**
  * The AWS Region specific settings of a multi-Region table.
  * For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+ * *   `region`: The Region where these settings are applied. (Required)
+ *
+ * *   `readCapacityUnits`: The provisioned read capacity units. (Optional)
+ *
+ * *   `readCapacityAutoScaling`: The read capacity auto scaling settings for the table. (Optional)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
 
@@ -167,6 +177,15 @@ export interface ProvisionedThroughput {
 
 /**
  * Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
+ * *   `targetTrackingScalingPolicyConfiguration`: To define the target tracking policy, you must define the target value.
+ *
+ *     *   `targetValue`: The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+ *
+ *     *   `disableScaleIn`: A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in`, set the `boolean` value to `FALSE`. This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+ *
+ *     *   `scaleInCooldown`: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+ *
+ *     *   `scaleOutCooldown`: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
 
@@ -255,6 +274,12 @@ export interface ScalingPolicy {
  * The optional auto scaling settings for a table with provisioned throughput capacity.
  * To turn on auto scaling for a table in `throughputMode:PROVISIONED`, you must specify the following parameters.
  * Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+ * *   `minimumUnits`: The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+ *
+ * *   `maximumUnits`: The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+ *
+ * *   `scalingPolicy`: Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
+ * For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the _Amazon Keyspaces Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
 
@@ -324,7 +349,7 @@ export interface AutoScalingSpecification {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html */
 
-export interface CassandraTable {
+export interface CassandraTable extends ResourceAttributes {
   Type: 'AWS::Cassandra::Table'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The single sign-on details in Amazon DataZone.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html */
@@ -57,7 +59,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html */
 
-export interface DataZoneDomain {
+export interface DataZoneDomain extends ResourceAttributes {
   Type: 'AWS::DataZone::Domain'
   Properties: {
     /**

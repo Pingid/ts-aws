@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A union type that currently has a single argument, which is the knowledge base ID.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html */
@@ -49,7 +51,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html */
 
-export interface WisdomAssistantAssociation {
+export interface WisdomAssistantAssociation extends ResourceAttributes {
   Type: 'AWS::Wisdom::AssistantAssociation'
   Properties: {
     /**

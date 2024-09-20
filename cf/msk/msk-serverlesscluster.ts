@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `VpcConfig` property type specifies Property description not available. for an [AWS::MSK::ServerlessCluster](./aws-resource-msk-serverlesscluster.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html */
@@ -75,7 +77,7 @@ export interface ClientAuthentication {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html */
 
-export interface MSKServerlessCluster {
+export interface MSKServerlessCluster extends ResourceAttributes {
   Type: 'AWS::MSK::ServerlessCluster'
   Properties: {
     /**

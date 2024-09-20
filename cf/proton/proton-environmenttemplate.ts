@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A description of a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html */
@@ -29,10 +31,13 @@ export interface Tag {
 /**
  * Create an environment template for AWS Proton. For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the _AWS Proton User Guide_.
  * You can create an environment template in one of the two following ways:
+ * *   Register and publish a _standard_ environment template that instructs AWS Proton to deploy and manage environment infrastructure.
+ *
+ * *   Register and publish a _customer managed_ environment template that connects AWS Proton to your existing provisioned infrastructure that you manage. AWS Proton _doesn't_ manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED`. For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the _AWS Proton User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html */
 
-export interface ProtonEnvironmentTemplate {
+export interface ProtonEnvironmentTemplate extends ResourceAttributes {
   Type: 'AWS::Proton::EnvironmentTemplate'
   Properties: {
     /**

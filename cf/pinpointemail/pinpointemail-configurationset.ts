@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Used to associate a configuration set with a dedicated IP pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html */
@@ -93,7 +95,7 @@ export interface TrackingOptions {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html */
 
-export interface PinpointEmailConfigurationSet {
+export interface PinpointEmailConfigurationSet extends ResourceAttributes {
   Type: 'AWS::PinpointEmail::ConfigurationSet'
   Properties: {
     /**

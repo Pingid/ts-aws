@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Create a data store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html */
 
-export interface HealthImagingDatastore {
+export interface HealthImagingDatastore extends ResourceAttributes {
   Type: 'AWS::HealthImaging::Datastore'
   Properties: {
     /**

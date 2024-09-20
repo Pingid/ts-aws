@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A label that consists of a key and value you define.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html */
@@ -74,7 +76,7 @@ export interface AttributeMapping {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html */
 
-export interface RolesAnywhereProfile {
+export interface RolesAnywhereProfile extends ResourceAttributes {
   Type: 'AWS::RolesAnywhere::Profile'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A description of a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-servicetemplate.html */
@@ -31,7 +33,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-servicetemplate.html */
 
-export interface ProtonServiceTemplate {
+export interface ProtonServiceTemplate extends ResourceAttributes {
   Type: 'AWS::Proton::ServiceTemplate'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Retention properties contain the duration for which your time-series data must be stored in the magnetic store and the memory store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html */
@@ -197,7 +199,7 @@ export interface MagneticStoreWriteProperties {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html */
 
-export interface TimestreamTable {
+export interface TimestreamTable extends ResourceAttributes {
   Type: 'AWS::Timestream::Table'
   Properties: {
     /**

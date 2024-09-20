@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html */
@@ -31,7 +33,7 @@ export interface Definition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html */
 
-export interface M2Application {
+export interface M2Application extends ResourceAttributes {
   Type: 'AWS::M2::Application'
   Properties: {
     /**

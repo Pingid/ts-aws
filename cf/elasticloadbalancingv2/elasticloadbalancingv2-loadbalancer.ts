@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html */
@@ -104,7 +106,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html */
 
-export interface ElasticLoadBalancingV2LoadBalancer {
+export interface ElasticLoadBalancingV2LoadBalancer extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
   Properties: {
     /**

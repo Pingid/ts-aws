@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html */
@@ -589,7 +591,7 @@ export interface TaskReportConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html */
 
-export interface DataSyncTask {
+export interface DataSyncTask extends ResourceAttributes {
   Type: 'AWS::DataSync::Task'
   Properties: {
     /**

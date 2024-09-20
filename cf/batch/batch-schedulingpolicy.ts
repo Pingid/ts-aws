@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the weights for the fair share identifiers for the fair share policy. Fair share identifiers that aren't included have a default weight of `1.0`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html */
@@ -71,7 +73,7 @@ export interface FairsharePolicy {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html */
 
-export interface BatchSchedulingPolicy {
+export interface BatchSchedulingPolicy extends ResourceAttributes {
   Type: 'AWS::Batch::SchedulingPolicy'
   Properties: {
     /**

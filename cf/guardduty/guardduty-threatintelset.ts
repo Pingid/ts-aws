@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html */
@@ -31,7 +33,7 @@ export interface TagItem {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html */
 
-export interface GuardDutyThreatIntelSet {
+export interface GuardDutyThreatIntelSet extends ResourceAttributes {
   Type: 'AWS::GuardDuty::ThreatIntelSet'
   Properties: {
     /**

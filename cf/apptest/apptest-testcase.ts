@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the mainframe action properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html */
@@ -633,7 +635,7 @@ export interface Step {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html */
 
-export interface AppTestTestCase {
+export interface AppTestTestCase extends ResourceAttributes {
   Type: 'AWS::AppTest::TestCase'
   Properties: {
     /**

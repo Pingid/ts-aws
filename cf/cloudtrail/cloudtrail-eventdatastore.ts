@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A JSON string that contains a list of Insights types that are logged on an event data store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html */
@@ -131,6 +133,24 @@ export interface AdvancedFieldSelector {
  * Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events. They help you control costs by logging only those events that are important to you. For more information about advanced event selectors, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the _AWS CloudTrail User Guide_.
  * You cannot apply both event selectors and advanced event selectors to a trail.
  * **Supported CloudTrail event record fields for management events**
+ * *   `eventCategory` (required)
+ *
+ * *   `eventSource`
+ *
+ * *   `readOnly`
+ * **Supported CloudTrail event record fields for data events**
+ * *   `eventCategory` (required)
+ *
+ * *   `resources.type` (required)
+ *
+ * *   `readOnly`
+ *
+ * *   `eventName`
+ *
+ * *   `resources.ARN`
+ * ###### Note
+ *
+ * For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS, the only supported field is `eventCategory`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html */
 
@@ -161,7 +181,7 @@ export interface AdvancedEventSelector {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html */
 
-export interface CloudTrailEventDataStore {
+export interface CloudTrailEventDataStore extends ResourceAttributes {
   Type: 'AWS::CloudTrail::EventDataStore'
   Properties: {
     /**

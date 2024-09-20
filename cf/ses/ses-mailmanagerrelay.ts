@@ -1,5 +1,10 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored, or specify an empty NoAuthentication structure if the relay destination server does not require SMTP credential authentication.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerrelay.html */
 
@@ -58,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerrelay.html */
 
-export interface SESMailManagerRelay {
+export interface SESMailManagerRelay extends ResourceAttributes {
   Type: 'AWS::SES::MailManagerRelay'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Tags to associate with the discoverer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html */
@@ -27,7 +29,7 @@ export interface TagsEntry {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html */
 
-export interface EventSchemasDiscoverer {
+export interface EventSchemasDiscoverer extends ResourceAttributes {
   Type: 'AWS::EventSchemas::Discoverer'
   Properties: {
     /**

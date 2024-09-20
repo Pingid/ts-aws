@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A single firewall rule in a rule group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html */
@@ -125,7 +127,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html */
 
-export interface Route53ResolverFirewallRuleGroup {
+export interface Route53ResolverFirewallRuleGroup extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::FirewallRuleGroup'
   Properties: {
     /**

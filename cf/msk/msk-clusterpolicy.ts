@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Create or update cluster policy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html */
 
-export interface MSKClusterPolicy {
+export interface MSKClusterPolicy extends ResourceAttributes {
   Type: 'AWS::MSK::ClusterPolicy'
   Properties: {
     /**

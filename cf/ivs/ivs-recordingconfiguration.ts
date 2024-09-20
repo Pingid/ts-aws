@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The RenditionConfiguration property type describes which renditions should be recorded for a stream.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html */
@@ -143,7 +145,7 @@ export interface DestinationConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html */
 
-export interface IVSRecordingConfiguration {
+export interface IVSRecordingConfiguration extends ResourceAttributes {
   Type: 'AWS::IVS::RecordingConfiguration'
   Properties: {
     /**

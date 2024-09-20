@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The collection of ownership settings for a space.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html */
@@ -460,7 +462,7 @@ export interface SpaceSettings {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html */
 
-export interface SageMakerSpace {
+export interface SageMakerSpace extends ResourceAttributes {
   Type: 'AWS::SageMaker::Space'
   Properties: {
     /**

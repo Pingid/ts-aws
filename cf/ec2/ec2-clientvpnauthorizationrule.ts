@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an ingress authorization rule to add to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in AWS or on-premises networks.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html */
 
-export interface EC2ClientVpnAuthorizationRule {
+export interface EC2ClientVpnAuthorizationRule extends ResourceAttributes {
   Type: 'AWS::EC2::ClientVpnAuthorizationRule'
   Properties: {
     /**

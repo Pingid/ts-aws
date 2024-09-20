@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGateway::Resource` resource creates a resource in an API.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html */
 
-export interface ApiGatewayResource {
+export interface ApiGatewayResource extends ResourceAttributes {
   Type: 'AWS::ApiGateway::Resource'
   Properties: {
     /**

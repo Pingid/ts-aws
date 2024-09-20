@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A custom key-value pair that's associated with a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html */
@@ -79,7 +81,7 @@ export interface Properties {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html */
 
-export interface ServiceDiscoveryPrivateDnsNamespace {
+export interface ServiceDiscoveryPrivateDnsNamespace extends ResourceAttributes {
   Type: 'AWS::ServiceDiscovery::PrivateDnsNamespace'
   Properties: {
     /**

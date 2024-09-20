@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html */
 
-export interface ServiceCatalogServiceActionAssociation {
+export interface ServiceCatalogServiceActionAssociation extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::ServiceActionAssociation'
   Properties: {
     /**

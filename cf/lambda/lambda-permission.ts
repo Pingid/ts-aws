@@ -1,12 +1,29 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Lambda::Permission` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
  * To grant permission to another account, specify the account ID as the `Principal`. To grant permission to an organization defined in AWS Organizations, specify the organization ID as the `PrincipalOrgID`. For AWS services, the principal is a domain-style identifier defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com`. For AWS services, you can also specify the ARN of the associated resource as the `SourceArn`. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
  * If your function has a function URL, you can specify the `FunctionUrlAuthType` parameter. This adds a condition to your permission that only applies when your function URL's `AuthType` matches the specified `FunctionUrlAuthType`. For more information about the `AuthType` parameter, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
  * This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
+ * ###### Important
+ *
+ * To grant permissions to access your function, you can also use the `AWS::Lambda::ResourcePolicy` resource. This resource adds a complete JSON resource-based policy to a function.
+ *
+ * Using both the `AWS::Lambda::Permission` and `AWS::Lambda::ResourcePolicy` resources to set permissions on a function, either in a single AWS CloudFormation stack or across multiple stacks, can result in errors, and permissions defined in the `AWS::Lambda::Permission` resource can be unintentionally overwritten. Don't use both resource types to set permissions on a function.
+ *
+ * We recommend using the `AWS::Lambda::ResourcePolicy` resource to set access permissions. This resource gives you more flexibility and fine-grained control than `AWS::Lambda::Permission`. To migrate existing permissions for a function from `AWS::Lambda::Permission` to `AWS::Lambda::ResourcePolicy`, do the following:
+ *
+ * 1.  Set a `Retain` [deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the `AWS::Lambda::Permission` resources you want to migrate. This is necessary so that when you delete these resources, statements with the same statement ID that you add in the new `AWS::Lambda::ResourcePolicy` resource aren’t deleted as well.
+ *
+ * 2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/ambda/latest/api/API_GetResourcePolicy.html) Lambda API to retrieve the resource-based policy currently attached to the function.
+ *
+ * 3.  Use this policy to create a new `AWS::Lambda::ResourcePolicy` resource.
+ *
+ * 4.  Delete all the existing `AWS::Lambda::Permission` resources for the function.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html */
 
-export interface LambdaPermission {
+export interface LambdaPermission extends ResourceAttributes {
   Type: 'AWS::Lambda::Permission'
   Properties: {
     /**

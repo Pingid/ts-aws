@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Packet identifiers map for a given Multiplex program.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html */
@@ -274,7 +276,7 @@ export interface MultiplexProgramSettings {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html */
 
-export interface MediaLiveMultiplexprogram {
+export interface MediaLiveMultiplexprogram extends ResourceAttributes {
   Type: 'AWS::MediaLive::Multiplexprogram'
   Properties: {
     /**

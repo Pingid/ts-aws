@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair to associate with a resource. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html */
@@ -150,7 +152,7 @@ export interface ArchiveRule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html */
 
-export interface AccessAnalyzerAnalyzer {
+export interface AccessAnalyzerAnalyzer extends ResourceAttributes {
   Type: 'AWS::AccessAnalyzer::Analyzer'
   Properties: {
     /**

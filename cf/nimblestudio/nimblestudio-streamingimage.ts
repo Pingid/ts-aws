@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::NimbleStudio::StreamingImage` resource creates a streaming image in a studio. A streaming image defines the operating system and software to be used in an Amazon Nimble Studio streaming session.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html */
 
-export interface NimbleStudioStreamingImage {
+export interface NimbleStudioStreamingImage extends ResourceAttributes {
   Type: 'AWS::NimbleStudio::StreamingImage'
   Properties: {
     /**

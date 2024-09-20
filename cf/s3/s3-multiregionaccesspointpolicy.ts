@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Applies an Amazon S3 access policy to an Amazon S3 Multi-Region Access Point.
  * It is not possible to delete an access policy for a Multi-Region Access Point from the CloudFormation template. When you attempt to delete the policy, CloudFormation updates the policy using `DeletionPolicy:Retain` and `UpdateReplacePolicy:Retain`. CloudFormation updates the policy to only allow access to the account that created the bucket.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html */
 
-export interface S3MultiRegionAccessPointPolicy {
+export interface S3MultiRegionAccessPointPolicy extends ResourceAttributes {
   Type: 'AWS::S3::MultiRegionAccessPointPolicy'
   Properties: {
     /**

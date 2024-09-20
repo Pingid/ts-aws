@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Create a private graph endpoint to allow private access from to the graph from within a VPC. You can attach security groups to the private graph endpoint.
+ * ###### Note
+ *
+ * VPC endpoint charges apply.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html */
 
-export interface NeptuneGraphPrivateGraphEndpoint {
+export interface NeptuneGraphPrivateGraphEndpoint extends ResourceAttributes {
   Type: 'AWS::NeptuneGraph::PrivateGraphEndpoint'
   Properties: {
     /**

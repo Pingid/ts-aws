@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the data source that contains the data to upload to a dataset, or the list of records to delete from Amazon Personalize.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html */
@@ -23,6 +25,8 @@ export interface DataSource {
 /**
  * Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
  * A dataset import job can be in one of the following states:
+ * *   CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+ * If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html */
 
@@ -81,10 +85,34 @@ export interface DatasetImportJob {
 /**
  * Creates an empty dataset and adds it to the specified dataset group. Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
  * There are 5 types of datasets:
+ * *   Item interactions
+ *
+ * *   Items
+ *
+ * *   Users
+ *
+ * *   Action interactions (you can't use CloudFormation to create an Action interactions dataset)
+ *
+ * *   Actions (you can't use CloudFormation to create an Actions dataset)
+ * Each dataset type has an associated schema with required field types. Only the `Item interactions` dataset is required in order to train a model (also referred to as creating a solution).
+ * A dataset can be in one of the following states:
+ * *   CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+ *
+ * *   DELETE PENDING > DELETE IN\_PROGRESS
+ * To get the status of the dataset, call [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html).
+ * ###### Related APIs
+ *
+ * *   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html)
+ *
+ * *   [ListDatasets](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html)
+ *
+ * *   [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html)
+ *
+ * *   [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html */
 
-export interface PersonalizeDataset {
+export interface PersonalizeDataset extends ResourceAttributes {
   Type: 'AWS::Personalize::Dataset'
   Properties: {
     /**

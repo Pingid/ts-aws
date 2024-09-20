@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * \[`Service-managed` permissions\] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html */
@@ -256,10 +258,13 @@ export interface StackInstances {
 
 /**
  * The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
+ * ###### Important
+ *
+ * Run deployments to nested StackSets from the parent stack, not directly through the StackSet API.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html */
 
-export interface CloudFormationStackSet {
+export interface CloudFormationStackSet extends ResourceAttributes {
   Type: 'AWS::CloudFormation::StackSet'
   Properties: {
     /**

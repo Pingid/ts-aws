@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Permission for the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html */
@@ -14797,6 +14799,11 @@ export interface InsightVisual {
  * A pie or donut chart.
  * The `PieChartVisual` structure describes a visual that is a member of the pie chart family.
  * The following charts can be described by using this structure:
+ * *   Pie charts
+ *
+ * *   Donut charts
+ * For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the _Amazon QuickSight User Guide_.
+ * For more information, see [Using donut charts](https://docs.aws.amazon.com/quicksight/latest/user/donut-chart.html) in the _Amazon QuickSight User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html */
 
@@ -17519,6 +17526,18 @@ export interface TableConfiguration {
 /**
  * A bar chart.
  * The `BarChartVisual` structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:
+ * *   Horizontal bar chart
+ *
+ * *   Vertical bar chart
+ *
+ * *   Horizontal stacked bar chart
+ *
+ * *   Vertical stacked bar chart
+ *
+ * *   Horizontal stacked 100% bar chart
+ *
+ * *   Vertical stacked 100% bar chart
+ * For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the _Amazon QuickSight User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html */
 
@@ -18140,7 +18159,7 @@ export interface AnalysisDefinition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html */
 
-export interface QuickSightAnalysis {
+export interface QuickSightAnalysis extends ResourceAttributes {
   Type: 'AWS::QuickSight::Analysis'
   Properties: {
     /**

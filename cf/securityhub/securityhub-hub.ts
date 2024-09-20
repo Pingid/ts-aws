@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::SecurityHub::Hub` resource specifies the enablement of the AWS Security Hub service in your AWS account. The service is enabled in the current AWS Region or the specified Region. You create a separate `Hub` resource in each Region in which you want to enable Security Hub.
  * When you use this resource to enable Security Hub, default security standards are enabled. To disable default standards, set the `EnableDefaultStandards` property to `false`. You can use the [`AWS::SecurityHub::Standard`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html) resource to enable additional standards.
  * When you use this resource to enable Security Hub, new controls are automatically enabled for your enabled standards. To disable automatic enablement of new controls, set the `AutoEnableControls` property to `false`.
@@ -6,7 +8,7 @@ import type { Intrinsic } from '../intrinsic/index.js' /**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hub.html */
 
-export interface SecurityHubHub {
+export interface SecurityHubHub extends ResourceAttributes {
   Type: 'AWS::SecurityHub::Hub'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key/value pairs that are used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html */
@@ -28,10 +30,14 @@ export interface Tag {
 
 /**
  * Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.
+ * ###### Note
+ *
+ * If you have an existing AWS IoT thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
+ * For more information, see [Create a vehicle (console)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-console.html) in the _AWS IoT FleetWise Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html */
 
-export interface IoTFleetWiseVehicle {
+export interface IoTFleetWiseVehicle extends ResourceAttributes {
   Type: 'AWS::IoTFleetWise::Vehicle'
   Properties: {
     /**

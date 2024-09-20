@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type that contains information about an instance that AWS Cloud Map creates when you submit a `RegisterInstance` request.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html */
 
-export interface ServiceDiscoveryInstance {
+export interface ServiceDiscoveryInstance extends ResourceAttributes {
   Type: 'AWS::ServiceDiscovery::Instance'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates an attribute group with an application to augment the application's metadata with the group's attributes. This feature enables applications to be described with user-defined details that are machine-readable, such as third-party integrations.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html */
 
-export interface ServiceCatalogAppRegistryAttributeGroupAssociation {
+export interface ServiceCatalogAppRegistryAttributeGroupAssociation extends ResourceAttributes {
   Type: 'AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation'
   Properties: {
     /**

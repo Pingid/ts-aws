@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The OAuth client app in GetConnection response.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html */
@@ -111,7 +113,7 @@ export interface ConnectionInput {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html */
 
-export interface GlueConnection {
+export interface GlueConnection extends ResourceAttributes {
   Type: 'AWS::Glue::Connection'
   Properties: {
     /**

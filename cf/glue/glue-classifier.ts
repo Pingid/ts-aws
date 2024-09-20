@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A classifier for custom `CSV` content.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html */
@@ -207,7 +209,7 @@ export interface XMLClassifier {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html */
 
-export interface GlueClassifier {
+export interface GlueClassifier extends ResourceAttributes {
   Type: 'AWS::Glue::Classifier'
   Properties: {
     /**

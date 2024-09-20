@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a tag (key-value pair) to apply to a custom data identifier. A _tag_ is a label that you can define and associate with AWS resources, including certain types of Amazon Macie resources. Each tag consists of a _tag key_ and an associated _tag value_. A _tag key_ is a general label that acts as a category for a more specific tag value. Each tag key must be unique and it can have only one tag value. A _tag value_ acts as a descriptor for a tag key. Tag keys and values are case sensitive. They can contain letters, numbers, spaces, or the following symbols: \_ . : / = + - @
  * For more information, see [Tagging Macie resources](https://docs.aws.amazon.com/macie/latest/user/tagging-resources.html) in the _Amazon Macie User Guide_.
  *
@@ -25,10 +27,15 @@ export interface Tag {
 
 /**
  * The `AWS::Macie::CustomDataIdentifier` resource specifies a custom data identifier. A _custom data identifier_ is a set of custom criteria for Amazon Macie to use when it inspects data sources for sensitive data. The criteria consist of a regular expression (_regex_) that defines a text pattern to match and, optionally, character sequences and a proximity rule that refine the results. The character sequences can be:
+ * *   _Keywords_, which are words or phrases that must be in proximity of text that matches the regex, or
+ *
+ * *   _Ignore words_, which are words or phrases to exclude from the results.
+ * By using custom data identifiers, you can supplement the managed data identifiers that Macie provides and detect sensitive data that reflects your particular scenarios, intellectual property, or proprietary data. For more information, see [Building custom data identifiers](https://docs.aws.amazon.com/macie/latest/user/custom-data-identifiers.html) in the _Amazon Macie User Guide_.
+ * An `AWS::Macie::Session` resource must exist for an AWS account before you can create an `AWS::Macie::CustomDataIdentifier` resource for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `"DependsOn": "Session"`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html */
 
-export interface MacieCustomDataIdentifier {
+export interface MacieCustomDataIdentifier extends ResourceAttributes {
   Type: 'AWS::Macie::CustomDataIdentifier'
   Properties: {
     /**

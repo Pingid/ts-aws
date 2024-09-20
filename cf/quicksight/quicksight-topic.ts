@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents a column in a dataset.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html */
@@ -1288,7 +1290,7 @@ export interface DatasetMetadata {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html */
 
-export interface QuickSightTopic {
+export interface QuickSightTopic extends ResourceAttributes {
   Type: 'AWS::QuickSight::Topic'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents the information required for client programs to connect to a cache node. This value is read-only.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html */
@@ -138,7 +140,7 @@ export interface CacheUsageLimits {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html */
 
-export interface ElastiCacheServerlessCache {
+export interface ElastiCacheServerlessCache extends ResourceAttributes {
   Type: 'AWS::ElastiCache::ServerlessCache'
   Properties: {
     /**

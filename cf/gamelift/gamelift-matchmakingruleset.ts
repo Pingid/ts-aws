@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A label that you can assign to a Amazon GameLift resource.
  * **Learn more**
  * [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the _AWS General Reference_
@@ -36,10 +38,15 @@ export interface Tag {
  * To create a matchmaking rule set, provide unique rule set name and the rule set body in JSON format. Rule sets must be defined in the same Region as the matchmaking configuration they are used with.
  * Since matchmaking rule sets cannot be edited, it is a good idea to check the rule set syntax.
  * **Learn more**
+ * *   [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
+ *
+ * *   [Design a matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
+ *
+ * *   [Matchmaking with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingruleset.html */
 
-export interface GameLiftMatchmakingRuleSet {
+export interface GameLiftMatchmakingRuleSet extends ResourceAttributes {
   Type: 'AWS::GameLift::MatchmakingRuleSet'
   Properties: {
     /**

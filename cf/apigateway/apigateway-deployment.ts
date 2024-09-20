@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `DeploymentCanarySettings` property type specifies settings for the canary deployment.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html */
@@ -371,7 +373,7 @@ export interface StageDescription {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html */
 
-export interface ApiGatewayDeployment {
+export interface ApiGatewayDeployment extends ResourceAttributes {
   Type: 'AWS::ApiGateway::Deployment'
   Properties: {
     /**

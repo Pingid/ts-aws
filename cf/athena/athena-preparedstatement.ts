@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a prepared statement for use with SQL queries in Athena.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html */
 
-export interface AthenaPreparedStatement {
+export interface AthenaPreparedStatement extends ResourceAttributes {
   Type: 'AWS::Athena::PreparedStatement'
   Properties: {
     /**

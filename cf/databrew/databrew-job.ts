@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a `JobSample` value isn't provided, the default is used. The default value is CUSTOM\_ROWS for the mode parameter and 20,000 for the size parameter.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html */
@@ -617,7 +619,7 @@ export interface ProfileConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html */
 
-export interface DataBrewJob {
+export interface DataBrewJob extends ResourceAttributes {
   Type: 'AWS::DataBrew::Job'
   Properties: {
     /**

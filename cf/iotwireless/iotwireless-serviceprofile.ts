@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * LoRaWANServiceProfile object.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html */
@@ -229,7 +231,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html */
 
-export interface IoTWirelessServiceProfile {
+export interface IoTWirelessServiceProfile extends ResourceAttributes {
   Type: 'AWS::IoTWireless::ServiceProfile'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A wrapper structure to contain schema identity fields. Either `SchemaArn`, or `SchemaName` and `RegistryName` has to be provided.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html */
@@ -40,7 +42,7 @@ export interface Schema {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html */
 
-export interface GlueSchemaVersion {
+export interface GlueSchemaVersion extends ResourceAttributes {
   Type: 'AWS::Glue::SchemaVersion'
   Properties: {
     /**

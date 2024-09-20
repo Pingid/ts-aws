@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair (the value is optional), that you can define and assign to AWS resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html */
@@ -393,6 +395,9 @@ export interface Analysis {
 
 /**
  * The action for a rule to take. Only one of the contained actions can be set.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html */
 
@@ -593,6 +598,9 @@ export interface RuleStringExpression {
 
 /**
  * The verdict to evaluate in a verdict condition expression.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html */
 
@@ -653,6 +661,9 @@ export interface RuleVerdictExpression {
 
 /**
  * The conditional expression used to evaluate an email for determining if a rule action should be taken.
+ * ###### Important
+ *
+ * This data type is a UNION, so only one of the following members can be specified when used or returned.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html */
 
@@ -761,7 +772,7 @@ export interface Rule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html */
 
-export interface SESMailManagerRuleSet {
+export interface SESMailManagerRuleSet extends ResourceAttributes {
   Type: 'AWS::SES::MailManagerRuleSet'
   Properties: {
     /**

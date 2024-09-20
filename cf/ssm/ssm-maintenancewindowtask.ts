@@ -1,6 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `LoggingInfo` property type specifies information about the Amazon S3 bucket to write instance-level logs to.
  * `LoggingInfo` is a property of the [AWS::SSM::MaintenanceWindowTask](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html) resource.
+ * ###### Note
+ *
+ * `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS::SSM::MaintenanceWindowTask MaintenanceWindowRunCommandParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html */
 
@@ -39,6 +44,9 @@ export interface LoggingInfo {
 /**
  * The `Target` property type specifies targets (either instances or window target IDs). You specify instances by using `Key=InstanceIds,Values=<**instanceid1**>,<**instanceid2**>`. You specify window target IDs using `Key=WindowTargetIds,Values=<**window-target-id-1**>,<**window-target-id-2**>` for a maintenance window task in AWS Systems Manager.
  * `Target` is a property of the [AWS::SSM::MaintenanceWindowTask](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html) property type.
+ * ###### Note
+ *
+ * To use `resource-groups:Name` as the key for a maintenance window target, specify the resource group as a `AWS::SSM::MaintenanceWindowTarget` type, and use the `Ref` function to specify the target for `AWS::SSM::MaintenanceWindowTask`. For an example, see **Create a Run Command task that targets instances using a resource group name** in [AWS::SSM::MaintenanceWindowTask Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#aws-resource-ssm-maintenancewindowtask--examples).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html */
 
@@ -378,7 +386,7 @@ export interface TaskInvocationParameters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html */
 
-export interface SSMMaintenanceWindowTask {
+export interface SSMMaintenanceWindowTask extends ResourceAttributes {
   Type: 'AWS::SSM::MaintenanceWindowTask'
   Properties: {
     /**

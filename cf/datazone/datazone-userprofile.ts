@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The user type of the user for which the user profile is created.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html */
 
-export interface DataZoneUserProfile {
+export interface DataZoneUserProfile extends ResourceAttributes {
   Type: 'AWS::DataZone::UserProfile'
   Properties: {
     /**

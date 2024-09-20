@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::MediaLive::SignalMap` resource Property description not available. for MediaLive.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html */
 
-export interface MediaLiveSignalMap {
+export interface MediaLiveSignalMap extends ResourceAttributes {
   Type: 'AWS::MediaLive::SignalMap'
   Properties: {
     /**

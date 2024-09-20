@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The settings for client-side encryption for cryptographic computing.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html */
@@ -153,7 +155,7 @@ export interface PaymentConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html */
 
-export interface CleanRoomsCollaboration {
+export interface CleanRoomsCollaboration extends ResourceAttributes {
   Type: 'AWS::CleanRooms::Collaboration'
   Properties: {
     /**

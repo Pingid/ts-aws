@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies information required when integrating with Amazon Cognito to authenticate users.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html */
@@ -222,6 +224,16 @@ export interface FixedResponseConfig {
  * Information about a redirect action.
  * A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
  * You can reuse URI components using the following reserved keywords:
+ * *   #{protocol}
+ *
+ * *   #{host}
+ *
+ * *   #{port}
+ *
+ * *   #{path} (the leading "/" is removed)
+ *
+ * *   #{query}
+ * For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html */
 
@@ -651,7 +663,7 @@ export interface RuleCondition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html */
 
-export interface ElasticLoadBalancingV2ListenerRule {
+export interface ElasticLoadBalancingV2ListenerRule extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A complex type that contains `Tag` key and `Tag` value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
@@ -29,6 +31,10 @@ export interface Tag {
 
 /**
  * A complex type that controls:
+ * *   Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+ *
+ * *   How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+ * For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the _Amazon CloudFront Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
@@ -73,6 +79,9 @@ export interface CustomErrorResponse {
 
 /**
  * A custom origin. A custom origin is any origin that is _not_ an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) _is_ a custom origin.
+ * ###### Note
+ *
+ * This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
@@ -329,6 +338,9 @@ export interface Logging {
 
 /**
  * The origin as an Amazon S3 bucket.
+ * ###### Note
+ *
+ * This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
@@ -355,6 +367,22 @@ export interface LegacyS3Origin {
  * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
  * If the distribution doesn't use `Aliases` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as `d111111abcdef8.cloudfront.net`—set `CloudFrontDefaultCertificate` to `true` and leave all other fields empty.
  * If the distribution uses `Aliases` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
+ * *   Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
+ *
+ *     *   To accept HTTPS connections from only viewers that support SNI, set `SSLSupportMethod` to `sni-only`. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is `SslSupportMethod`. Note the different capitalization.)
+ *
+ *     *   To accept HTTPS connections from all viewers, including those that don't support SNI, set `SSLSupportMethod` to `vip`. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is `SslSupportMethod`. Note the different capitalization.)
+ *
+ *
+ * *   The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for `MinimumProtocolVersion`. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the _Amazon CloudFront Developer Guide_.
+ *
+ * *   The location of the SSL/TLS certificate, [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):
+ *
+ *     *   `ACMCertificateArn` (In CloudFormation, this field name is `AcmCertificateArn`. Note the different capitalization.)
+ *
+ *     *   `IAMCertificateId` (In CloudFormation, this field name is `IamCertificateId`. Note the different capitalization.)
+ * All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use `ViewerProtocolPolicy` in the `CacheBehavior` or `DefaultCacheBehavior`. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use `CustomOriginConfig`.
+ * For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the _Amazon CloudFront Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
@@ -716,6 +744,20 @@ export interface OriginGroupMember {
 /**
  * An origin.
  * An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
+ * *   Use `S3OriginConfig` to specify an Amazon S3 bucket that is not configured with static website hosting.
+ *
+ * *   Use `CustomOriginConfig` to specify all other kinds of origins, including:
+ *
+ *     *   An Amazon S3 bucket that is configured with static website hosting
+ *
+ *     *   An Elastic Load Balancing load balancer
+ *
+ *     *   An AWS Elemental MediaPackage endpoint
+ *
+ *     *   An AWS Elemental MediaStore container
+ *
+ *     *   Any other HTTP server, running on an Amazon EC2 instance or any other kind of host
+ * For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the _Amazon CloudFront Developer Guide_ (quotas were formerly referred to as limits).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
@@ -1377,7 +1419,7 @@ export interface DistributionConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html */
 
-export interface CloudFrontDistribution {
+export interface CloudFrontDistribution extends ResourceAttributes {
   Type: 'AWS::CloudFront::Distribution'
   Properties: {
     /**

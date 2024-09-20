@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the HTTP codes that healthy targets must use when responding to an HTTP health check.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html */
@@ -132,7 +134,7 @@ export interface TargetDescription {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html */
 
-export interface ElasticLoadBalancingV2TargetGroup {
+export interface ElasticLoadBalancingV2TargetGroup extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
   Properties: {
     /**

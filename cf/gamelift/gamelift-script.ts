@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The location in Amazon S3 where build or script files can be stored for access by Amazon GameLift.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html */
@@ -80,7 +82,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html */
 
-export interface GameLiftScript {
+export interface GameLiftScript extends ResourceAttributes {
   Type: 'AWS::GameLift::Script'
   Properties: {
     /**

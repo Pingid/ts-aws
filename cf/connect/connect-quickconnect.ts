@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair to associate with a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html */
@@ -141,7 +143,7 @@ export interface QuickConnectConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html */
 
-export interface ConnectQuickConnect {
+export interface ConnectQuickConnect extends ResourceAttributes {
   Type: 'AWS::Connect::QuickConnect'
   Properties: {
     /**

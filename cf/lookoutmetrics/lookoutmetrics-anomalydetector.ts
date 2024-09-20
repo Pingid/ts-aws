@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a detector's configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html */
@@ -641,7 +643,7 @@ export interface MetricSet {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html */
 
-export interface LookoutMetricsAnomalyDetector {
+export interface LookoutMetricsAnomalyDetector extends ResourceAttributes {
   Type: 'AWS::LookoutMetrics::AnomalyDetector'
   Properties: {
     /**

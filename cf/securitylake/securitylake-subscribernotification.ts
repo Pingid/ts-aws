@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specify the configurations you want to use for HTTPS subscriber notification.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html */
@@ -78,7 +80,7 @@ export interface NotificationConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html */
 
-export interface SecurityLakeSubscriberNotification {
+export interface SecurityLakeSubscriberNotification extends ResourceAttributes {
   Type: 'AWS::SecurityLake::SubscriberNotification'
   Properties: {
     /**

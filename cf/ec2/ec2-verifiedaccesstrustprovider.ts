@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the options for an AWS Verified Access device-identity based trust provider.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html */
@@ -144,7 +146,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html */
 
-export interface EC2VerifiedAccessTrustProvider {
+export interface EC2VerifiedAccessTrustProvider extends ResourceAttributes {
   Type: 'AWS::EC2::VerifiedAccessTrustProvider'
   Properties: {
     /**

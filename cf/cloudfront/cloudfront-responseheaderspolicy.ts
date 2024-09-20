@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html */
@@ -563,7 +565,7 @@ export interface ResponseHeadersPolicyConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html */
 
-export interface CloudFrontResponseHeadersPolicy {
+export interface CloudFrontResponseHeadersPolicy extends ResourceAttributes {
   Type: 'AWS::CloudFront::ResponseHeadersPolicy'
   Properties: {
     /**

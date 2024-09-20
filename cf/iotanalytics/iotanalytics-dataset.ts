@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * How long, in days, message data is kept.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html */
@@ -621,7 +623,7 @@ export interface DatasetContentDeliveryRule {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html */
 
-export interface IoTAnalyticsDataset {
+export interface IoTAnalyticsDataset extends ResourceAttributes {
   Type: 'AWS::IoTAnalytics::Dataset'
   Properties: {
     /**

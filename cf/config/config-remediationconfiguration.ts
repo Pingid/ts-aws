@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html */
@@ -71,7 +73,7 @@ export interface ExecutionControls {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html */
 
-export interface ConfigRemediationConfiguration {
+export interface ConfigRemediationConfiguration extends ResourceAttributes {
   Type: 'AWS::Config::RemediationConfiguration'
   Properties: {
     /**

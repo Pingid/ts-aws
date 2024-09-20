@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about the configuration of the lambda which is being registered as the connector.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html */
@@ -37,7 +39,7 @@ export interface ConnectorProvisioningConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html */
 
-export interface AppFlowConnector {
+export interface AppFlowConnector extends ResourceAttributes {
   Type: 'AWS::AppFlow::Connector'
   Properties: {
     /**

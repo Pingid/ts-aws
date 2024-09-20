@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration properties of a peer node within a membership.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html */
@@ -28,7 +30,7 @@ export interface NodeConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html */
 
-export interface ManagedBlockchainNode {
+export interface ManagedBlockchainNode extends ResourceAttributes {
   Type: 'AWS::ManagedBlockchain::Node'
   Properties: {
     /**

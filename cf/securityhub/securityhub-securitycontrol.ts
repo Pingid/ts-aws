@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that includes the data type of a security control parameter and its current value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html */
@@ -105,7 +107,7 @@ export interface ParameterConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html */
 
-export interface SecurityHubSecurityControl {
+export interface SecurityHubSecurityControl extends ResourceAttributes {
   Type: 'AWS::SecurityHub::SecurityControl'
   Properties: {
     /**

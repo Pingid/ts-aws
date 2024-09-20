@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * HTTP URL destination properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html */
@@ -59,7 +61,7 @@ export interface VpcDestinationProperties {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html */
 
-export interface IoTTopicRuleDestination {
+export interface IoTTopicRuleDestination extends ResourceAttributes {
   Type: 'AWS::IoT::TopicRuleDestination'
   Properties: {
     /**

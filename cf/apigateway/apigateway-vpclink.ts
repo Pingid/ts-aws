@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An array of key-value pairs to apply to this resource.
  * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  *
@@ -28,7 +30,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html */
 
-export interface ApiGatewayVpcLink {
+export interface ApiGatewayVpcLink extends ResourceAttributes {
   Type: 'AWS::ApiGateway::VpcLink'
   Properties: {
     /**

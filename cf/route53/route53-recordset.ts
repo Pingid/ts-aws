@@ -1,6 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * _Alias records only:_ Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
  * When creating records for a private hosted zone, note the following:
+ * *   Creating geolocation alias and latency alias records in a private hosted zone is allowed but not supported.
+ *
+ * *   For information about creating failover records in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordset.html */
 
@@ -193,7 +198,7 @@ export interface GeoProximityLocation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordset.html */
 
-export interface Route53RecordSet {
+export interface Route53RecordSet extends ResourceAttributes {
   Type: 'AWS::Route53::RecordSet'
   Properties: {
     /**

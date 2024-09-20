@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The SyncJob.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html */
 
-export interface IoTTwinMakerSyncJob {
+export interface IoTTwinMakerSyncJob extends ResourceAttributes {
   Type: 'AWS::IoTTwinMaker::SyncJob'
   Properties: {
     /**

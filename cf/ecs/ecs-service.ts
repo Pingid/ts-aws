@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The details of a capacity provider strategy. A capacity provider strategy can be set when using the `RunTask` or `CreateService` APIs or as the default capacity provider strategy for a cluster with the `CreateCluster` API.
  * Only capacity providers that are already associated with a cluster and have an `ACTIVE` or `UPDATING` status can be used in a capacity provider strategy. The `PutClusterCapacityProviders` API is used to associate a capacity provider with a cluster.
  * If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New Auto Scaling group capacity providers can be created with the `CreateCapacityProvider` API operation.
@@ -105,6 +107,9 @@ export interface LoadBalancer {
 
 /**
  * An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the _Amazon Elastic Container Service Developer Guide_.
+ * ###### Note
+ *
+ * If you're using the Fargate launch type, task placement constraints aren't supported.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -198,6 +203,19 @@ export interface ServiceRegistry {
 /**
  * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
  * The following basic restrictions apply to tags:
+ * *   Maximum number of tags per resource - 50
+ *
+ * *   For each resource, each tag key must be unique, and each tag key can have only one value.
+ *
+ * *   Maximum key length - 128 Unicode characters in UTF-8
+ *
+ * *   Maximum value length - 256 Unicode characters in UTF-8
+ *
+ * *   If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @.
+ *
+ * *   Tag keys and values are case-sensitive.
+ *
+ * *   Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -262,6 +280,11 @@ export interface DeploymentAlarms {
 }
 
 /**
+ * ###### Note
+ *
+ * The deployment circuit breaker can only be used for services using the rolling update (`ECS`) deployment type.
+ * The **deployment circuit breaker** determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the _Amazon Elastic Container Service Developer Guide_.
+ * For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the _Amazon Elastic Container Service Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -319,6 +342,10 @@ export interface AwsVpcConfiguration {
 
 /**
  * An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+ * *   To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
+ *
+ * *   To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
+ * For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the _Amazon Elastic Container Service Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -375,6 +402,9 @@ export interface ServiceConnectClientAlias {
 
 /**
  * An object that represents the timeout configurations for Service Connect.
+ * ###### Note
+ *
+ * If `idleTimeout` is set to a time that is less than `perRequestTimeout`, the connection will close when the `idleTimeout` is reached and not the `perRequestTimeout`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -523,6 +553,17 @@ export interface NetworkConfiguration {
  * The log configuration for the container. This parameter maps to `LogConfig` in the docker container create command and the `--log-driver` option to docker run.
  * By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
  * Understand the following when specifying a log configuration for your containers.
+ * *   Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+ *
+ *     For tasks on AWS Fargate, the supported log drivers are `awslogs`, `splunk`, and `awsfirelens`.
+ *
+ *     For tasks hosted on Amazon EC2 instances, the supported log drivers are `awslogs`, `fluentd`, `gelf`, `json-file`, `journald`,`syslog`, `splunk`, and `awsfirelens`.
+ *
+ * *   This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+ *
+ * *   For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the _Amazon Elastic Container Service Developer Guide_.
+ *
+ * *   For tasks that are on AWS Fargate, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
@@ -822,10 +863,16 @@ export interface ServiceConnectConfiguration {
 
 /**
  * The `AWS::ECS::Service` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
+ * ###### Important
+ *
+ * The stack update fails if you change any properties that require replacement and at least one Amazon ECS Service Connect `ServiceConnectConfiguration` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each `ServiceConnectService` must have a name that is unique in the namespace.
+ * ###### Note
+ *
+ * Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html */
 
-export interface ECSService {
+export interface ECSService extends ResourceAttributes {
   Type: 'AWS::ECS::Service'
   Properties: {
     /**

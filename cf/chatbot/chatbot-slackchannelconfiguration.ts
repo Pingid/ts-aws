@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The Tag type enables you to specify a key-value pair that can be used to store information about a Slack channel configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html */
@@ -28,7 +30,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html */
 
-export interface ChatbotSlackChannelConfiguration {
+export interface ChatbotSlackChannelConfiguration extends ResourceAttributes {
   Type: 'AWS::Chatbot::SlackChannelConfiguration'
   Properties: {
     /**

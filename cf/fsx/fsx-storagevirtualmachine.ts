@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a key-value pair for a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html */
@@ -127,7 +129,7 @@ export interface ActiveDirectoryConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html */
 
-export interface FSxStorageVirtualMachine {
+export interface FSxStorageVirtualMachine extends ResourceAttributes {
   Type: 'AWS::FSx::StorageVirtualMachine'
   Properties: {
     /**

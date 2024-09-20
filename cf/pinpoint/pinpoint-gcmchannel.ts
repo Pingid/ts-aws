@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A _channel_ is a type of platform that you can deliver messages to. You can use the GCM channel to send push notification messages to the Firebase Cloud Messaging (FCM) service, which replaced the Google Cloud Messaging (GCM) service. Before you use Amazon Pinpoint to send notifications to FCM, you have to enable the GCM channel for an Amazon Pinpoint application.
  * The GCMChannel resource represents the status and authentication settings of the GCM channel for an application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html */
 
-export interface PinpointGCMChannel {
+export interface PinpointGCMChannel extends ResourceAttributes {
   Type: 'AWS::Pinpoint::GCMChannel'
   Properties: {
     /**

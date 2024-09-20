@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html */
 
-export interface EC2IPAMAllocation {
+export interface EC2IPAMAllocation extends ResourceAttributes {
   Type: 'AWS::EC2::IPAMAllocation'
   Properties: {
     /**

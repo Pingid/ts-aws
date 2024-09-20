@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair that you can use to categorize and manage Amazon IVS PlaybackRestrictionPolicies.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html */
@@ -31,7 +33,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html */
 
-export interface IVSPlaybackRestrictionPolicy {
+export interface IVSPlaybackRestrictionPolicy extends ResourceAttributes {
   Type: 'AWS::IVS::PlaybackRestrictionPolicy'
   Properties: {
     /**

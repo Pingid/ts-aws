@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The start and end times of an inference experiment.
  * The maximum duration that you can set for an inference experiment is 30 days.
  *
@@ -269,7 +271,7 @@ export interface ModelVariantConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html */
 
-export interface SageMakerInferenceExperiment {
+export interface SageMakerInferenceExperiment extends ResourceAttributes {
   Type: 'AWS::SageMaker::InferenceExperiment'
   Properties: {
     /**

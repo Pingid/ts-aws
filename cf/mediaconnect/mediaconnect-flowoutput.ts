@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the encryption of the flow.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html */
@@ -181,7 +183,7 @@ export interface MediaStreamOutputConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html */
 
-export interface MediaConnectFlowOutput {
+export interface MediaConnectFlowOutput extends ResourceAttributes {
   Type: 'AWS::MediaConnect::FlowOutput'
   Properties: {
     /**

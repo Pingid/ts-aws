@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key and value pair. This data type is used as a request parameter in the SetTagsForResource action and a response element in the ListTagsForResource action.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html */
@@ -31,7 +33,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html */
 
-export interface InspectorAssessmentTemplate {
+export interface InspectorAssessmentTemplate extends ResourceAttributes {
   Type: 'AWS::Inspector::AssessmentTemplate'
   Properties: {
     /**

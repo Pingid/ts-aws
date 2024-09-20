@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associate the specified TagOption with the specified portfolio or product.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html */
 
-export interface ServiceCatalogTagOptionAssociation {
+export interface ServiceCatalogTagOptionAssociation extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::TagOptionAssociation'
   Properties: {
     /**

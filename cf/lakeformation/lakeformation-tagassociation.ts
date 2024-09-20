@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A structure containing the catalog ID, tag key, and tag values of an LF-tag key-value pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html */
@@ -204,7 +206,7 @@ export interface Resource {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html */
 
-export interface LakeFormationTagAssociation {
+export interface LakeFormationTagAssociation extends ResourceAttributes {
   Type: 'AWS::LakeFormation::TagAssociation'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::AppFlow::Flow](./aws-resource-appflow-flow.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html */
@@ -1920,10 +1922,13 @@ export interface DestinationFlowConfig {
 
 /**
  * The `AWS::AppFlow::Flow` resource is an Amazon AppFlow resource type that specifies a new flow.
+ * ###### Note
+ *
+ * If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html */
 
-export interface AppFlowFlow {
+export interface AppFlowFlow extends ResourceAttributes {
   Type: 'AWS::AppFlow::Flow'
   Properties: {
     /**

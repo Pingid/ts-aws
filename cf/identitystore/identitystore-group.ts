@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A group object, which contains a specified group’s metadata and attributes.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html */
 
-export interface IdentityStoreGroup {
+export interface IdentityStoreGroup extends ResourceAttributes {
   Type: 'AWS::IdentityStore::Group'
   Properties: {
     /**

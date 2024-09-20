@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::Lex::BotAlias](./aws-resource-lex-botalias.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html */
@@ -285,10 +287,15 @@ export interface ConversationLogSettings {
 }
 
 /**
+ * ###### Note
+ *
+ * Amazon Lex V2 is the only supported version in AWS CloudFormation.
+ * Specifies an alias for the specified version of a bot. Use an alias to enable you to change the version of a bot without updating applications that use the bot.
+ * For example, you can specify an alias called "PROD" that your applications use to call the Amazon Lex bot.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html */
 
-export interface LexBotAlias {
+export interface LexBotAlias extends ResourceAttributes {
   Type: 'AWS::Lex::BotAlias'
   Properties: {
     /**

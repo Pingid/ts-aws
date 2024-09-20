@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Tags applied to the landing zone.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html */
@@ -33,7 +35,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html */
 
-export interface ControlTowerLandingZone {
+export interface ControlTowerLandingZone extends ResourceAttributes {
   Type: 'AWS::ControlTower::LandingZone'
   Properties: {
     /**

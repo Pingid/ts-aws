@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains the configuration for server-side encryption.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html */
@@ -710,6 +712,10 @@ export interface ChunkingConfiguration {
 /**
  * Settings for parsing document contents. By default, the service converts the contents of each document into text before splitting it into chunks. To improve processing of PDF files with tables and images, you can configure the data source to convert the pages of text into images and use a model to describe the contents of each page.
  * To use a model to parse PDF documents, set the parsing strategy to `BEDROCK_FOUNDATION_MODEL` and specify the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to use by ARN. You can also override the default parsing prompt with instructions for how to interpret images and tables in your documents. The following models are supported.
+ * *   Anthropic Claude 3 Sonnet - `anthropic.claude-3-sonnet-20240229-v1:0`
+ *
+ * *   Anthropic Claude 3 Haiku - `anthropic.claude-3-haiku-20240307-v1:0`
+ * You can get the ARN of a model with the [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) action. Standard model usage charges apply for the foundation model parsing strategy.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html */
 
@@ -982,10 +988,19 @@ export interface DataSourceConfiguration {
 
 /**
  * Specifies a data source as a resource in a top-level template. Minimally, you must specify the following properties:
+ * *   Name – Specify a name for the data source.
+ *
+ * *   KnowledgeBaseId – Specify the ID of the knowledge base for the data source to belong to.
+ *
+ * *   DataSourceConfiguration – Specify information about the Amazon S3 bucket containing the data source. The following sub-properties are required:
+ *
+ *     *   Type – Specify the value `S3`.
+ * For more information about setting up data sources in Amazon Bedrock, see [Set up a data source for your knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html).
+ * See the **Properties** section below for descriptions of both the required and optional properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html */
 
-export interface BedrockDataSource {
+export interface BedrockDataSource extends ResourceAttributes {
   Type: 'AWS::Bedrock::DataSource'
   Properties: {
     /**

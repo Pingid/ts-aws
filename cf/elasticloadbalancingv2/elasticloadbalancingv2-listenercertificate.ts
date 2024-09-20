@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an SSL server certificate for the certificate list of a secure listener.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html */
@@ -19,7 +21,7 @@ export interface Certificate {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html */
 
-export interface ElasticLoadBalancingV2ListenerCertificate {
+export interface ElasticLoadBalancingV2ListenerCertificate extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancingV2::ListenerCertificate'
   Properties: {
     /**

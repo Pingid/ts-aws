@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata assigned to an Amazon DocumentDB resource consisting of a key-value pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html */
@@ -27,7 +29,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html */
 
-export interface DocDBDBSubnetGroup {
+export interface DocDBDBSubnetGroup extends ResourceAttributes {
   Type: 'AWS::DocDB::DBSubnetGroup'
   Properties: {
     /**

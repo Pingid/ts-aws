@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApiGatewayV2::IntegrationResponse` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the _API Gateway Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html */
 
-export interface ApiGatewayV2IntegrationResponse {
+export interface ApiGatewayV2IntegrationResponse extends ResourceAttributes {
   Type: 'AWS::ApiGatewayV2::IntegrationResponse'
   Properties: {
     /**

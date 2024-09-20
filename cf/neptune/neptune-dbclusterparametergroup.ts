@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html */
@@ -24,10 +26,16 @@ export interface Tag {
 
 /**
  * The `AWS::Neptune::DBClusterParameterGroup` resource creates a new Amazon Neptune DB cluster parameter group.
+ * ###### Note
+ *
+ * Applying a parameter group to a DB cluster might require instances to reboot, resulting in a database outage while the instances reboot.
+ * ###### Note
+ *
+ * If you provide a custom `DBClusterParameterGroup` that you associate with the `DBCluster`, it is best to specify an `EngineVersion` property in the `DBCluster`. That `EngineVersion` needs to be compatible with the value of the `Family` property in the `DBClusterParameterGroup`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html */
 
-export interface NeptuneDBClusterParameterGroup {
+export interface NeptuneDBClusterParameterGroup extends ResourceAttributes {
   Type: 'AWS::Neptune::DBClusterParameterGroup'
   Properties: {
     /**

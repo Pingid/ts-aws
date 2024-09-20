@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair associated with a resource. Tags can help you organize and categorize your resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html */
@@ -532,10 +534,38 @@ export interface RequestBasedSli {
  * Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached.
  * The target performance quality that is defined for an SLO is the _attainment goal_. An attainment goal is the percentage of time or requests that the SLI is expected to meet the threshold over each time interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
  * When you create an SLO, you specify whether it is a _period-based SLO_ or a _request-based SLO_. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.
+ * *   A _period-based SLO_ uses defined _periods_ of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the `number of good periods/number of total periods`.
+ *
+ *     For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.
+ *
+ * *   A _request-based SLO_ doesn't use pre-defined periods of time. Instead, the SLO measures `number of good requests/number of total requests` during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.
+ * After you have created an SLO, you can retrieve error budget reports for it. An _error budget_ is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.
+ * *   For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The _remaining error budget_ decreases with every failed period that is recorded. The error budget within one interval can never increase.
+ *
+ *     For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.
+ *
+ * *   For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.
+ * When you call this operation, Application Signals creates the _AWSServiceRoleForCloudWatchApplicationSignals_ service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:
+ * *   `xray:GetServiceGraph`
+ *
+ * *   `logs:StartQuery`
+ *
+ * *   `logs:GetQueryResults`
+ *
+ * *   `cloudwatch:GetMetricData`
+ *
+ * *   `cloudwatch:ListMetrics`
+ *
+ * *   `tag:GetResources`
+ *
+ * *   `autoscaling:DescribeAutoScalingGroups`
+ * You can easily set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.
+ * You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.
+ * For more information about SLOs, see [Service level objectives (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html */
 
-export interface ApplicationSignalsServiceLevelObjective {
+export interface ApplicationSignalsServiceLevelObjective extends ResourceAttributes {
   Type: 'AWS::ApplicationSignals::ServiceLevelObjective'
   Properties: {
     /**

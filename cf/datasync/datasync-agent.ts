@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies labels that help you categorize, filter, and search for your AWS resources. We recommend creating at least one tag for your agent.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html */
@@ -31,10 +33,15 @@ export interface Tag {
 /**
  * The `AWS::DataSync::Agent` resource activates an AWS DataSync agent that you've deployed for storage discovery or data transfers. The activation process associates the agent with your AWS account.
  * For more information, see the following topics in the _AWS DataSync User Guide_:
+ * *   [DataSync agent requirements](https://docs.aws.amazon.com/datasync/latest/userguide/agent-requirements.html)
+ *
+ * *   [DataSync network requirements](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html)
+ *
+ * *   [Create a DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/configure-agent.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html */
 
-export interface DataSyncAgent {
+export interface DataSyncAgent extends ResourceAttributes {
   Type: 'AWS::DataSync::Agent'
   Properties: {
     /**

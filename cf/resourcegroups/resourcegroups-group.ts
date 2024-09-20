@@ -1,5 +1,13 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
+ * ###### Important
+ *
+ * Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.
+ * **Minimum permissions**
+ * To run this command, you must have the following permissions:
+ * *   `resource-groups:Tag`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html */
 
@@ -54,6 +62,9 @@ export interface ConfigurationParameter {
  * Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
  * A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
  * As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]`. In this case, only resources with all of the following tags are members of the group:
+ * *   `Stage` tag key with a value of either `Test` or `Beta`
+ *
+ * *   `Storage` tag key with any value
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html */
 
@@ -169,10 +180,11 @@ export interface ResourceQuery {
  * Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html) in the _AWS Resource Groups User Guide_. For more information about service-linked groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
  * **Minimum permissions**
  * To run this command, you must have the following permissions:
+ * *   `resource-groups:CreateGroup`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html */
 
-export interface ResourceGroupsGroup {
+export interface ResourceGroupsGroup extends ResourceAttributes {
   Type: 'AWS::ResourceGroups::Group'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * In a [CreateResolverEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html) request, the IP address that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). `IpAddressRequest` also includes the ID of the subnet that contains the IP address.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html */
@@ -66,10 +68,18 @@ export interface Tag {
 
 /**
  * Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:
+ * *   An _inbound Resolver endpoint_ forwards DNS queries to the DNS service for a VPC from your network.
+ *
+ * *   An _outbound Resolver endpoint_ forwards DNS queries from the DNS service for a VPC to your network.
+ * ###### Important
+ *
+ * *   You cannot update `ResolverEndpointType` and `IpAddresses` in the same request.
+ *
+ * *   When you update a dual-stack IP address, you must update both IP addresses. You can’t update only an IPv4 or IPv6 and keep an existing IP address.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html */
 
-export interface Route53ResolverResolverEndpoint {
+export interface Route53ResolverResolverEndpoint extends ResourceAttributes {
   Type: 'AWS::Route53Resolver::ResolverEndpoint'
   Properties: {
     /**

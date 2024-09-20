@@ -1,10 +1,16 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a VPC endpoint service configuration to which service consumers (AWS accounts, users, and IAM roles) can connect.
  * To create an endpoint service configuration, you must first create one of the following for your service:
+ * *   A [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html). Service consumers connect to your service using an interface endpoint.
+ *
+ * *   A [Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html). Service consumers connect to your service using a Gateway Load Balancer endpoint.
+ * For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html */
 
-export interface EC2VPCEndpointService {
+export interface EC2VPCEndpointService extends ResourceAttributes {
   Type: 'AWS::EC2::VPCEndpointService'
   Properties: {
     /**

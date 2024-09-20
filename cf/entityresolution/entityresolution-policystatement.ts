@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds a policy statement object. To retrieve a list of existing policy statements, use the `GetPolicy` API.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html */
 
-export interface EntityResolutionPolicyStatement {
+export interface EntityResolutionPolicyStatement extends ResourceAttributes {
   Type: 'AWS::EntityResolution::PolicyStatement'
   Properties: {
     /**

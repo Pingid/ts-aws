@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * `RecoveryPointSelection` has five parameters (three required and two optional). The values you specify determine which recovery point is included in the restore test. You must indicate with `Algorithm` if you want the latest recovery point within your `SelectionWindowDays` or if you want a random recovery point, and you must indicate through `IncludeVaults` from which vaults the recovery points can be chosen.
  * `Algorithm` (_required_) Valid values: "`LATEST_WITHIN_WINDOW`" or "`RANDOM_WITHIN_WINDOW`".
  * `Recovery point types` (_required_) Valid values: "`SNAPSHOT`" and/or "`CONTINUOUS`". Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm`.
@@ -87,7 +89,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html */
 
-export interface BackupRestoreTestingPlan {
+export interface BackupRestoreTestingPlan extends ResourceAttributes {
   Type: 'AWS::Backup::RestoreTestingPlan'
   Properties: {
     /**

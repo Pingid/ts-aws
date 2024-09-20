@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html */
@@ -31,10 +33,13 @@ export interface Tag {
 /**
  * Creates an instance of IAM Identity Center for a standalone AWS account that is not managed by AWS Organizations or a member AWS account in an organization. You can create only one instance per account and across all AWS Regions.
  * The CreateInstance request is rejected if the following apply:
+ * *   The instance is created within the organization management account.
+ *
+ * *   An instance already exists in the same account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html */
 
-export interface SSOInstance {
+export interface SSOInstance extends ResourceAttributes {
   Type: 'AWS::SSO::Instance'
   Properties: {
     /**

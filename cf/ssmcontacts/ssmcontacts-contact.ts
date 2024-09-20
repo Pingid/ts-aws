@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the contact channel that Incident Manager uses to engage the contact.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html */
@@ -117,7 +119,7 @@ export interface Stage {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html */
 
-export interface SSMContactsContact {
+export interface SSMContactsContact extends ResourceAttributes {
   Type: 'AWS::SSMContacts::Contact'
   Properties: {
     /**

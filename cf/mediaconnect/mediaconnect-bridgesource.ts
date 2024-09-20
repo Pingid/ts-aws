@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The source of the bridge. A network source originates at your premises.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html */
@@ -84,7 +86,7 @@ export interface BridgeFlowSource {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html */
 
-export interface MediaConnectBridgeSource {
+export interface MediaConnectBridgeSource extends ResourceAttributes {
   Type: 'AWS::MediaConnect::BridgeSource'
   Properties: {
     /**

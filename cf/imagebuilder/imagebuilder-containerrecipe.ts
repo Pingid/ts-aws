@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The container repository where the output container image is stored.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html */
@@ -238,7 +240,7 @@ export interface InstanceConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html */
 
-export interface ImageBuilderContainerRecipe {
+export interface ImageBuilderContainerRecipe extends ResourceAttributes {
   Type: 'AWS::ImageBuilder::ContainerRecipe'
   Properties: {
     /**

@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a notification constraint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html */
 
-export interface ServiceCatalogLaunchNotificationConstraint {
+export interface ServiceCatalogLaunchNotificationConstraint extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::LaunchNotificationConstraint'
   Properties: {
     /**

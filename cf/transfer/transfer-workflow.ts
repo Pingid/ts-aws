@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes. You can apply tags to servers, users, and roles. A tag key can take more than one value. For example, to group servers for accounting purposes, you might create a tag called `Group` and assign the values `Research` and `Accounting` to that group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html */
@@ -279,6 +281,11 @@ export interface InputFileLocation {
 /**
  * Details for a step that performs a file copy.
  * Consists of the following values:
+ * *   A description
+ *
+ * *   An Amazon S3 location for the destination of the file copy.
+ *
+ * *   A flag that indicates whether to overwrite an existing file of the same name. The default is `FALSE`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html */
 
@@ -328,6 +335,15 @@ export interface CopyStepDetails {
 /**
  * Details for a step that decrypts an encrypted file.
  * Consists of the following values:
+ * *   A descriptive name
+ *
+ * *   An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for the source file to decrypt.
+ *
+ * *   An S3 or Amazon EFS location for the destination of the file decryption.
+ *
+ * *   A flag that indicates whether to overwrite an existing file of the same name. The default is `FALSE`.
+ *
+ * *   The type of encryption that's used. Currently, only PGP encryption is supported.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html */
 
@@ -449,7 +465,7 @@ export interface WorkflowStep {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html */
 
-export interface TransferWorkflow {
+export interface TransferWorkflow extends ResourceAttributes {
   Type: 'AWS::Transfer::Workflow'
   Properties: {
     /**

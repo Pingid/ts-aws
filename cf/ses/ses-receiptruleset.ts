@@ -1,11 +1,13 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates an empty receipt rule set.
  * For information about setting up receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
  * You can execute this operation no more than once per second.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html */
 
-export interface SESReceiptRuleSet {
+export interface SESReceiptRuleSet extends ResourceAttributes {
   Type: 'AWS::SES::ReceiptRuleSet'
   Properties: {
     /**

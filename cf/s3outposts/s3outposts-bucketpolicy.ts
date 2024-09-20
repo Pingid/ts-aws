@@ -1,11 +1,17 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * This resource applies a bucket policy to an Amazon S3 on Outposts bucket.
  * If you are using an identity other than the root user of the AWS account that owns the S3 on Outposts bucket, the calling identity must have the `s3-outposts:PutBucketPolicy` permissions on the specified Outposts bucket and belong to the bucket owner's account in order to use this resource.
  * If you don't have `s3-outposts:PutBucketPolicy` permissions, S3 on Outposts returns a `403 Access Denied` error.
+ * ###### Important
+ *
+ * The root user of the AWS account that owns an Outposts bucket can _always_ use this resource, even if the policy explicitly denies the root user the ability to perform actions on this resource.
+ * For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html */
 
-export interface S3OutpostsBucketPolicy {
+export interface S3OutpostsBucketPolicy extends ResourceAttributes {
   Type: 'AWS::S3Outposts::BucketPolicy'
   Properties: {
     /**

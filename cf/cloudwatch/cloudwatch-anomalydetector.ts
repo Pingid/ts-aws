@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension.
  * You can assign up to 30 dimensions to a metric.
  *
@@ -334,7 +336,7 @@ export interface MetricMathAnomalyDetector {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html */
 
-export interface CloudWatchAnomalyDetector {
+export interface CloudWatchAnomalyDetector extends ResourceAttributes {
   Type: 'AWS::CloudWatch::AnomalyDetector'
   Properties: {
     /**

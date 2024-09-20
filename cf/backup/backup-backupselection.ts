@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS`), a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html */
@@ -160,7 +162,7 @@ export interface BackupSelectionResourceType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html */
 
-export interface BackupBackupSelection {
+export interface BackupBackupSelection extends ResourceAttributes {
   Type: 'AWS::Backup::BackupSelection'
   Properties: {
     /**

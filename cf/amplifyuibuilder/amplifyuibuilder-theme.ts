@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `ThemeValue` property specifies the configuration of a theme's properties.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html */
@@ -51,7 +53,7 @@ export interface ThemeValues {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html */
 
-export interface AmplifyUIBuilderTheme {
+export interface AmplifyUIBuilderTheme extends ResourceAttributes {
   Type: 'AWS::AmplifyUIBuilder::Theme'
   Properties: {
     /**

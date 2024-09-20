@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds cross-account permissions to a signing profile.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html */
 
-export interface SignerProfilePermission {
+export interface SignerProfilePermission extends ResourceAttributes {
   Type: 'AWS::Signer::ProfilePermission'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A custom key-value pair that's associated with a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html */
@@ -76,10 +78,13 @@ export interface Properties {
 
 /**
  * Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend`, the resulting DNS name for the service is `backend.example.com`. You can discover instances that were registered with a public DNS namespace by using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the _AWS Cloud Map Developer Guide_.
+ * ###### Important
+ *
+ * The `CreatePublicDnsNamespace` API operation is not supported in the AWS GovCloud (US) Regions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html */
 
-export interface ServiceDiscoveryPublicDnsNamespace {
+export interface ServiceDiscoveryPublicDnsNamespace extends ResourceAttributes {
   Type: 'AWS::ServiceDiscovery::PublicDnsNamespace'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A tag that you add to a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html */
@@ -30,7 +32,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html */
 
-export interface Route53RecoveryControlControlPanel {
+export interface Route53RecoveryControlControlPanel extends ResourceAttributes {
   Type: 'AWS::Route53RecoveryControl::ControlPanel'
   Properties: {
     /**

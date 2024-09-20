@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configures Amazon SNS notifications of available or expiring work items for work teams.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html */
@@ -125,7 +127,7 @@ export interface MemberDefinition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html */
 
-export interface SageMakerWorkteam {
+export interface SageMakerWorkteam extends ResourceAttributes {
   Type: 'AWS::SageMaker::Workteam'
   Properties: {
     /**

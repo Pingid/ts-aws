@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tag keys and optional values for the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html */
@@ -107,7 +109,7 @@ export interface MaintenanceWindow {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html */
 
-export interface WorkSpacesThinClientEnvironment {
+export interface WorkSpacesThinClientEnvironment extends ResourceAttributes {
   Type: 'AWS::WorkSpacesThinClient::Environment'
   Properties: {
     /**

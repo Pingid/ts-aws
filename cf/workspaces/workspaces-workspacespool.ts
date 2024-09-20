@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The persistent application settings for users in the pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html */
@@ -112,7 +114,7 @@ export interface TimeoutSettings {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html */
 
-export interface WorkSpacesWorkspacesPool {
+export interface WorkSpacesWorkspacesPool extends ResourceAttributes {
   Type: 'AWS::WorkSpaces::WorkspacesPool'
   Properties: {
     /**

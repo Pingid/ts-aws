@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the state of the _block public access for snapshots_ setting for the Region. For more information, see [Block public access for snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html */
 
-export interface EC2SnapshotBlockPublicAccess {
+export interface EC2SnapshotBlockPublicAccess extends ResourceAttributes {
   Type: 'AWS::EC2::SnapshotBlockPublicAccess'
   Properties: {
     /**

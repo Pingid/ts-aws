@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html */
@@ -35,7 +37,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html */
 
-export interface CloudWatchCompositeAlarm {
+export interface CloudWatchCompositeAlarm extends ResourceAttributes {
   Type: 'AWS::CloudWatch::CompositeAlarm'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and AWS Health Dashboard.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html */
@@ -126,7 +128,7 @@ export interface Source {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html */
 
-export interface RolesAnywhereTrustAnchor {
+export interface RolesAnywhereTrustAnchor extends ResourceAttributes {
   Type: 'AWS::RolesAnywhere::TrustAnchor'
   Properties: {
     /**

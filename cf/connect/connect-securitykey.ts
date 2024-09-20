@@ -1,9 +1,14 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The security key for the instance.
+ * ###### Note
+ *
+ * Only two security keys are allowed per Amazon Connect instance.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html */
 
-export interface ConnectSecurityKey {
+export interface ConnectSecurityKey extends ResourceAttributes {
   Type: 'AWS::Connect::SecurityKey'
   Properties: {
     /**

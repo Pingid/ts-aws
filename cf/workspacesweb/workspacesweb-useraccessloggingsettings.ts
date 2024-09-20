@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html */
@@ -36,7 +38,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html */
 
-export interface WorkSpacesWebUserAccessLoggingSettings {
+export interface WorkSpacesWebUserAccessLoggingSettings extends ResourceAttributes {
   Type: 'AWS::WorkSpacesWeb::UserAccessLoggingSettings'
   Properties: {
     /**

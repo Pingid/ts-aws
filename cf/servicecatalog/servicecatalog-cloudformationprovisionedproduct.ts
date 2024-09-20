@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about a parameter used to provision a product.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html */
@@ -157,7 +159,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html */
 
-export interface ServiceCatalogCloudFormationProvisionedProduct {
+export interface ServiceCatalogCloudFormationProvisionedProduct extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::CloudFormationProvisionedProduct'
   Properties: {
     /**

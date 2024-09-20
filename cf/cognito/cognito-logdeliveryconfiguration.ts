@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration for the CloudWatch log group destination of user pool detailed activity logging, or of user activity log export with advanced security features.
  * This data type is a request parameter of [SetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.html) and a response parameter of [GetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.html).
  *
@@ -114,7 +116,7 @@ export interface LogConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html */
 
-export interface CognitoLogDeliveryConfiguration {
+export interface CognitoLogDeliveryConfiguration extends ResourceAttributes {
   Type: 'AWS::Cognito::LogDeliveryConfiguration'
   Properties: {
     /**

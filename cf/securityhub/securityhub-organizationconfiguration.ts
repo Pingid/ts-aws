@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in AWS Security Hub. Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the _AWS Security Hub User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html */
 
-export interface SecurityHubOrganizationConfiguration {
+export interface SecurityHubOrganizationConfiguration extends ResourceAttributes {
   Type: 'AWS::SecurityHub::OrganizationConfiguration'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `ComponentChild` property specifies a nested UI configuration within a parent `Component`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html */
@@ -695,7 +697,7 @@ export interface ComponentEvent {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html */
 
-export interface AmplifyUIBuilderComponent {
+export interface AmplifyUIBuilderComponent extends ResourceAttributes {
   Type: 'AWS::AmplifyUIBuilder::Component'
   Properties: {
     /**

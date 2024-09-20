@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::AppSync::DomainName` resource creates a `DomainNameConfig` object to configure a custom domain.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html */
 
-export interface AppSyncDomainName {
+export interface AppSyncDomainName extends ResourceAttributes {
   Type: 'AWS::AppSync::DomainName'
   Properties: {
     /**

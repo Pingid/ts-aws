@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a composite model in an asset model. This object contains the asset property definitions that you define in the composite model.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html */
@@ -540,10 +542,13 @@ export interface AssetModelProperty {
 /**
  * Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the _AWS IoT SiteWise User Guide_.
  * You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
+ * *   **ASSET\_MODEL** – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.
+ *
+ * *   **COMPONENT\_MODEL** – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html */
 
-export interface IoTSiteWiseAssetModel {
+export interface IoTSiteWiseAssetModel extends ResourceAttributes {
   Type: 'AWS::IoTSiteWise::AssetModel'
   Properties: {
     /**

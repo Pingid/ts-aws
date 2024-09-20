@@ -1,5 +1,10 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about the identity of a user.
+ * ###### Note
+ *
+ * For Amazon Connect instances that are created with the `EXISTING_DIRECTORY` identity management type, `FirstName`, `LastName`, and `Email` cannot be updated from within Amazon Connect because they are managed by the directory.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html */
 
@@ -125,6 +130,10 @@ export interface Tag {
 }
 
 /**
+ * ###### Note
+ *
+ * A predefined attribute must be created before using `UserProficiencies` in the Cloudformation _User_ template. For more information, see [Predefined attributes](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+ * Proficiency of a user.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html */
 
@@ -167,7 +176,7 @@ export interface UserProficiency {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html */
 
-export interface ConnectUser {
+export interface ConnectUser extends ResourceAttributes {
   Type: 'AWS::Connect::User'
   Properties: {
     /**

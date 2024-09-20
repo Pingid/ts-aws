@@ -1,4 +1,5 @@
 import fs from 'fs'
+import fse from 'fs-extra'
 import path from 'path'
 
 import * as parse from './parse'
@@ -18,8 +19,7 @@ const generate_cf = async (root: string) => {
 
   let exports: { namespace: string; refs: string[] }[] = []
 
-  const ints = await fs.promises.readFile(path.join(__dirname, './manual/cf-intrinsic.ts'), 'utf-8')
-  await write(path.join(root, 'intrinsic', 'index.ts'), ints)
+  await fse.copy(path.join(__dirname, 'manual'), path.join(root), { overwrite: true })
 
   for (const item of list) {
     const results = await Promise.all(
@@ -55,7 +55,8 @@ const generate_page = async (root: string, namespace: string, page_url: string) 
   const ref_name = res.name.replace('AWS::', '').replace('::', '')
   const file_name = `${res.name.toLowerCase().replace('aws::', '').replace(/::/, '-')}.ts`
   const pth = path.join(root, namespace, file_name)
-  let content = `import type { Intrinsic } from '../intrinsic/index.js'`
+  let content = `import type { Intrinsic } from '../intrinsic/index.js'\n`
+  content += `import type { ResourceAttributes } from '../attributes/index.js'\n`
   content += ts.print(ts.resource(ref_name, res), pth)
   await write(pth, content)
   return { ref_name, file_name }

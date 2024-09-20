@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a deployment's update to a component's configuration on AWS IoT Greengrass core devices. For more information, see [Update component configurations](https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html) in the _AWS IoT Greengrass V2 Developer Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html */
@@ -124,6 +126,9 @@ export interface SystemResourceLimits {
 /**
  * Contains criteria that define when and how to cancel a job.
  * The deployment stops if the following conditions are true:
+ * 1.  The number of things that receive the deployment exceeds the `minNumberOfExecutedThings`.
+ *
+ * 2.  The percentage of failures with type `failureType` exceeds the `thresholdPercentage`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html */
 
@@ -419,10 +424,15 @@ export interface DeploymentIoTJobConfiguration {
  * You can only add, update, or delete up to 10 deployments at a time to a single target.
  * Every deployment has a revision number that indicates how many deployment revisions you define for a target. Use this operation to create a new revision of an existing deployment. This operation returns the revision number of the new deployment when you create it.
  * For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the _AWS IoT Greengrass V2 Developer Guide_.
+ * ###### Important
+ *
+ * Deployment resources are deleted when you delete stacks. To keep the deployments in a stack, you must specify `"DeletionPolicy": "Retain"` on each deployment resource in the stack template that you want to keep. For more information, see [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+ *
+ * You can only delete up to 10 deployment resources at a time. If you delete more than 10 resources, you receive an error.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html */
 
-export interface GreengrassV2Deployment {
+export interface GreengrassV2Deployment extends ResourceAttributes {
   Type: 'AWS::GreengrassV2::Deployment'
   Properties: {
     /**

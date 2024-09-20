@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains configuration for a Multiplex event
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html */
@@ -108,7 +110,7 @@ export interface MultiplexOutputDestination {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html */
 
-export interface MediaLiveMultiplex {
+export interface MediaLiveMultiplex extends ResourceAttributes {
   Type: 'AWS::MediaLive::Multiplex'
   Properties: {
     /**

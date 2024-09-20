@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html */
@@ -113,6 +115,9 @@ export interface TracingConfiguration {
 
 /**
  * Defines a CloudWatch log group.
+ * ###### Note
+ *
+ * For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html */
 
@@ -131,6 +136,9 @@ export interface CloudWatchLogsLogGroup {
 
 /**
  * Defines a destination for `LoggingConfiguration`.
+ * ###### Note
+ *
+ * For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html */
 
@@ -148,6 +156,9 @@ export interface LogDestination {
 /**
  * Defines what execution history events are logged and where they are logged.
  * Step Functions provides the log levels — `OFF`, `ALL`, `ERROR`, and `FATAL`. No event types log when set to `OFF` and all event types do when set to `ALL`.
+ * ###### Note
+ *
+ * By default, the `level` is set to `OFF`. For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html */
 
@@ -185,7 +196,7 @@ export interface LoggingConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html */
 
-export interface StepFunctionsStateMachine {
+export interface StepFunctionsStateMachine extends ResourceAttributes {
   Type: 'AWS::StepFunctions::StateMachine'
   Properties: {
     /**

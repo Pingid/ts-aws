@@ -6,7 +6,11 @@ export const resource = (name: string, r: Resource) => {
     [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     ts.factory.createIdentifier(name),
     [],
-    undefined,
+    [
+      ts.factory.createHeritageClause(ts.SyntaxKind.ExtendsKeyword, [
+        ts.factory.createExpressionWithTypeArguments(ts.factory.createIdentifier('ResourceAttributes'), []),
+      ]),
+    ],
     [
       ts.factory.createPropertySignature(
         undefined,

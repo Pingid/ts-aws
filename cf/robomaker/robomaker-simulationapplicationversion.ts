@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::RoboMaker::SimulationApplicationVersion` resource creates a version of an AWS RoboMaker simulation application.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html */
 
-export interface RoboMakerSimulationApplicationVersion {
+export interface RoboMakerSimulationApplicationVersion extends ResourceAttributes {
   Type: 'AWS::RoboMaker::SimulationApplicationVersion'
   Properties: {
     /**

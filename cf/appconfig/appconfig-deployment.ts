@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html */
@@ -58,10 +60,20 @@ export interface Tags {
  * The `AWS::AppConfig::Deployment` resource starts a deployment. Starting a deployment in AWS AppConfig calls the `StartDeployment` API action. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally) the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
  * AWS AppConfig monitors the distribution to all hosts and reports status. If a distribution fails, then AWS AppConfig rolls back the configuration.
  * AWS AppConfig requires that you create resources and deploy a configuration in the following order:
+ * 1.  Create an application
+ *
+ * 2.  Create an environment
+ *
+ * 3.  Create a configuration profile
+ *
+ * 4.  Choose a pre-defined deployment strategy or create your own
+ *
+ * 5.  Deploy the configuration
+ * For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the _AWS AppConfig User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html */
 
-export interface AppConfigDeployment {
+export interface AppConfigDeployment extends ResourceAttributes {
   Type: 'AWS::AppConfig::Deployment'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Dimension is an embedded property of the `AWS::CloudWatch::Alarm` type. Dimensions are name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html */
@@ -219,7 +221,7 @@ export interface MetricDataQuery {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html */
 
-export interface CloudWatchAlarm {
+export interface CloudWatchAlarm extends ResourceAttributes {
   Type: 'AWS::CloudWatch::Alarm'
   Properties: {
     /**

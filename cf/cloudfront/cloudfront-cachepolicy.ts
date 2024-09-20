@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html */
@@ -133,6 +135,10 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
 /**
  * A cache policy configuration.
  * This configuration determines the following:
+ * *   The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+ *
+ * *   The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+ * The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but _not_ include them in the cache key, use `OriginRequestPolicy`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html */
 
@@ -195,10 +201,14 @@ export interface CachePolicyConfig {
 /**
  * A cache policy.
  * When it's attached to a cache behavior, the cache policy determines the following:
+ * *   The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+ *
+ * *   The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+ * The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but _not_ include them in the cache key, use `OriginRequestPolicy`.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html */
 
-export interface CloudFrontCachePolicy {
+export interface CloudFrontCachePolicy extends ResourceAttributes {
   Type: 'AWS::CloudFront::CachePolicy'
   Properties: {
     /**

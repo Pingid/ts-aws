@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `IpPool` property type specifies Property description not available. for an [AWS::MediaLive::Network](./aws-resource-medialive-network.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html */
@@ -67,7 +69,7 @@ export interface Tags {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html */
 
-export interface MediaLiveNetwork {
+export interface MediaLiveNetwork extends ResourceAttributes {
   Type: 'AWS::MediaLive::Network'
   Properties: {
     /**

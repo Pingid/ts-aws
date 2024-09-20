@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The AWS Chatbot chat channel used for collaboration during an incident.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html */
@@ -230,6 +232,14 @@ export interface PagerDutyConfiguration {
  * When you add a runbook to a response plan, you can specify the parameters for the runbook to use at runtime. Response plans support parameters with both static and dynamic values. For static values, you enter the value when you define the parameter in the response plan. For dynamic values, the system determines the correct parameter value by collecting information from the incident. Incident Manager supports the following dynamic parameters:
  * **Incident ARN**
  * When Incident Manager creates an incident, the system captures the Amazon Resource Name (ARN) of the corresponding incident record and enters it for this parameter in the runbook.
+ * ###### Note
+ *
+ * This value can only be assigned to parameters of type `String`. If assigned to a parameter of any other type, the runbook fails to run.
+ * **Involved resources**
+ * When Incident Manager creates an incident, the system captures the ARNs of the resources involved in the incident. These resource ARNs are then assigned to this parameter in the runbook.
+ * ###### Note
+ *
+ * This value can only be assigned to parameters of type `StringList`. If assigned to a parameter of any other type, the runbook fails to run.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html */
 
@@ -355,7 +365,7 @@ export interface Action {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html */
 
-export interface SSMIncidentsResponsePlan {
+export interface SSMIncidentsResponsePlan extends ResourceAttributes {
   Type: 'AWS::SSMIncidents::ResponsePlan'
   Properties: {
     /**

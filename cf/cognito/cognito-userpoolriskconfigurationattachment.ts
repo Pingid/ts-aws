@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
  * This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html).
  *
@@ -264,7 +266,7 @@ export interface AccountTakeoverRiskConfigurationType {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html */
 
-export interface CognitoUserPoolRiskConfigurationAttachment {
+export interface CognitoUserPoolRiskConfigurationAttachment extends ResourceAttributes {
   Type: 'AWS::Cognito::UserPoolRiskConfigurationAttachment'
   Properties: {
     /**

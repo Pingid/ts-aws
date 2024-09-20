@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The import source for the key value store.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html */
@@ -28,7 +30,7 @@ export interface ImportSource {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html */
 
-export interface CloudFrontKeyValueStore {
+export interface CloudFrontKeyValueStore extends ResourceAttributes {
   Type: 'AWS::CloudFront::KeyValueStore'
   Properties: {
     /**

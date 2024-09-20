@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the target S3 bucket for the resource data sync.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html */
@@ -133,10 +135,13 @@ export interface SyncSource {
  * A resource data sync is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data.
  * By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy.
  * For more information, see [Configuring Inventory Collection](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync) and [Setting Up Systems Manager Explorer to Display Data from Multiple Accounts and Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html) in the _AWS Systems Manager User Guide_.
+ * ###### Important
+ *
+ * The following _Syntax_ section shows all fields that are supported for a resource data sync. The _Examples_ section below shows the recommended way to specify configurations for each sync type. Refer to the _Examples_ section when you create your resource data sync.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html */
 
-export interface SSMResourceDataSync {
+export interface SSMResourceDataSync extends ResourceAttributes {
   Type: 'AWS::SSM::ResourceDataSync'
   Properties: {
     /**

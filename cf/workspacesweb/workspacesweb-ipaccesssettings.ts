@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The IP rules of the IP access settings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssettings.html */
@@ -61,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssettings.html */
 
-export interface WorkSpacesWebIpAccessSettings {
+export interface WorkSpacesWebIpAccessSettings extends ResourceAttributes {
   Type: 'AWS::WorkSpacesWeb::IpAccessSettings'
   Properties: {
     /**

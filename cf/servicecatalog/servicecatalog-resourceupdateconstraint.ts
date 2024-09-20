@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a `RESOURCE_UPDATE` constraint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html */
 
-export interface ServiceCatalogResourceUpdateConstraint {
+export interface ServiceCatalogResourceUpdateConstraint extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::ResourceUpdateConstraint'
   Properties: {
     /**

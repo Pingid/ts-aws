@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Shares the specified portfolio with the specified account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html */
 
-export interface ServiceCatalogPortfolioShare {
+export interface ServiceCatalogPortfolioShare extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::PortfolioShare'
   Properties: {
     /**

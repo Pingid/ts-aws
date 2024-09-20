@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The configuration containing information about the customer managed key used for encrypting customer data.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-voiceid-domain.html */
@@ -51,7 +53,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-voiceid-domain.html */
 
-export interface VoiceIDDomain {
+export interface VoiceIDDomain extends ResourceAttributes {
   Type: 'AWS::VoiceID::Domain'
   Properties: {
     /**

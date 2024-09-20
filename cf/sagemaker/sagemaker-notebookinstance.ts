@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information on the IMDS configuration of the notebook instance
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html */
@@ -53,7 +55,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html */
 
-export interface SageMakerNotebookInstance {
+export interface SageMakerNotebookInstance extends ResourceAttributes {
   Type: 'AWS::SageMaker::NotebookInstance'
   Properties: {
     /**

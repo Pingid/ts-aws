@@ -1,10 +1,66 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::S3Express::DirectoryBucket` resource creates an Amazon S3 directory bucket in the same AWS Region where you create the AWS CloudFormation stack.
  * To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to _retain_ the bucket or to _delete_ the bucket. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+ * ###### Important
+ *
+ * You can only delete empty buckets. Deletion fails for buckets that have contents.
+ * Permissions
+ *
+ * The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+ *
+ * *   Create
+ *
+ *     *   s3express:CreateBucket
+ *
+ *     *   s3express:ListAllMyDirectoryBuckets
+ *
+ *
+ * *   Read
+ *
+ *     *   s3express:ListAllMyDirectoryBuckets
+ *
+ *     *   ec2:DescribeAvailabilityZones
+ *
+ *
+ * *   Delete
+ *
+ *     *   s3express:DeleteBucket
+ *
+ *     *   s3express:ListAllMyDirectoryBuckets
+ *
+ *
+ * *   List
+ *
+ *     *   s3express:ListAllMyDirectoryBuckets
+ *
+ *
+ * *   PutBucketEncryption
+ *
+ *     *   s3express:PutEncryptionConfiguration
+ *
+ *     *   To set a directory bucket default encryption with SSE-KMS, you must also have the kms:GenerateDataKey and kms:Decrypt permissions in IAM identity-based policies and AWS KMS key policies for the target AWS KMS key.
+ *
+ *
+ * *   GetBucketEncryption
+ *
+ *     *   s3express:GetBucketEncryption
+ *
+ *
+ * *   DeleteBucketEncryption
+ *
+ *     *   s3express:PutEncryptionConfiguration
+ * The following operations are related to `AWS::S3Express::DirectoryBucket`:
+ * *   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+ *
+ * *   [ListDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html)
+ *
+ * *   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html */
 
-export interface S3ExpressDirectoryBucket {
+export interface S3ExpressDirectoryBucket extends ResourceAttributes {
   Type: 'AWS::S3Express::DirectoryBucket'
   Properties: {
     /**

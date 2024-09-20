@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html */
@@ -231,6 +233,9 @@ export interface ActionDefinition {
  * An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
  * You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
  * You can use custom actions in the following places:
+ * *   In an [AWS::NetworkFirewall::RuleGroup StatelessRulesAndCustomActions](./aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html). The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
+ *
+ * *   In an [AWS::NetworkFirewall::FirewallPolicy](./aws-resource-networkfirewall-firewallpolicy.html) specification, in `StatelessCustomActions`. The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html */
 
@@ -350,7 +355,7 @@ export interface FirewallPolicy {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html */
 
-export interface NetworkFirewallFirewallPolicy {
+export interface NetworkFirewallFirewallPolicy extends ResourceAttributes {
   Type: 'AWS::NetworkFirewall::FirewallPolicy'
   Properties: {
     /**

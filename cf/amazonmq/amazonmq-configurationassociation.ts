@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `ConfigurationId` property type specifies a configuration Id and the revision of a configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html */
@@ -24,10 +26,13 @@ export interface ConfigurationId {
 
 /**
  * Use the AWS CloudFormation `AWS::AmazonMQ::ConfigurationAssociation` resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation. Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
+ * ###### Note
+ *
+ * Does not apply to RabbitMQ brokers.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html */
 
-export interface AmazonMQConfigurationAssociation {
+export interface AmazonMQConfigurationAssociation extends ResourceAttributes {
   Type: 'AWS::AmazonMQ::ConfigurationAssociation'
   Properties: {
     /**

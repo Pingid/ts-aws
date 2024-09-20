@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies where and how access logs are stored for your Classic Load Balancer.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html */
@@ -339,7 +341,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html */
 
-export interface ElasticLoadBalancingLoadBalancer {
+export interface ElasticLoadBalancingLoadBalancer extends ResourceAttributes {
   Type: 'AWS::ElasticLoadBalancing::LoadBalancer'
   Properties: {
     /**

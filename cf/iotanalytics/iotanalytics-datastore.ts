@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * How long, in days, message data is kept.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html */
@@ -345,7 +347,7 @@ export interface FileFormatConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html */
 
-export interface IoTAnalyticsDatastore {
+export interface IoTAnalyticsDatastore extends ResourceAttributes {
   Type: 'AWS::IoTAnalytics::Datastore'
   Properties: {
     /**

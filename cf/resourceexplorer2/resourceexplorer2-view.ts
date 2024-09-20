@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A search filter defines which resources can be part of a search query result set.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html */
@@ -40,7 +42,7 @@ export interface IncludedProperty {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html */
 
-export interface ResourceExplorer2View {
+export interface ResourceExplorer2View extends ResourceAttributes {
   Type: 'AWS::ResourceExplorer2::View'
   Properties: {
     /**

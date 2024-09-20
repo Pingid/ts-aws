@@ -1,10 +1,12 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A _channel_ is a type of platform that you can deliver messages to. You can use the email channel to send email to users. Before you can use Amazon Pinpoint to send email, you must enable the email channel for an Amazon Pinpoint application.
  * The EmailChannel resource represents the status, identity, and other settings of the email channel for an application
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html */
 
-export interface PinpointEmailChannel {
+export interface PinpointEmailChannel extends ResourceAttributes {
   Type: 'AWS::Pinpoint::EmailChannel'
   Properties: {
     /**

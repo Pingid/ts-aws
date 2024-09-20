@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ECR::PullThroughCacheRule` resource creates or updates a pull through cache rule. A pull through cache rule provides a way to cache images from an upstream registry in your Amazon ECR private registry.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html */
 
-export interface ECRPullThroughCacheRule {
+export interface ECRPullThroughCacheRule extends ResourceAttributes {
   Type: 'AWS::ECR::PullThroughCacheRule'
   Properties: {
     /**

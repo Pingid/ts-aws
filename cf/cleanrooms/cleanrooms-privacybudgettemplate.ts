@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the epsilon and noise parameters for the privacy budget template.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html */
@@ -61,7 +63,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html */
 
-export interface CleanRoomsPrivacyBudgetTemplate {
+export interface CleanRoomsPrivacyBudgetTemplate extends ResourceAttributes {
   Type: 'AWS::CleanRooms::PrivacyBudgetTemplate'
   Properties: {
     /**

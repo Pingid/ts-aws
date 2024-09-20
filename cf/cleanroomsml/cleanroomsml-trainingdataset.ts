@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Adds metadata tags to a specified resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html */
@@ -170,7 +172,7 @@ export interface Dataset {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html */
 
-export interface CleanRoomsMLTrainingDataset {
+export interface CleanRoomsMLTrainingDataset extends ResourceAttributes {
   Type: 'AWS::CleanRoomsML::TrainingDataset'
   Properties: {
     /**

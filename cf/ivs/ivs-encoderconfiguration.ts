@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair that you can use to categorize and manage Amazon IVS EncoderConfigurations.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-encoderconfiguration.html */
@@ -79,7 +81,7 @@ export interface Video {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-encoderconfiguration.html */
 
-export interface IVSEncoderConfiguration {
+export interface IVSEncoderConfiguration extends ResourceAttributes {
   Type: 'AWS::IVS::EncoderConfiguration'
   Properties: {
     /**

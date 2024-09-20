@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes the ICMP type and code.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html */
@@ -52,7 +54,7 @@ export interface PortRange {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html */
 
-export interface EC2NetworkAclEntry {
+export interface EC2NetworkAclEntry extends ResourceAttributes {
   Type: 'AWS::EC2::NetworkAclEntry'
   Properties: {
     /**

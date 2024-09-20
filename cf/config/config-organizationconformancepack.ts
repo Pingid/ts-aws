@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Input parameters in the form of key-value pairs for the conformance pack, both of which you define. Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html */
@@ -31,7 +33,7 @@ export interface ConformancePackInputParameter {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html */
 
-export interface ConfigOrganizationConformancePack {
+export interface ConfigOrganizationConformancePack extends ResourceAttributes {
   Type: 'AWS::Config::OrganizationConformancePack'
   Properties: {
     /**

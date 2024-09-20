@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::Cognito::UserPoolIdentityProvider` resource creates an identity provider for a user pool.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html */
 
-export interface CognitoUserPoolIdentityProvider {
+export interface CognitoUserPoolIdentityProvider extends ResourceAttributes {
   Type: 'AWS::Cognito::UserPoolIdentityProvider'
   Properties: {
     /**

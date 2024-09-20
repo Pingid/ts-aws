@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tags` property type specifies Property description not available. for an [AWS::MediaLive::ChannelPlacementGroup](./aws-resource-medialive-channelplacementgroup.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html */
@@ -27,7 +29,7 @@ export interface Tags {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html */
 
-export interface MediaLiveChannelPlacementGroup {
+export interface MediaLiveChannelPlacementGroup extends ResourceAttributes {
   Type: 'AWS::MediaLive::ChannelPlacementGroup'
   Properties: {
     /**

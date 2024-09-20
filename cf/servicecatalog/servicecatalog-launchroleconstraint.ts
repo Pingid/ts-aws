@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a launch constraint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html */
 
-export interface ServiceCatalogLaunchRoleConstraint {
+export interface ServiceCatalogLaunchRoleConstraint extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::LaunchRoleConstraint'
   Properties: {
     /**

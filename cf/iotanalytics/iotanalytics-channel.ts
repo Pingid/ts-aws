@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * How long, in days, message data is kept.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html */
@@ -121,7 +123,7 @@ export interface ChannelStorage {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html */
 
-export interface IoTAnalyticsChannel {
+export interface IoTAnalyticsChannel extends ResourceAttributes {
   Type: 'AWS::IoTAnalytics::Channel'
   Properties: {
     /**

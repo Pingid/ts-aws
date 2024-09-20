@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `LoggingConfig` property type specifies logging configuration information for an extension.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html */
@@ -32,7 +34,7 @@ export interface LoggingConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html */
 
-export interface CloudFormationHookVersion {
+export interface CloudFormationHookVersion extends ResourceAttributes {
   Type: 'AWS::CloudFormation::HookVersion'
   Properties: {
     /**

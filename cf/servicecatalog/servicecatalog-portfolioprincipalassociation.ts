@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Associates the specified principal ARN with the specified portfolio.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html */
 
-export interface ServiceCatalogPortfolioPrincipalAssociation {
+export interface ServiceCatalogPortfolioPrincipalAssociation extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::PortfolioPrincipalAssociation'
   Properties: {
     /**

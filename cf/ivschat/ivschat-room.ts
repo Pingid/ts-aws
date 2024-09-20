@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The MessageReviewHandler property type specifies configuration information for optional message review.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html */
@@ -60,7 +62,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html */
 
-export interface IVSChatRoom {
+export interface IVSChatRoom extends ResourceAttributes {
   Type: 'AWS::IVSChat::Room'
   Properties: {
     /**

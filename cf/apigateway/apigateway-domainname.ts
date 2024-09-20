@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
  * `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
  *
@@ -70,7 +72,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html */
 
-export interface ApiGatewayDomainName {
+export interface ApiGatewayDomainName extends ResourceAttributes {
   Type: 'AWS::ApiGateway::DomainName'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A dataflow edge defines from where and to where data will flow during a contact.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html */
@@ -80,7 +82,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html */
 
-export interface GroundStationMissionProfile {
+export interface GroundStationMissionProfile extends ResourceAttributes {
   Type: 'AWS::GroundStation::MissionProfile'
   Properties: {
     /**

@@ -1,10 +1,15 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents a state machine [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html). A published version uses the latest state machine [_revision_](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html). A revision is an immutable, read-only snapshot of a state machine’s definition and configuration.
  * You can publish up to 1000 versions for each state machine.
+ * ###### Important
+ *
+ * Before you delete a version, make sure that version's ARN isn't being referenced in any long-running workflows or application code outside of the stack.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html */
 
-export interface StepFunctionsStateMachineVersion {
+export interface StepFunctionsStateMachineVersion extends ResourceAttributes {
   Type: 'AWS::StepFunctions::StateMachineVersion'
   Properties: {
     /**

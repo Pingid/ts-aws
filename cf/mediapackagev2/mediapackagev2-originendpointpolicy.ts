@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies the configuration parameters of a policy associated with a MediaPackage V2 origin endpoint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html */
 
-export interface MediaPackageV2OriginEndpointPolicy {
+export interface MediaPackageV2OriginEndpointPolicy extends ResourceAttributes {
   Type: 'AWS::MediaPackageV2::OriginEndpointPolicy'
   Properties: {
     /**

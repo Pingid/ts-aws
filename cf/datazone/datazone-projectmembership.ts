@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The details about a project member.
  * Important - this data type is a UNION, so only one of the following members can be specified when used or returned.
  *
@@ -28,7 +30,7 @@ export interface Member {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html */
 
-export interface DataZoneProjectMembership {
+export interface DataZoneProjectMembership extends ResourceAttributes {
   Type: 'AWS::DataZone::ProjectMembership'
   Properties: {
     /**

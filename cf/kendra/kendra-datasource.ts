@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A key-value pair that identifies or categorizes an index, FAQ, data source, or other resource. TA tag key and value can consist of Unicode letters, digits, white space, and any of the following symbols: \_ . : / = + - @.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html */
@@ -1373,6 +1375,15 @@ export interface OneDriveConfiguration {
 
 /**
  * Provides the configuration information to connect to an Amazon S3 bucket.
+ * ###### Note
+ *
+ * Amazon Kendra now supports an upgraded Amazon S3 connector.
+ *
+ * You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+ *
+ * Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+ *
+ * We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html */
 
@@ -2333,10 +2344,13 @@ export interface DataSourceConfiguration {
 /**
  * Creates a data source connector that you want to use with an Amazon Kendra index.
  * You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.
+ * ###### Important
+ *
+ * `CreateDataSource` does _not_ support connectors which [require a `TemplateConfiguration` object](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) for connecting to Amazon Kendra.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html */
 
-export interface KendraDataSource {
+export interface KendraDataSource extends ResourceAttributes {
   Type: 'AWS::Kendra::DataSource'
   Properties: {
     /**

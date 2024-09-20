@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Describes a resource entitled for use with a license.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html */
@@ -210,7 +212,7 @@ export interface ConsumptionConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html */
 
-export interface LicenseManagerLicense {
+export interface LicenseManagerLicense extends ResourceAttributes {
   Type: 'AWS::LicenseManager::License'
   Properties: {
     /**

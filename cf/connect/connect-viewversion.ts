@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Creates a version for the specified customer-managed view within the specified instance.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html */
 
-export interface ConnectViewVersion {
+export interface ConnectViewVersion extends ResourceAttributes {
   Type: 'AWS::Connect::ViewVersion'
   Properties: {
     /**

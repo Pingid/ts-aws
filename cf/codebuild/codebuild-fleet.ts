@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the VPC configuration that AWS CodeBuild accesses.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html */
@@ -69,7 +71,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html */
 
-export interface CodeBuildFleet {
+export interface CodeBuildFleet extends ResourceAttributes {
   Type: 'AWS::CodeBuild::Fleet'
   Properties: {
     /**

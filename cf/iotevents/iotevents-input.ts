@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata that can be used to manage the resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html */
@@ -69,7 +71,7 @@ export interface InputDefinition {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html */
 
-export interface IoTEventsInput {
+export interface IoTEventsInput extends ResourceAttributes {
   Type: 'AWS::IoTEvents::Input'
   Properties: {
     /**

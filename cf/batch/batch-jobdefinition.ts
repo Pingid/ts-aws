@@ -1,5 +1,18 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources. You can tag only resources for which AWS CloudFormation supports tagging. For information about which resources you can tag with CloudFormation, see the individual resources in [AWS resource and property types reference](./aws-template-resource-type-ref.html).
+ * ###### Note
+ *
+ * Tagging implementations might vary by resource. For example, `AWS::AutoScaling::AutoScalingGroup` provides an additional, required `PropagateAtLaunch` property as part of its tagging scheme.
+ * In addition to any tags you define, CloudFormation automatically creates the following stack-level tags with the prefix `aws:`:
+ * *   `` aws:cloudformation:`logical-id` ``
+ *
+ * *   `` aws:cloudformation:`stack-id` ``
+ *
+ * *   `` aws:cloudformation:`stack-name` ``
+ * The `aws:` prefix is reserved for AWS use. This prefix is case-insensitive. If you use this prefix in the `Key` or `Value` property, you can't update or delete the tag. Tags with this prefix don't count toward the number of tags per resource.
+ * Propagation of stack-level tags to resources, including automatically created tags, can vary by resource. For example, tags aren't propagated to Amazon EBS volumes that are created from block device mappings.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -245,6 +258,10 @@ export interface RuntimePlatform {
 
 /**
  * An object that represents the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+ * *   To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
+ *
+ * *   To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
+ * For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the _AWS Batch User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -269,6 +286,9 @@ export interface Secret {
 
 /**
  * The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html).
+ * ###### Note
+ *
+ * This object isn't applicable to jobs that are running on Fargate resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -391,6 +411,9 @@ export interface EvaluateOnExit {
 
 /**
  * An object that represents a container instance host device.
+ * ###### Note
+ *
+ * This object isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -423,6 +446,9 @@ export interface Device {
 
 /**
  * The container path, mount options, and size of the `tmpfs` mount.
+ * ###### Note
+ *
+ * This object isn't applicable to jobs that are running on Fargate resources.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -721,6 +747,9 @@ export interface EksContainerVolumeMount {
 
 /**
  * An object that represents the node properties of a multi-node parallel job.
+ * ###### Note
+ *
+ * Node properties can't be specified for Amazon EKS based job definitions.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
@@ -1548,7 +1577,7 @@ export interface EksProperties {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html */
 
-export interface BatchJobDefinition {
+export interface BatchJobDefinition extends ResourceAttributes {
   Type: 'AWS::Batch::JobDefinition'
   Properties: {
     /**

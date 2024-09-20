@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information required to find a specific file in an Amazon S3 bucket.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html */
@@ -60,7 +62,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html */
 
-export interface KendraFaq {
+export interface KendraFaq extends ResourceAttributes {
   Type: 'AWS::Kendra::Faq'
   Properties: {
     /**

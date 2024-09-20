@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Identifies an Amazon EC2 launch template to use for a specific account.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html */
@@ -107,6 +109,9 @@ export interface TargetContainerRepository {
 
 /**
  * Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.
+ * ###### Note
+ *
+ * You can specify either the `launchTemplateName` or the `launchTemplateId`, but not both.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html */
 
@@ -312,6 +317,9 @@ export interface FastLaunchConfiguration {
 
 /**
  * The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration. You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
+ * *   amiDistributionConfiguration
+ *
+ * *   containerDistributionConfiguration
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html */
 
@@ -379,7 +387,7 @@ export interface Distribution {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html */
 
-export interface ImageBuilderDistributionConfiguration {
+export interface ImageBuilderDistributionConfiguration extends ResourceAttributes {
   Type: 'AWS::ImageBuilder::DistributionConfiguration'
   Properties: {
     /**

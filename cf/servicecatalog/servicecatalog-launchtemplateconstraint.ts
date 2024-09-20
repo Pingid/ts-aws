@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a template constraint.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html */
 
-export interface ServiceCatalogLaunchTemplateConstraint {
+export interface ServiceCatalogLaunchTemplateConstraint extends ResourceAttributes {
   Type: 'AWS::ServiceCatalog::LaunchTemplateConstraint'
   Properties: {
     /**

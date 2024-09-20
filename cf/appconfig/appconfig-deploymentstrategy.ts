@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Metadata to assign to the deployment strategy. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html */
@@ -25,10 +27,20 @@ export interface Tags {
 /**
  * The `AWS::AppConfig::DeploymentStrategy` resource creates an AWS AppConfig deployment strategy. A deployment strategy defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes: the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.
  * AWS AppConfig requires that you create resources and deploy a configuration in the following order:
+ * 1.  Create an application
+ *
+ * 2.  Create an environment
+ *
+ * 3.  Create a configuration profile
+ *
+ * 4.  Choose a pre-defined deployment strategy or create your own
+ *
+ * 5.  Deploy the configuration
+ * For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the _AWS AppConfig User Guide_.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html */
 
-export interface AppConfigDeploymentStrategy {
+export interface AppConfigDeploymentStrategy extends ResourceAttributes {
   Type: 'AWS::AppConfig::DeploymentStrategy'
   Properties: {
     /**

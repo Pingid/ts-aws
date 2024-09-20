@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A list of the identity pool principal tag assignments for attributes for access control.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html */
 
-export interface CognitoIdentityPoolPrincipalTag {
+export interface CognitoIdentityPoolPrincipalTag extends ResourceAttributes {
   Type: 'AWS::Cognito::IdentityPoolPrincipalTag'
   Properties: {
     /**

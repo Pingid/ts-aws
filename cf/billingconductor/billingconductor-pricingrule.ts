@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A custom key-value pair associated with a Billing Conductor resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html */
@@ -63,7 +65,7 @@ export interface Tiering {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html */
 
-export interface BillingConductorPricingRule {
+export interface BillingConductorPricingRule extends ResourceAttributes {
   Type: 'AWS::BillingConductor::PricingRule'
   Properties: {
     /**

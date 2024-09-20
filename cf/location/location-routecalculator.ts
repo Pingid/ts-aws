@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `Tag` property type specifies Property description not available. for an [AWS::Location::RouteCalculator](./aws-resource-location-routecalculator.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html */
@@ -31,10 +33,13 @@ export interface Tag {
 /**
  * Specifies a route calculator resource in your AWS account.
  * You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.
+ * ###### Note
+ *
+ * If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the [AWS service terms](https://aws.amazon.com/service-terms) for more details.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html */
 
-export interface LocationRouteCalculator {
+export interface LocationRouteCalculator extends ResourceAttributes {
   Type: 'AWS::Location::RouteCalculator'
   Properties: {
     /**

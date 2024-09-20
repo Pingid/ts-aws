@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * An object that describes the details of a string filter.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html */
@@ -517,7 +519,7 @@ export interface FilterCriteria {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html */
 
-export interface InspectorV2Filter {
+export interface InspectorV2Filter extends ResourceAttributes {
   Type: 'AWS::InspectorV2::Filter'
   Properties: {
     /**

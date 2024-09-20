@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html */
@@ -88,7 +90,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html */
 
-export interface DataSyncStorageSystem {
+export interface DataSyncStorageSystem extends ResourceAttributes {
   Type: 'AWS::DataSync::StorageSystem'
   Properties: {
     /**

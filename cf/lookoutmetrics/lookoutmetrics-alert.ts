@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains information about a Lambda configuration.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html */
@@ -83,7 +85,7 @@ export interface Action {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html */
 
-export interface LookoutMetricsAlert {
+export interface LookoutMetricsAlert extends ResourceAttributes {
   Type: 'AWS::LookoutMetrics::Alert'
   Properties: {
     /**

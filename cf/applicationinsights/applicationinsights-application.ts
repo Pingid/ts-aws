@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AWS::ApplicationInsights::Application CustomComponent` property type describes a custom component by grouping similar standalone instances to monitor.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html */
@@ -30,6 +32,11 @@ export interface CustomComponent {
 /**
  * An object that defines the tags associated with an application. A _tag_ is a label that you optionally define and associate with an application. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria.
  * Each tag consists of a required _tag key_ and an associated _tag value_, both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: \_ . : / = + -. The following additional restrictions apply to tags:
+ * *   Tag keys and values are case sensitive.
+ *
+ * *   For each associated resource, each tag key must be unique and it can have only one value.
+ *
+ * *   The `aws:` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can't edit or remove tag keys or values that use this prefix.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html */
 
@@ -701,7 +708,7 @@ export interface ComponentMonitoringSetting {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html */
 
-export interface ApplicationInsightsApplication {
+export interface ApplicationInsightsApplication extends ResourceAttributes {
   Type: 'AWS::ApplicationInsights::Application'
   Properties: {
     /**

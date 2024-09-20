@@ -1,5 +1,10 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A list of information about the configuration.
+ * ###### Important
+ *
+ * Does not apply to RabbitMQ brokers.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html */
 
@@ -24,6 +29,9 @@ export interface ConfigurationId {
 
 /**
  * Encryption options for the broker.
+ * ###### Important
+ *
+ * Does not apply to RabbitMQ brokers.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html */
 
@@ -48,6 +56,9 @@ export interface EncryptionOptions {
 
 /**
  * Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+ * ###### Important
+ *
+ * Does not apply to RabbitMQ brokers.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html */
 
@@ -273,10 +284,37 @@ export interface User {
 /**
  * A _broker_ is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ.
  * The `AWS::AmazonMQ::Broker` resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see [How Amazon MQ works](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html) in the _Amazon MQ Developer Guide_.
+ * *   `ec2:CreateNetworkInterface`
+ *
+ *     This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.
+ *
+ * *   `ec2:CreateNetworkInterfacePermission`
+ *
+ *     This permission is required to attach the ENI to the broker instance.
+ *
+ * *   `ec2:DeleteNetworkInterface`
+ *
+ * *   `ec2:DeleteNetworkInterfacePermission`
+ *
+ * *   `ec2:DetachNetworkInterface`
+ *
+ * *   `ec2:DescribeInternetGateways`
+ *
+ * *   `ec2:DescribeNetworkInterfaces`
+ *
+ * *   `ec2:DescribeNetworkInterfacePermissions`
+ *
+ * *   `ec2:DescribeRouteTables`
+ *
+ * *   `ec2:DescribeSecurityGroups`
+ *
+ * *   `ec2:DescribeSubnets`
+ *
+ * *   `ec2:DescribeVpcs`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html */
 
-export interface AmazonMQBroker {
+export interface AmazonMQBroker extends ResourceAttributes {
   Type: 'AWS::AmazonMQ::Broker'
   Properties: {
     /**

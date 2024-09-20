@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A lifecycle rule that deletes application versions after the specified number of days.
  * `MaxAgeRule` is a property of the [ApplicationVersionLifecycleConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html) property type.
  *
@@ -121,7 +123,7 @@ export interface ApplicationResourceLifecycleConfig {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html */
 
-export interface ElasticBeanstalkApplication {
+export interface ElasticBeanstalkApplication extends ResourceAttributes {
   Type: 'AWS::ElasticBeanstalk::Application'
   Properties: {
     /**

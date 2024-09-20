@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * A member of a Global datastore. It contains the Replication Group Id, the Amazon region and the role of the replication group.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html */
@@ -92,10 +94,11 @@ export interface RegionalConfiguration {
 
 /**
  * Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary cluster automatically replicates updates to the secondary cluster.
+ * *   The **GlobalReplicationGroupIdSuffix** represents the name of the Global datastore, which is what you use to associate a secondary cluster.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html */
 
-export interface ElastiCacheGlobalReplicationGroup {
+export interface ElastiCacheGlobalReplicationGroup extends ResourceAttributes {
   Type: 'AWS::ElastiCache::GlobalReplicationGroup'
   Properties: {
     /**

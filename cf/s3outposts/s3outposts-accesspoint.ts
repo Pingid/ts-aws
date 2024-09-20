@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Contains the virtual private cloud (VPC) configuration for the specified access point.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html */
@@ -19,10 +21,13 @@ export interface VpcConfiguration {
 /**
  * The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket. For more information, see [Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html).
  *
+ * ###### Note
+ *
+ * S3 on Outposts supports only VPC-style access points.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html */
 
-export interface S3OutpostsAccessPoint {
+export interface S3OutpostsAccessPoint extends ResourceAttributes {
   Type: 'AWS::S3Outposts::AccessPoint'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `AwsLambda` property type specifies Property description not available. for an [AWS::S3ObjectLambda::AccessPoint](./aws-resource-s3objectlambda-accesspoint.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html */
@@ -111,7 +113,7 @@ export interface ObjectLambdaConfiguration {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html */
 
-export interface S3ObjectLambdaAccessPoint {
+export interface S3ObjectLambdaAccessPoint extends ResourceAttributes {
   Type: 'AWS::S3ObjectLambda::AccessPoint'
   Properties: {
     /**

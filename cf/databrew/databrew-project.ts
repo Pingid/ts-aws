@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html */
@@ -57,7 +59,7 @@ export interface Tag {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html */
 
-export interface DataBrewProject {
+export interface DataBrewProject extends ResourceAttributes {
   Type: 'AWS::DataBrew::Project'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Configuration information for the superuser.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html */
@@ -167,7 +169,7 @@ export interface FederationParameters {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html */
 
-export interface FinSpaceEnvironment {
+export interface FinSpaceEnvironment extends ResourceAttributes {
   Type: 'AWS::FinSpace::Environment'
   Properties: {
     /**

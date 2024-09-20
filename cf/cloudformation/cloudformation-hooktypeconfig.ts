@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The `HookTypeConfig` resource specifies the configuration of a hook.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html */
 
-export interface CloudFormationHookTypeConfig {
+export interface CloudFormationHookTypeConfig extends ResourceAttributes {
   Type: 'AWS::CloudFormation::HookTypeConfig'
   Properties: {
     /**

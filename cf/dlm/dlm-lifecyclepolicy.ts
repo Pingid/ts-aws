@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * **\[Default policies only\]** Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
@@ -224,6 +226,19 @@ export interface FastRestoreRule {
 
 /**
  * **\[Custom snapshot and AMI policies only\]** Specifies a retention rule for snapshots created by snapshot policies, or for AMIs created by AMI policies.
+ * ###### Note
+ *
+ * For snapshot policies that have an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html), this retention rule applies to standard tier retention. When the retention threshold is met, snapshots are moved from the standard to the archive tier.
+ *
+ * For snapshot policies that do not have an **ArchiveRule**, snapshots are permanently deleted when this retention threshold is met.
+ * You can retain snapshots based on either a count or a time interval.
+ * *   **Count-based retention**
+ *
+ *     You must specify **Count**. If you specify an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html) for the schedule, then you can specify a retention count of `0` to archive snapshots immediately after creation. If you specify a [FastRestoreRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_FastRestoreRule.html), [ShareRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ShareRule.html), or a [CrossRegionCopyRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html), then you must specify a retention count of `1` or more.
+ *
+ * *   **Age-based retention**
+ *
+ *     You must specify **Interval** and **IntervalUnit**. If you specify an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html) for the schedule, then you can specify a retention interval of `0` days to archive snapshots immediately after creation. If you specify a [FastRestoreRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_FastRestoreRule.html), [ShareRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ShareRule.html), or a [CrossRegionCopyRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html), then you must specify a retention interval of `1` day or more.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
@@ -449,6 +464,11 @@ export interface CrossRegionCopyDeprecateRule {
 
 /**
  * **\[Custom snapshot policies only\]** Describes the retention rule for archived snapshots. Once the archive retention threshold is met, the snapshots are permanently deleted from the archive tier.
+ * ###### Note
+ *
+ * The archive retention rule must retain snapshots in the archive tier for a minimum of 90 days.
+ * For **count-based schedules**, you must specify **Count**. For **age-based schedules**, you must specify **Interval** and **IntervalUnit**.
+ * For more information about using snapshot archiving, see [Considerations for snapshot lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
@@ -510,6 +530,9 @@ export interface EventSource {
 
 /**
  * **\[Event-based policies only\]** Specifies a cross-Region copy action for event-based policies.
+ * ###### Note
+ *
+ * To specify a cross-Region copy rule for snapshot and AMI policies, use [CrossRegionCopyRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
@@ -545,6 +568,11 @@ export interface CrossRegionCopyAction {
 
 /**
  * **\[Custom snapshot and AMI policies only\]** Specifies when the policy should create snapshots or AMIs.
+ * ###### Note
+ *
+ * *   You must specify either **CronExpression**, or **Interval**, **IntervalUnit**, and **Times**.
+ *
+ * *   If you need to specify an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html) for the schedule, then you must specify a creation frequency of at least 28 days.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
@@ -613,6 +641,9 @@ export interface CreateRule {
 
 /**
  * **\[Custom snapshot and AMI policies only\]** Specifies a cross-Region copy rule for a snapshot and AMI policies.
+ * ###### Note
+ *
+ * To specify a cross-Region copy action for event-based polices, use [CrossRegionCopyAction](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyAction.html).
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
@@ -1021,7 +1052,7 @@ export interface PolicyDetails {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html */
 
-export interface DLMLifecyclePolicy {
+export interface DLMLifecyclePolicy extends ResourceAttributes {
   Type: 'AWS::DLM::LifecyclePolicy'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Turns on Resource Explorer in the AWS Region in which you called this operation by creating an index. Resource Explorer begins discovering the resources in this Region and stores the details about the resources in the index so that they can be queried by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation.
  * You can create either a local index that returns search results from only the AWS Region in which the index exists, or you can create an aggregator index that returns search results from all AWS Regions in the AWS account.
  * For more details about what happens when you turn on Resource Explorer in an AWS Region, see [Turning on Resource Explorer to index your resources in an AWS Region](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-activate.html) in the _AWS Resource Explorer User Guide._
@@ -6,7 +8,7 @@ import type { Intrinsic } from '../intrinsic/index.js' /**
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.html */
 
-export interface ResourceExplorer2Index {
+export interface ResourceExplorer2Index extends ResourceAttributes {
   Type: 'AWS::ResourceExplorer2::Index'
   Properties: {
     /**

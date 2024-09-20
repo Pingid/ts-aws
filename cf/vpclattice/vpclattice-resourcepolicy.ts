@@ -1,9 +1,11 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Retrieves information about the resource policy. The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html */
 
-export interface VpcLatticeResourcePolicy {
+export interface VpcLatticeResourcePolicy extends ResourceAttributes {
   Type: 'AWS::VpcLattice::ResourcePolicy'
   Properties: {
     /**

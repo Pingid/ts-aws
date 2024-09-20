@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies a key-value pair for a resource tag.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html */
@@ -844,10 +846,17 @@ export interface OpenZFSConfiguration {
 
 /**
  * The `AWS::FSx::FileSystem` resource is an Amazon FSx resource type that specifies an Amazon FSx file system. You can create any of the following supported file system types:
+ * *   Amazon FSx for Lustre
+ *
+ * *   Amazon FSx for NetApp ONTAP
+ *
+ * *   FSx for OpenZFS
+ *
+ * *   Amazon FSx for Windows File Server
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html */
 
-export interface FSxFileSystem {
+export interface FSxFileSystem extends ResourceAttributes {
   Type: 'AWS::FSx::FileSystem'
   Properties: {
     /**

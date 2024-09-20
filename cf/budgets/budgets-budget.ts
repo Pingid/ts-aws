@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The tag structure that contains a tag key and value.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html */
@@ -29,6 +31,13 @@ export interface ResourceTag {
 /**
  * The amount of cost or usage that's measured for a budget.
  * _Cost example:_ A `Spend` for `3 USD` of costs has the following parameters:
+ * *   An `Amount` of `3`
+ *
+ * *   A `Unit` of `USD`
+ * _Usage example:_ A `Spend` for `3 GB` of S3 usage has the following parameters:
+ * *   An `Amount` of `3`
+ *
+ * *   A `Unit` of `GB`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html */
 
@@ -190,6 +199,13 @@ export interface TimePeriod {
  * A notification that's associated with a budget. A budget can have up to ten notifications.
  * Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
  * For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:
+ * *   A notificationType of `ACTUAL`
+ *
+ * *   A `thresholdType` of `PERCENTAGE`
+ *
+ * *   A `comparisonOperator` of `GREATER_THAN`
+ *
+ * *   A notification `threshold` of `80`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html */
 
@@ -234,6 +250,9 @@ export interface Notification {
 /**
  * The `Subscriber` property type specifies who to notify for a Billing and Cost Management budget notification. The subscriber consists of a subscription type, and either an Amazon SNS topic or an email address.
  * For example, an email subscriber would have the following parameters:
+ * *   A `subscriptionType` of `EMAIL`
+ *
+ * *   An `address` of `example@example.com`
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html */
 
@@ -429,7 +448,7 @@ export interface BudgetData {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html */
 
-export interface BudgetsBudget {
+export interface BudgetsBudget extends ResourceAttributes {
   Type: 'AWS::Budgets::Budget'
   Properties: {
     /**

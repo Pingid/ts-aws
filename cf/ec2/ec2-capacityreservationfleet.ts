@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Specifies information about an instance type to use in a Capacity Reservation Fleet.
  * `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
  *
@@ -94,6 +96,9 @@ export interface Tag {
 
 /**
  * The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
+ * ###### Note
+ *
+ * The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html */
 
@@ -122,7 +127,7 @@ export interface TagSpecification {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html */
 
-export interface EC2CapacityReservationFleet {
+export interface EC2CapacityReservationFleet extends ResourceAttributes {
   Type: 'AWS::EC2::CapacityReservationFleet'
   Properties: {
     /**

@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * The location in Amazon S3 where build or script files are stored for access by Amazon GameLift.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html */
@@ -47,7 +49,7 @@ export interface StorageLocation {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html */
 
-export interface GameLiftBuild {
+export interface GameLiftBuild extends ResourceAttributes {
   Type: 'AWS::GameLift::Build'
   Properties: {
     /**

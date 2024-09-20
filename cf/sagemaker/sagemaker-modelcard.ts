@@ -1,4 +1,6 @@
-import type { Intrinsic } from '../intrinsic/index.js' /**
+import type { ResourceAttributes } from '../attributes/index.js'
+import type { Intrinsic } from '../intrinsic/index.js'
+/**
  * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html */
@@ -1006,7 +1008,7 @@ export interface Content {
  *
  * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html */
 
-export interface SageMakerModelCard {
+export interface SageMakerModelCard extends ResourceAttributes {
   Type: 'AWS::SageMaker::ModelCard'
   Properties: {
     /**
