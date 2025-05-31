@@ -1,2 +1,2 @@
-export type { ApplicationAutoScalingScalableTarget } from './applicationautoscaling-scalabletarget'
-export type { ApplicationAutoScalingScalingPolicy } from './applicationautoscaling-scalingpolicy'
+export type { ApplicationAutoScalingScalableTarget } from './applicationautoscaling-scalabletarget.js'
+export type { ApplicationAutoScalingScalingPolicy } from './applicationautoscaling-scalingpolicy.js'

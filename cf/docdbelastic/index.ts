@@ -1,1 +1,1 @@
-export type { DocDBElasticCluster } from './docdbelastic-cluster'
+export type { DocDBElasticCluster } from './docdbelastic-cluster.js'

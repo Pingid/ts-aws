@@ -1,1 +1,1 @@
-export type { OpsWorksCMServer } from './opsworkscm-server'
+export type { OpsWorksCMServer } from './opsworkscm-server.js'

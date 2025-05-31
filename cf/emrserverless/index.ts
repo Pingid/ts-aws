@@ -1,1 +1,1 @@
-export type { EMRServerlessApplication } from './emrserverless-application'
+export type { EMRServerlessApplication } from './emrserverless-application.js'

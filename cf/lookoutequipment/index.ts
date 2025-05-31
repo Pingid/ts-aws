@@ -1,1 +1,1 @@
-export type { LookoutEquipmentInferenceScheduler } from './lookoutequipment-inferencescheduler'
+export type { LookoutEquipmentInferenceScheduler } from './lookoutequipment-inferencescheduler.js'

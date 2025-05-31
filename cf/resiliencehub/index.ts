@@ -1,2 +1,2 @@
-export type { ResilienceHubApp } from './resiliencehub-app'
-export type { ResilienceHubResiliencyPolicy } from './resiliencehub-resiliencypolicy'
+export type { ResilienceHubApp } from './resiliencehub-app.js'
+export type { ResilienceHubResiliencyPolicy } from './resiliencehub-resiliencypolicy.js'

@@ -1,12 +1,12 @@
 import path from 'path'
 
-import { fetch_dom, resolve_url } from './util'
+import { fetch_dom, resolve_url } from './util.js'
 
 const aws_template_resource_type_ref = `https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html`
 
 export const resource_list = async () => {
   const dom = await fetch_dom(aws_template_resource_type_ref)
-  const links = Array.from(dom.document.querySelectorAll('.highlights > ul > li > a'))
+  const links = Array.from(dom.document.querySelectorAll('.highlights > ul > li a'))
   const all = await Promise.all(
     links
       .filter((x: any) => x.href.startsWith('./AWS'))

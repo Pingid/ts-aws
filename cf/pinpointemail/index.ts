@@ -1,4 +1,4 @@
-export type { PinpointEmailConfigurationSet } from './pinpointemail-configurationset'
-export type { PinpointEmailConfigurationSetEventDestination } from './pinpointemail-configurationseteventdestination'
-export type { PinpointEmailDedicatedIpPool } from './pinpointemail-dedicatedippool'
-export type { PinpointEmailIdentity } from './pinpointemail-identity'
+export type { PinpointEmailConfigurationSet } from './pinpointemail-configurationset.js'
+export type { PinpointEmailConfigurationSetEventDestination } from './pinpointemail-configurationseteventdestination.js'
+export type { PinpointEmailDedicatedIpPool } from './pinpointemail-dedicatedippool.js'
+export type { PinpointEmailIdentity } from './pinpointemail-identity.js'

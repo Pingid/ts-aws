@@ -1,1 +1,1 @@
-export type { CURReportDefinition } from './cur-reportdefinition'
+export type { CURReportDefinition } from './cur-reportdefinition.js'

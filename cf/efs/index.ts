@@ -1,3 +1,3 @@
-export type { EFSAccessPoint } from './efs-accesspoint'
-export type { EFSFileSystem } from './efs-filesystem'
-export type { EFSMountTarget } from './efs-mounttarget'
+export type { EFSAccessPoint } from './efs-accesspoint.js'
+export type { EFSFileSystem } from './efs-filesystem.js'
+export type { EFSMountTarget } from './efs-mounttarget.js'

@@ -1,1 +1,1 @@
-export type { HealthLakeFHIRDatastore } from './healthlake-fhirdatastore'
+export type { HealthLakeFHIRDatastore } from './healthlake-fhirdatastore.js'

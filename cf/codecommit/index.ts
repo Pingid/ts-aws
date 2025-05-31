@@ -1,1 +1,1 @@
-export type { CodeCommitRepository } from './codecommit-repository'
+export type { CodeCommitRepository } from './codecommit-repository.js'

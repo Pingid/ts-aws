@@ -1,1 +1,1 @@
-export type { BCMDataExportsExport } from './bcmdataexports-export'
+export type { BCMDataExportsExport } from './bcmdataexports-export.js'

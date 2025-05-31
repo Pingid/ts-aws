@@ -1,5 +1,5 @@
 import ts from 'typescript'
-import { Property, Resource, Type } from './types'
+import { Property, Resource, Type } from './types.js'
 
 export const resource = (name: string, r: Resource) => {
   const node = ts.factory.createInterfaceDeclaration(

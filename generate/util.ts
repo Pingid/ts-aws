@@ -1,5 +1,6 @@
 import { parseHTML } from 'linkedom'
 
+import fse from 'fs-extra'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -14,28 +15,34 @@ export const resolve_url = (page_url: string, link: string) => {
 }
 
 let cache_enabled = false
-export const enable_cache = (x: boolean) => (cache_enabled = x)
-
-export const fetch_dom = async (url: string) => {
-  const dir_safe = url.replace(/[^a-z0-9]/gi, '_')
-  const file = `./cache/${dir_safe}`
-  if (cache_enabled) {
-    if (fs.existsSync(file)) {
-      const text = fs.readFileSync(file, 'utf8')
-      return parseHTML(text)
-    }
-  }
-  const result = await fetch(url)
-  if (!result.ok) throw new Error(`Failed to fetch ${url}`)
-  const text = await result.text()
-  if (cache_enabled) await fs.promises.writeFile(file, text)
-  return parseHTML(text)
+export const enable_cache = (x: boolean) => {
+  cache_enabled = x
+  if (fs.existsSync('./cache')) return
+  fs.mkdirSync('./cache')
 }
 
-export const clear_page = (url: string) => {
+export const fetch_text = async (url: string) => {
   const dir_safe = url.replace(/[^a-z0-9]/gi, '_')
-  const file = `./cache/${dir_safe}`
-  if (fs.existsSync(file)) fs.unlinkSync(file)
+  const dir = `./cache/${dir_safe}`
+  if (cache_enabled && fs.existsSync(`${dir}/index.html`)) return fs.promises.readFile(`${dir}/index.html`, 'utf8')
+  console.log('fetching', url)
+  const result = await fetch(url)
+  if (!result.ok) throw new Error(`Failed to fetch ${url}`)
+  await fse.ensureDir(dir)
+  if (cache_enabled) {
+    await fs.promises.writeFile(
+      `${dir}/headers.json`,
+      JSON.stringify(Object.fromEntries(result.headers.entries()), null, 2),
+    )
+  }
+  const text = await result.text()
+  if (cache_enabled) await fs.promises.writeFile(`${dir}/index.html`, text)
+  return text
+}
+
+export const fetch_dom = async (url: string) => {
+  const text = await fetch_text(url)
+  return parseHTML(text)
 }
 
 export const retry = <T>(attempts: number, f: () => Promise<T>): Promise<T> => {

@@ -1,1 +1,1 @@
-export type { CodeConnectionsConnection } from './codeconnections-connection'
+export type { CodeConnectionsConnection } from './codeconnections-connection.js'

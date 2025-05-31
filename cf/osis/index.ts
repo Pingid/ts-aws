@@ -1,1 +1,1 @@
-export type { OSISPipeline } from './osis-pipeline'
+export type { OSISPipeline } from './osis-pipeline.js'

@@ -1,3 +1,3 @@
-export type { CodeDeployApplication } from './codedeploy-application'
-export type { CodeDeployDeploymentConfig } from './codedeploy-deploymentconfig'
-export type { CodeDeployDeploymentGroup } from './codedeploy-deploymentgroup'
+export type { CodeDeployApplication } from './codedeploy-application.js'
+export type { CodeDeployDeploymentConfig } from './codedeploy-deploymentconfig.js'
+export type { CodeDeployDeploymentGroup } from './codedeploy-deploymentgroup.js'

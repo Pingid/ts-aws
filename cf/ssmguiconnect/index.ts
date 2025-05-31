@@ -1,0 +1,1 @@
+export type { SSMGuiConnectPreferences } from './ssmguiconnect-preferences.js'

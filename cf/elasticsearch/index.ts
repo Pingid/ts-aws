@@ -1,1 +1,1 @@
-export type { ElasticsearchDomain } from './elasticsearch-domain'
+export type { ElasticsearchDomain } from './elasticsearch-domain.js'

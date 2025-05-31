@@ -1,1 +1,1 @@
-export type { IoTFleetHubApplication } from './iotfleethub-application'
+export type { IoTFleetHubApplication } from './iotfleethub-application.js'

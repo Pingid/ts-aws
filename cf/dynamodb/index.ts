@@ -1,2 +1,2 @@
-export type { DynamoDBGlobalTable } from './dynamodb-globaltable'
-export type { DynamoDBTable } from './dynamodb-table'
+export type { DynamoDBGlobalTable } from './dynamodb-globaltable.js'
+export type { DynamoDBTable } from './dynamodb-table.js'

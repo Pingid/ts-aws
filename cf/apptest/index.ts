@@ -1,1 +1,1 @@
-export type { AppTestTestCase } from './apptest-testcase'
+export type { AppTestTestCase } from './apptest-testcase.js'

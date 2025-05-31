@@ -1,2 +1,2 @@
-export type { SSMIncidentsReplicationSet } from './ssmincidents-replicationset'
-export type { SSMIncidentsResponsePlan } from './ssmincidents-responseplan'
+export type { SSMIncidentsReplicationSet } from './ssmincidents-replicationset.js'
+export type { SSMIncidentsResponsePlan } from './ssmincidents-responseplan.js'

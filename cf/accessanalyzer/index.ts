@@ -1,1 +1,1 @@
-export type { AccessAnalyzerAnalyzer } from './accessanalyzer-analyzer'
+export type { AccessAnalyzerAnalyzer } from './accessanalyzer-analyzer.js'

@@ -1,0 +1,9 @@
+{
+  "name": "@pingid/ts-aws",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": "./cf/index.ts",
+    "./*": "./cf/*/index.ts"
+  }
+}

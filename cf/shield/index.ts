@@ -1,4 +1,4 @@
-export type { ShieldDRTAccess } from './shield-drtaccess'
-export type { ShieldProactiveEngagement } from './shield-proactiveengagement'
-export type { ShieldProtection } from './shield-protection'
-export type { ShieldProtectionGroup } from './shield-protectiongroup'
+export type { ShieldDRTAccess } from './shield-drtaccess.js'
+export type { ShieldProactiveEngagement } from './shield-proactiveengagement.js'
+export type { ShieldProtection } from './shield-protection.js'
+export type { ShieldProtectionGroup } from './shield-protectiongroup.js'

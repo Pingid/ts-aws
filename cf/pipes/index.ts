@@ -1,1 +1,1 @@
-export type { PipesPipe } from './pipes-pipe'
+export type { PipesPipe } from './pipes-pipe.js'

@@ -1,1 +1,1 @@
-export type { MediaStoreContainer } from './mediastore-container'
+export type { MediaStoreContainer } from './mediastore-container.js'

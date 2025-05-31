@@ -1,1 +1,1 @@
-export type { CodeStarGitHubRepository } from './codestar-githubrepository'
+export type { CodeStarGitHubRepository } from './codestar-githubrepository.js'

@@ -1,1 +1,1 @@
-export type { RUMAppMonitor } from './rum-appmonitor'
+export type { RUMAppMonitor } from './rum-appmonitor.js'

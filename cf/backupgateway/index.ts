@@ -1,1 +1,1 @@
-export type { BackupGatewayHypervisor } from './backupgateway-hypervisor'
+export type { BackupGatewayHypervisor } from './backupgateway-hypervisor.js'

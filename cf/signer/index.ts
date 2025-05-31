@@ -1,2 +1,2 @@
-export type { SignerProfilePermission } from './signer-profilepermission'
-export type { SignerSigningProfile } from './signer-signingprofile'
+export type { SignerProfilePermission } from './signer-profilepermission.js'
+export type { SignerSigningProfile } from './signer-signingprofile.js'

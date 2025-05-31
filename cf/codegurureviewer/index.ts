@@ -1,1 +1,1 @@
-export type { CodeGuruReviewerRepositoryAssociation } from './codegurureviewer-repositoryassociation'
+export type { CodeGuruReviewerRepositoryAssociation } from './codegurureviewer-repositoryassociation.js'

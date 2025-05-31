@@ -1,2 +1,2 @@
-export type { SchedulerSchedule } from './scheduler-schedule'
-export type { SchedulerScheduleGroup } from './scheduler-schedulegroup'
+export type { SchedulerSchedule } from './scheduler-schedule.js'
+export type { SchedulerScheduleGroup } from './scheduler-schedulegroup.js'

@@ -1,1 +1,1 @@
-export type { EMRContainersVirtualCluster } from './emrcontainers-virtualcluster'
+export type { EMRContainersVirtualCluster } from './emrcontainers-virtualcluster.js'

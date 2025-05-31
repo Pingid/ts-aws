@@ -1,3 +1,3 @@
-export type { AmazonMQBroker } from './amazonmq-broker'
-export type { AmazonMQConfiguration } from './amazonmq-configuration'
-export type { AmazonMQConfigurationAssociation } from './amazonmq-configurationassociation'
+export type { AmazonMQBroker } from './amazonmq-broker.js'
+export type { AmazonMQConfiguration } from './amazonmq-configuration.js'
+export type { AmazonMQConfigurationAssociation } from './amazonmq-configurationassociation.js'

@@ -9,7 +9,7 @@ npm install ts-aws
 ```
 
 ```typescript
-import { CfResource } from './cf'
+import { CfResource } from 'ts-aws'
 
 const Resources = {
   MyFunction: {

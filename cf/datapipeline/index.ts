@@ -1,1 +1,1 @@
-export type { DataPipelinePipeline } from './datapipeline-pipeline'
+export type { DataPipelinePipeline } from './datapipeline-pipeline.js'

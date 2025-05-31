@@ -1,4 +1,4 @@
-export type { TimestreamDatabase } from './timestream-database'
-export type { TimestreamInfluxDBInstance } from './timestream-influxdbinstance'
-export type { TimestreamScheduledQuery } from './timestream-scheduledquery'
-export type { TimestreamTable } from './timestream-table'
+export type { TimestreamDatabase } from './timestream-database.js'
+export type { TimestreamInfluxDBInstance } from './timestream-influxdbinstance.js'
+export type { TimestreamScheduledQuery } from './timestream-scheduledquery.js'
+export type { TimestreamTable } from './timestream-table.js'

@@ -1,2 +1,2 @@
-export type { IdentityStoreGroup } from './identitystore-group'
-export type { IdentityStoreGroupMembership } from './identitystore-groupmembership'
+export type { IdentityStoreGroup } from './identitystore-group.js'
+export type { IdentityStoreGroupMembership } from './identitystore-groupmembership.js'

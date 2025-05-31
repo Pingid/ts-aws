@@ -1,22 +1,36 @@
 {
   "name": "ts-aws",
-  "license": "MIT",
-  "description": "Aws typescript types for cloudformation",
-  "version": "0.0.2",
+  "version": "0.1.0",
+  "description": "Typescript definitions for Aws Cloudformation",
   "author": "Dan Beaven <dm.beaven@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pingid/mcn"
+    "url": "git+https://github.com/Pingid/ts-aws.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "cf/index.ts",
+  "types": "cf/index.ts",
+  "module": "cf/index.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./cf/index.ts",
+      "import": "./cf/index.ts",
+      "require": "./cf/index.ts"
+    },
+    "./*": {
+      "types": "./cf/*/index.ts",
+      "import": "./cf/*/index.ts",
+      "require": "./cf/*/index.ts"
+    }
   },
   "keywords": [
     "aws",
     "typescript",
     "cloudformation"
   ],
-  "main": "index.ts",
-  "types": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "pnpm tsx ./generate/index.ts",
     "format": "pnpm prettier --write ./**/*.ts ./**/**/*.ts",
     "build": "pnpm run generate && pnpm format && pnpm tsc"

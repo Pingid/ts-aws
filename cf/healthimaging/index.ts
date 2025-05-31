@@ -1,1 +1,1 @@
-export type { HealthImagingDatastore } from './healthimaging-datastore'
+export type { HealthImagingDatastore } from './healthimaging-datastore.js'

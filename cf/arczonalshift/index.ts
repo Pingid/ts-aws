@@ -1,2 +1,2 @@
-export type { ARCZonalShiftAutoshiftObserverNotificationStatus } from './arczonalshift-autoshiftobservernotificationstatus'
-export type { ARCZonalShiftZonalAutoshiftConfiguration } from './arczonalshift-zonalautoshiftconfiguration'
+export type { ARCZonalShiftAutoshiftObserverNotificationStatus } from './arczonalshift-autoshiftobservernotificationstatus.js'
+export type { ARCZonalShiftZonalAutoshiftConfiguration } from './arczonalshift-zonalautoshiftconfiguration.js'

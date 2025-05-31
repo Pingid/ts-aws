@@ -1,1 +1,1 @@
-export type { SimSpaceWeaverSimulation } from './simspaceweaver-simulation'
+export type { SimSpaceWeaverSimulation } from './simspaceweaver-simulation.js'
