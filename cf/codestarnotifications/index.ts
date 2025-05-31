@@ -1,1 +1,1 @@
-export type { CodeStarNotificationsNotificationRule } from './codestarnotifications-notificationrule'
+export type { CodeStarNotificationsNotificationRule } from './codestarnotifications-notificationrule.js'

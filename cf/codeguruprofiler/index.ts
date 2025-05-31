@@ -1,1 +1,1 @@
-export type { CodeGuruProfilerProfilingGroup } from './codeguruprofiler-profilinggroup'
+export type { CodeGuruProfilerProfilingGroup } from './codeguruprofiler-profilinggroup.js'

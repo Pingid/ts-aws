@@ -1,2 +1,2 @@
-export type { OamLink } from './oam-link'
-export type { OamSink } from './oam-sink'
+export type { OamLink } from './oam-link.js'
+export type { OamSink } from './oam-sink.js'

@@ -1,2 +1,2 @@
-export type { ForecastDataset } from './forecast-dataset'
-export type { ForecastDatasetGroup } from './forecast-datasetgroup'
+export type { ForecastDataset } from './forecast-dataset.js'
+export type { ForecastDatasetGroup } from './forecast-datasetgroup.js'

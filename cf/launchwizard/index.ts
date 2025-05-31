@@ -1,1 +1,1 @@
-export type { LaunchWizardDeployment } from './launchwizard-deployment'
+export type { LaunchWizardDeployment } from './launchwizard-deployment.js'

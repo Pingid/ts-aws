@@ -1,1 +1,1 @@
-export type { VoiceIDDomain } from './voiceid-domain'
+export type { VoiceIDDomain } from './voiceid-domain.js'

@@ -1,1 +1,1 @@
-export type { KendraRankingExecutionPlan } from './kendraranking-executionplan'
+export type { KendraRankingExecutionPlan } from './kendraranking-executionplan.js'

@@ -1,1 +1,1 @@
-export type { CleanRoomsMLTrainingDataset } from './cleanroomsml-trainingdataset'
+export type { CleanRoomsMLTrainingDataset } from './cleanroomsml-trainingdataset.js'

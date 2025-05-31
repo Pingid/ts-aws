@@ -1,1 +1,1 @@
-export type { AuditManagerAssessment } from './auditmanager-assessment'
+export type { AuditManagerAssessment } from './auditmanager-assessment.js'

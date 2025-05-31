@@ -1,2 +1,2 @@
-export type { RedshiftServerlessNamespace } from './redshiftserverless-namespace'
-export type { RedshiftServerlessWorkgroup } from './redshiftserverless-workgroup'
+export type { RedshiftServerlessNamespace } from './redshiftserverless-namespace.js'
+export type { RedshiftServerlessWorkgroup } from './redshiftserverless-workgroup.js'

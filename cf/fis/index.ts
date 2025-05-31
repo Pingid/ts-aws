@@ -1,2 +1,2 @@
-export type { FISExperimentTemplate } from './fis-experimenttemplate'
-export type { FISTargetAccountConfiguration } from './fis-targetaccountconfiguration'
+export type { FISExperimentTemplate } from './fis-experimenttemplate.js'
+export type { FISTargetAccountConfiguration } from './fis-targetaccountconfiguration.js'

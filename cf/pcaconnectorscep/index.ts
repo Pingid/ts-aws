@@ -1,2 +1,2 @@
-export type { PCAConnectorSCEPChallenge } from './pcaconnectorscep-challenge'
-export type { PCAConnectorSCEPConnector } from './pcaconnectorscep-connector'
+export type { PCAConnectorSCEPChallenge } from './pcaconnectorscep-challenge.js'
+export type { PCAConnectorSCEPConnector } from './pcaconnectorscep-connector.js'

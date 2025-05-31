@@ -1,1 +1,1 @@
-export type { InternetMonitorMonitor } from './internetmonitor-monitor'
+export type { InternetMonitorMonitor } from './internetmonitor-monitor.js'

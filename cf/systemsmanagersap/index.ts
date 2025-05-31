@@ -1,1 +1,1 @@
-export type { SystemsManagerSAPApplication } from './systemsmanagersap-application'
+export type { SystemsManagerSAPApplication } from './systemsmanagersap-application.js'

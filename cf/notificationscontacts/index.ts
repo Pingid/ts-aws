@@ -1,0 +1,1 @@
+export type { NotificationsContactsEmailContact } from './notificationscontacts-emailcontact.js'

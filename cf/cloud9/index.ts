@@ -1,1 +1,1 @@
-export type { Cloud9EnvironmentEC2 } from './cloud9-environmentec2'
+export type { Cloud9EnvironmentEC2 } from './cloud9-environmentec2.js'

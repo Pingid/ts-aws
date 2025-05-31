@@ -1,3 +1,3 @@
-export type { GroundStationConfig } from './groundstation-config'
-export type { GroundStationDataflowEndpointGroup } from './groundstation-dataflowendpointgroup'
-export type { GroundStationMissionProfile } from './groundstation-missionprofile'
+export type { GroundStationConfig } from './groundstation-config.js'
+export type { GroundStationDataflowEndpointGroup } from './groundstation-dataflowendpointgroup.js'
+export type { GroundStationMissionProfile } from './groundstation-missionprofile.js'

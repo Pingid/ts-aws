@@ -1,0 +1,6 @@
+export type { NotificationsChannelAssociation } from './notifications-channelassociation.js'
+export type { NotificationsEventRule } from './notifications-eventrule.js'
+export type { NotificationsManagedNotificationAccountContactAssociation } from './notifications-managednotificationaccountcontactassociation.js'
+export type { NotificationsManagedNotificationAdditionalChannelAssociation } from './notifications-managednotificationadditionalchannelassociation.js'
+export type { NotificationsNotificationConfiguration } from './notifications-notificationconfiguration.js'
+export type { NotificationsNotificationHub } from './notifications-notificationhub.js'

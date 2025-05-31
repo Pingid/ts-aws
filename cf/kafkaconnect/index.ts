@@ -1,3 +1,3 @@
-export type { KafkaConnectConnector } from './kafkaconnect-connector'
-export type { KafkaConnectCustomPlugin } from './kafkaconnect-customplugin'
-export type { KafkaConnectWorkerConfiguration } from './kafkaconnect-workerconfiguration'
+export type { KafkaConnectConnector } from './kafkaconnect-connector.js'
+export type { KafkaConnectCustomPlugin } from './kafkaconnect-customplugin.js'
+export type { KafkaConnectWorkerConfiguration } from './kafkaconnect-workerconfiguration.js'

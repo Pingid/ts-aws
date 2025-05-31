@@ -1,1 +1,1 @@
-export type { ApplicationInsightsApplication } from './applicationinsights-application'
+export type { ApplicationInsightsApplication } from './applicationinsights-application.js'

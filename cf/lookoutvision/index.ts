@@ -1,1 +1,1 @@
-export type { LookoutVisionProject } from './lookoutvision-project'
+export type { LookoutVisionProject } from './lookoutvision-project.js'

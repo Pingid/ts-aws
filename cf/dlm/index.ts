@@ -1,1 +1,1 @@
-export type { DLMLifecyclePolicy } from './dlm-lifecyclepolicy'
+export type { DLMLifecyclePolicy } from './dlm-lifecyclepolicy.js'

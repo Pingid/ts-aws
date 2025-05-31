@@ -1,2 +1,2 @@
-export type { SyntheticsCanary } from './synthetics-canary'
-export type { SyntheticsGroup } from './synthetics-group'
+export type { SyntheticsCanary } from './synthetics-canary.js'
+export type { SyntheticsGroup } from './synthetics-group.js'

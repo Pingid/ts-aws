@@ -1,3 +1,3 @@
-export type { IoTEventsAlarmModel } from './iotevents-alarmmodel'
-export type { IoTEventsDetectorModel } from './iotevents-detectormodel'
-export type { IoTEventsInput } from './iotevents-input'
+export type { IoTEventsAlarmModel } from './iotevents-alarmmodel.js'
+export type { IoTEventsDetectorModel } from './iotevents-detectormodel.js'
+export type { IoTEventsInput } from './iotevents-input.js'

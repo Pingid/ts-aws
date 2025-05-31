@@ -1,2 +1,2 @@
-export type { BudgetsBudget } from './budgets-budget'
-export type { BudgetsBudgetsAction } from './budgets-budgetsaction'
+export type { BudgetsBudget } from './budgets-budget.js'
+export type { BudgetsBudgetsAction } from './budgets-budgetsaction.js'

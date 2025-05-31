@@ -2,10 +2,10 @@ import fs from 'fs'
 import fse from 'fs-extra'
 import path from 'path'
 
-import * as parse from './parse'
-import * as scrape from './scrape'
-import * as ts from './ts'
-import { defined, enable_cache, retry } from './util'
+import * as parse from './parse.js'
+import * as scrape from './scrape.js'
+import * as ts from './ts.js'
+import { defined, enable_cache, retry } from './util.js'
 
 const main = async () => {
   enable_cache(true) // Enable caching to speed up development
@@ -19,7 +19,8 @@ const generate_cf = async (root: string) => {
 
   let exports: { namespace: string; refs: string[] }[] = []
 
-  await fse.copy(path.join(__dirname, 'manual'), path.join(root), { overwrite: true })
+  const manual = new URL(`manual`, import.meta.url).toString().replace('file://', '')
+  await fse.copy(manual, path.join(root), { overwrite: true })
 
   for (const item of list) {
     const results = await Promise.all(
@@ -31,7 +32,7 @@ const generate_cf = async (root: string) => {
     )
     const successfull = results.filter(defined)
     const index = successfull
-      .map((x) => `export type { ${x.ref_name} } from './${path.parse(x.file_name).name}'`)
+      .map((x) => `export type { ${x.ref_name} } from './${path.parse(x.file_name).name}.js'`)
       .join('\n')
     await write(path.join(root, item.namespace, 'index.ts'), index)
     exports.push({ namespace: item.namespace, refs: successfull.map((x) => x.ref_name) })

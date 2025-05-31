@@ -1,1 +1,1 @@
-export type { KinesisFirehoseDeliveryStream } from './kinesisfirehose-deliverystream'
+export type { KinesisFirehoseDeliveryStream } from './kinesisfirehose-deliverystream.js'

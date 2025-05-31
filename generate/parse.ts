@@ -1,7 +1,7 @@
 import Turndown from 'turndown'
 
-import { Property, Resource, Type } from './types'
-import { fetch_dom, resolve_url } from './util'
+import { Property, Resource, Type } from './types.js'
+import { fetch_dom, resolve_url } from './util.js'
 
 const turndown = new Turndown()
 

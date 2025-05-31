@@ -1,3 +1,3 @@
-export type { FMSNotificationChannel } from './fms-notificationchannel'
-export type { FMSPolicy } from './fms-policy'
-export type { FMSResourceSet } from './fms-resourceset'
+export type { FMSNotificationChannel } from './fms-notificationchannel.js'
+export type { FMSPolicy } from './fms-policy.js'
+export type { FMSResourceSet } from './fms-resourceset.js'

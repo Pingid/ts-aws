@@ -1,4 +1,4 @@
-export type { SSMContactsContact } from './ssmcontacts-contact'
-export type { SSMContactsContactChannel } from './ssmcontacts-contactchannel'
-export type { SSMContactsPlan } from './ssmcontacts-plan'
-export type { SSMContactsRotation } from './ssmcontacts-rotation'
+export type { SSMContactsContact } from './ssmcontacts-contact.js'
+export type { SSMContactsContactChannel } from './ssmcontacts-contactchannel.js'
+export type { SSMContactsPlan } from './ssmcontacts-plan.js'
+export type { SSMContactsRotation } from './ssmcontacts-rotation.js'

@@ -1,4 +1,4 @@
-export type { IoTAnalyticsChannel } from './iotanalytics-channel'
-export type { IoTAnalyticsDataset } from './iotanalytics-dataset'
-export type { IoTAnalyticsDatastore } from './iotanalytics-datastore'
-export type { IoTAnalyticsPipeline } from './iotanalytics-pipeline'
+export type { IoTAnalyticsChannel } from './iotanalytics-channel.js'
+export type { IoTAnalyticsDataset } from './iotanalytics-dataset.js'
+export type { IoTAnalyticsDatastore } from './iotanalytics-datastore.js'
+export type { IoTAnalyticsPipeline } from './iotanalytics-pipeline.js'

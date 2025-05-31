@@ -1,1 +1,1 @@
-export type { MWAAEnvironment } from './mwaa-environment'
+export type { MWAAEnvironment } from './mwaa-environment.js'

@@ -1,3 +1,3 @@
-export type { AppIntegrationsApplication } from './appintegrations-application'
-export type { AppIntegrationsDataIntegration } from './appintegrations-dataintegration'
-export type { AppIntegrationsEventIntegration } from './appintegrations-eventintegration'
+export type { AppIntegrationsApplication } from './appintegrations-application.js'
+export type { AppIntegrationsDataIntegration } from './appintegrations-dataintegration.js'
+export type { AppIntegrationsEventIntegration } from './appintegrations-eventintegration.js'

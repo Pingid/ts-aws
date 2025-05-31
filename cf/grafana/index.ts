@@ -1,1 +1,1 @@
-export type { GrafanaWorkspace } from './grafana-workspace'
+export type { GrafanaWorkspace } from './grafana-workspace.js'

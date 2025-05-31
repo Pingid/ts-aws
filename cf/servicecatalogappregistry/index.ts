@@ -1,4 +1,4 @@
-export type { ServiceCatalogAppRegistryApplication } from './servicecatalogappregistry-application'
-export type { ServiceCatalogAppRegistryAttributeGroup } from './servicecatalogappregistry-attributegroup'
-export type { ServiceCatalogAppRegistryAttributeGroupAssociation } from './servicecatalogappregistry-attributegroupassociation'
-export type { ServiceCatalogAppRegistryResourceAssociation } from './servicecatalogappregistry-resourceassociation'
+export type { ServiceCatalogAppRegistryApplication } from './servicecatalogappregistry-application.js'
+export type { ServiceCatalogAppRegistryAttributeGroup } from './servicecatalogappregistry-attributegroup.js'
+export type { ServiceCatalogAppRegistryAttributeGroupAssociation } from './servicecatalogappregistry-attributegroupassociation.js'
+export type { ServiceCatalogAppRegistryResourceAssociation } from './servicecatalogappregistry-resourceassociation.js'

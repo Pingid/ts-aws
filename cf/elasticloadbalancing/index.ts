@@ -1,1 +1,1 @@
-export type { ElasticLoadBalancingLoadBalancer } from './elasticloadbalancing-loadbalancer'
+export type { ElasticLoadBalancingLoadBalancer } from './elasticloadbalancing-loadbalancer.js'

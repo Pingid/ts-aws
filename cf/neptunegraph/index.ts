@@ -1,2 +1,2 @@
-export type { NeptuneGraphGraph } from './neptunegraph-graph'
-export type { NeptuneGraphPrivateGraphEndpoint } from './neptunegraph-privategraphendpoint'
+export type { NeptuneGraphGraph } from './neptunegraph-graph.js'
+export type { NeptuneGraphPrivateGraphEndpoint } from './neptunegraph-privategraphendpoint.js'

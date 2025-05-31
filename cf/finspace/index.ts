@@ -1,1 +1,1 @@
-export type { FinSpaceEnvironment } from './finspace-environment'
+export type { FinSpaceEnvironment } from './finspace-environment.js'

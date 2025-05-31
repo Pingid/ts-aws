@@ -1,1 +1,1 @@
-export type { SDBDomain } from './sdb-domain'
+export type { SDBDomain } from './sdb-domain.js'

@@ -1,0 +1,1 @@
+export type { RbinRule } from './rbin-rule.js'

@@ -1,1 +1,1 @@
-export type { WorkSpacesThinClientEnvironment } from './workspacesthinclient-environment'
+export type { WorkSpacesThinClientEnvironment } from './workspacesthinclient-environment.js'

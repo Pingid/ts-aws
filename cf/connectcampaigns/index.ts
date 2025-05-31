@@ -1,1 +1,1 @@
-export type { ConnectCampaignsCampaign } from './connectcampaigns-campaign'
+export type { ConnectCampaignsCampaign } from './connectcampaigns-campaign.js'

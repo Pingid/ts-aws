@@ -1,1 +1,1 @@
-export type { AutoScalingPlansScalingPlan } from './autoscalingplans-scalingplan'
+export type { AutoScalingPlansScalingPlan } from './autoscalingplans-scalingplan.js'

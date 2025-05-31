@@ -1,1 +1,1 @@
-export type { SSMQuickSetupConfigurationManager } from './ssmquicksetup-configurationmanager'
+export type { SSMQuickSetupConfigurationManager } from './ssmquicksetup-configurationmanager.js'
